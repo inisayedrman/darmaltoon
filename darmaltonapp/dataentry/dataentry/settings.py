@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-nq@izqwqwp*kie6$2_uak9c$wf=j+=375t3ucf%#1#3=)zuc0i
 DEBUG = True
 CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['35.240.193.97']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
@@ -42,6 +42,7 @@ SESSION_COOKIE_AGE = 5000
 # Application definition
 
 INSTALLED_APPS = [
+    'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,7 +52,7 @@ INSTALLED_APPS = [
     
     #custom apps
 
-    'dashboard'
+    
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'dataentry.middleware.TimezoneMiddleware',
+    'dashboard.middleware.PreventLoginAfterAuthenticationMiddleware',
     
 
 ]
@@ -239,5 +241,6 @@ TRANSLATION_STRING_CHARACTER_MAPPING_FUNCTION = custom_translation_string_charac
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/user/login'
-LOGOUT_REDIRECT_URL = '/user/login'
+LOGIN_REDIRECT_URL = 'dashboard'
+
+LOGIN_URL = 'login'

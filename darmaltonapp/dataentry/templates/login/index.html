@@ -20,15 +20,16 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">{% trans "Login" %}</h1>
-
+                                        <br>
+                                        {% if form.errors %}
+                                            <p class="text-danger">Please, check your username and password</p>
+                                        {% else %}
+                                        <p class="text-primary">Please, use the following form to login</p>
+                                        {% endif %}
                                         
                                     </div>
-                                    <form class="user needs-validation" novalidate autofocus method="POST" action="{% url 'login' %}">
-                                        {% csrf_token %}
-                                        {% if error_message %}
-                                            <p class="text-danger">{{ error_message }}</p>
-                                        {% endif %}
-                                        <input type="hidden" name="csrfmiddlewaretoken" value="YOUR_CSRF_TOKEN">
+                                    <form class="user needs-validation" novalidate autofocus method="post" action="{% url 'login' %}">
+                                        
 
                                         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3 pt-4">
                                             <input type="text" class="form-control form-control-user"
@@ -59,6 +60,8 @@
                                                 <label class="custom-control-label" for="customCheck">{% blocktrans %}Remember Me{% endblocktrans %}</label>
                                             </div>
                                         </div>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="next" value="{{ next }}" />
                                         <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Login{% endblocktrans %}</button>
                                     </form>
                                     <hr>

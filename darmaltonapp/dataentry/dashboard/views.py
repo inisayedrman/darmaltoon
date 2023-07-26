@@ -42,7 +42,10 @@ from django.utils.translation import gettext as _
 from django.utils.translation import get_language, activate, gettext
 from django.utils import translation
 from django.forms.models import modelform_factory
-
+from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.views import LoginView
+from django.utils.decorators import method_decorator
+from django.contrib.auth import logout
 
 
 user_language = 'en'
@@ -55,51 +58,20 @@ response.set_cookie(settings.LANGUAGE_COOKIE_NAME, user_language)
 
 
 
-@csrf_protect
-@redirect_to_dashboard
-def login_view(request):
-    error_message = None
-    languages = settings.LANGUAGES
+def user_not_authenticated(user):
+    return not user.is_authenticated
 
-    if request.method == 'GET' and 'lang' in request.GET:
-        lang_code = request.GET.get('lang')
-        if lang_code in dict(languages):
-            translation.activate(lang_code)
-            request.session[translation.LANGUAGE_SESSION_KEY] = lang_code
-            response = redirect(request.path)
-            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang_code)
-            return response
-        
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('dashboard')
-        else:
-            error_message = _('Invalid username or password.')
-    else:
-        error_message = _('Session expired.')
-    context = {
-        'error_message' : error_message,
-        'languages' : languages,
-    }
-    return render(request, 'login/index.html', context)
+
+class CustomLoginView(LoginView):
+    template_name = "login/index.html"
+
+
     
 @login_required
 def user_logout(request):
-    
-        
     logout(request)
+    return redirect('/user/login')
     
-        
-    request.session.flush()
-    response = redirect('/user/login')
-    response['Cache-Control'] = 'no-cache, no-store, must-revalidate'
-    response['Pragma'] = 'no-cache'
-    response['Expires'] = '0'
-    return response
 
 def count_medicines_current_month():
     current_month = date.today().month

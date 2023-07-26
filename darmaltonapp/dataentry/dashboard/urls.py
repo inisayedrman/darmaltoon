@@ -1,13 +1,15 @@
 
-from django.urls import path, re_path
+
+from django.urls import path
 from .views import *
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
     path('' , dashboard, name="dashboard"),
     path('user/profile', uprofile, name="profile"),
-    path('user/login', login_view, name="login"),
+    path('user/login', CustomLoginView.as_view(), name="login"),
     path('user/logout', user_logout, name="logout"),
     path('user/forget/password', forgot_password, name="forget"),
     path('user/reset/password', reset_password, name="resetpassword"),
