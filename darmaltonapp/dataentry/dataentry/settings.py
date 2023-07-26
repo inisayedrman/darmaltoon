@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-nq@izqwqwp*kie6$2_uak9c$wf=j+=375t3ucf%#1#3=)zuc0i
 DEBUG = True
 CSRF_COOKIE_SECURE = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['35.240.193.97']
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
@@ -48,10 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_otp',
-    'django_otp.plugins.otp_static',
-    'django_otp.plugins.otp_totp',
-
+    
     #custom apps
 
     'dashboard'
