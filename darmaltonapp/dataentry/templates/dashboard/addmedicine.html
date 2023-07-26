@@ -1,0 +1,209 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Add Medicine{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+<div class="container-fluid">
+
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Add new Medicine{% endblocktrans %}</h1>
+  
+      
+      <div>
+        <a href="{% url 'addmedicaltype' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Add Medical Type{% endblocktrans %}</a>
+        <a href="{% url 'addcompany' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Add Company{% endblocktrans %}</a>
+      </div>
+    
+  </div>
+
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Add new Medicine Form{% endblocktrans %}</h1>
+                        </div>
+                        {% if messages %}
+                          <div class="alert alert-danger">
+                              
+                                  {% for message in messages %}
+                                  {{ message }}
+                                  {% endfor %}
+                              
+                          </div>
+                        {% endif %}
+
+                        <form method="post" class="user needs-validation" novalidate autocomplete="off">
+                          {% csrf_token %}
+                          <div class="form-group row">
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="MedicineName" class="form-label">{% blocktrans %}Medicine Name{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="MedicineName" name="name"
+                                        placeholder="{% blocktrans %}Medicine Name{% endblocktrans %}" autofocus required pattern="^[A-Za-z][A-Za-z0-9_]{1,50}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Medicine Name{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="MedicalType" class="form-label">{% blocktrans %}Medical Type{% endblocktrans %}</label>
+                                        <select style="font-size: 1rem; border-radius: 10rem; margin-top:7px;" class="form-select form-control" id="MedicalType" name="type" required>
+                                          <option selected disabled value="">{% blocktrans %}Choose Type{% endblocktrans %}</option>
+                                          {% for type in medical_type %}
+                                          <option value="{{ type.id }}">{{ type.name }}</option>
+                                          {% endfor %}
+                                      </select>
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Medical Type{% endblocktrans %}
+                                          </div>
+                                </div>
+                            
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="BuyPrice" class="form-label">{% blocktrans %}Buy Price{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="BuyPrice" name="buy_price"
+                                        placeholder="{% blocktrans %}Buy Price{% endblocktrans %}" required pattern="^[0-9]{1,15}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Insert a valid Number{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="SellPrice" class="form-label">{% blocktrans %}Sell Price{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="SellPrice" name="sell_price"
+                                        placeholder="{% blocktrans %}Sell Price{% endblocktrans %}" required pattern="^[0-9]{1,15}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Insert a valid Number{% endblocktrans %}
+                                          </div>
+                                </div>
+                          
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="ExpDate">&nbsp; &nbsp;{% blocktrans %}Expire Date{% endblocktrans %}</label>
+                                    <input type="Date" class="form-control form-control-user" name="exp_date"
+                                        id="ExpDate" placeholder="Exp Date" required pattern="^[0-9]{7,29}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Expiration Date{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="MfgDate">&nbsp; &nbsp;{% blocktrans %}Manufacture Date{% endblocktrans %}</label>
+                                    <input type="Date" class="form-control form-control-user" name="mfg_date"
+                                        id="MfgDate" placeholder="Mfg Date" required pattern="^[0-9]{7,29}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Manufacture Date{% endblocktrans %}
+                                          </div>
+                                </div>
+                           
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CompanyId" class="form-label">{% blocktrans %}Company{% endblocktrans %}</label>
+                                <select style="font-size: 1rem; border-radius: 10rem; margin-top:7px;" class="form-select form-control" id="CompanyId" name="company" required>
+                                    <option selected disabled value="">{% blocktrans %}Choose Company{% endblocktrans %}</option>
+                                    {% for company in companies %}
+                                    <option value="{{ company.id }}">{{ company.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="invalid-tooltip">
+                                  {% blocktrans %}Please select a valid Company{% endblocktrans %}
+                                </div>
+                                <div class="valid-tooltip">
+                                  {% blocktrans %}Looks good!{% endblocktrans %}
+                                </div>
+                            </div>
+                                
+                                
+                         
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="InStockTotal" class="form-label">{% blocktrans %}In Stock Total{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="InStockTotal" name="in_stock_total"
+                                        placeholder="{% blocktrans %}In Stock Total{% endblocktrans %}" required pattern="^[0-9]{1,10}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid number{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 my-3 mt-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="QtyInStrip" class="form-label">{% blocktrans %}Quantity In Strip{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="QtyInStrip" name="qty_in_strip"
+                                        placeholder="{% blocktrans %}Quantity In Strip{% endblocktrans %}" required pattern="^[0-9]{1,10}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid number{% endblocktrans %}
+                                          </div>
+                                </div>
+                            
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3 mt-3">
+                              
+                                <label class="ml-3 font-weight-bold" style="font-size:13px;" for="Description" class="form-label">{% blocktrans %}Medicine Description{% endblocktrans %}</label>
+                                <textarea class="form-control" id="Description" name="description"
+                                  placeholder="{% blocktrans %}Description{% endblocktrans %}" required pattern="^[A-Za-z][A-Za-z0-9_]{7,29}$"></textarea>
+                             
+                              <div class="valid-tooltip">
+                                {% blocktrans %}Looks good!{% endblocktrans %}
+                              </div>
+                              <div class="invalid-tooltip">
+                                {% blocktrans %}Please Write a valid Description{% endblocktrans %}
+                              </div>
+                            </div>
+                          </div>
+                            <input type="hidden" name="added_by" value="{{ request.user.id }}">
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Add Medicine{% endblocktrans %}</submit>
+                        </form>
+                        
+                    </div>
+
+
+                    <div class="col-lg-12">
+                      <div class="form-group row">
+                        <div class="col-sm-12">
+                          {% if form.errors %}
+                          <div class="alert alert-danger p-3">
+                              <ul>
+                                  {% for field in form %}
+                                  {% for error in field.errors %}
+                                  <li>{{ error }}</li>
+                                  {% endfor %}
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
+

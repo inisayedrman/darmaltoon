@@ -1,0 +1,114 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Invoice Update{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Update Invoice Payment Method{% endblocktrans %}</h1>
+      <div>
+        <a href="{% url 'viewinvoices' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}View Invoices{% endblocktrans %}</a>
+        <a href="{% url 'additemstoinvoice' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Add Items{% endblocktrans %}</a>
+      </div>
+  </div>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      {% if messages %}
+                          <ul class="messages">
+                            {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pt-5 pb-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Invoice Update Form{% endblocktrans %}</h1>
+                        </div>
+                        
+                        <div class="container-fluid">
+                            <form class="row user" id="invoice-request-form" method="POST" action="{% url 'invoiceedit' invoice_id=invoice.id %}">
+                              {% csrf_token %}
+                              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <label for="id_cash_payment_amount">{% blocktrans %}Total Amount{% endblocktrans %}:</label>
+                                <input type="text" class="form-control form-control-user" id="id_cash_payment_amount" name="cash_payment_amount" value="{{ form.total_amount.value }}" readonly>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                  <label for="invoice-select">{% blocktrans %}Payment Method{% endblocktrans %}:</label>&nbsp;
+                                  <select id="id_payment_method" onchange="updatePaymentFields()" style="font-size: 1rem; border-radius: 10rem; margin-top:7px;" class="form-select form-control" id="id_payment_method" name="payment_method">
+                                    <option selected disabled value="">{% blocktrans %}Please Choose Payment{% endblocktrans %} </option>
+                                    {% for choice in payment_choices %}
+                                   
+                                    <option value="{{ choice.0 }}" {% if form.payment_method.value == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+                                    {% endfor %}
+                                  </select>
+                                  <div class="valid-tooltip">
+                                    {% blocktrans %}Looks good!{% endblocktrans %}
+                                  </div>
+                                  <div class="invalid-tooltip">
+                                    {% blocktrans %}Please select a valid Choice.{% endblocktrans %}
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <label for="id_cash_payment_amount">{% blocktrans %}Cash Payment Amount{% endblocktrans %}</label>
+                                <input type="text" class="form-control form-control-user" id="id_cash_payment_amount" name="cash_payment_amount" value="{{ form.cash_payment_amount.value }}">
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <label for="id_pay_later_payment_amount">{% blocktrans %}Pay Later Payment Amount{% endblocktrans %}</label>
+                                <input type="text" class="form-control form-control-user" id="id_pay_later_payment_amount" name="pay_later_payment_amount" value="{{ form.pay_later_payment_amount.value }}">
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                <label for="id_split_payment_amount">{% blocktrans %}Split Payment Amount{% endblocktrans %}</label>
+                                <input type="text" class="form-control form-control-user" id="id_split_payment_amount" name="split_payment_amount" value="{{ form.split_payment_amount.value }}">
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-2">
+                                    <div class="form-group">
+                                      <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block"><i class="fas fa-plus"></i>&nbsp;{% blocktrans %}Update Invoice Number{% endblocktrans %}</submit>
+                                  </div>
+                                  </div>
+                              </form>
+                              
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+

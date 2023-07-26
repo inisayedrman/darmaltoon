@@ -1,0 +1,78 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+
+
+{% block title%}{% blocktrans %}Company Update History{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}All Companies Log Details{% endblocktrans %}</h1>
+                       
+                          
+                          <a href="{% url 'viewcompany' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}View Company{% endblocktrans %}</a>
+                        
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all Companies Log Records{% endblocktrans %}</h6>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if no_company %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited By{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited On{% endblocktrans %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited By{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited On{% endblocktrans %}</th>
+                                           
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for company in company_log %}
+                                        <tr>
+                                            <td>{{ company.id }}</td>
+                                            <td>{{ company.name }}</td>
+                                            <td>{{ company.edited_by }}</td>
+                                            <td>{{ company.edited_at }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p>{% blocktrans %}No records found{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+{%endblock%}
+

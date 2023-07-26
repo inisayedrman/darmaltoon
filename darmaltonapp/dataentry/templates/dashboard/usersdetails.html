@@ -1,0 +1,196 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Users Data{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                     <!-- Page Heading -->
+                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Users Details{% endblocktrans %}</h1>
+                        <div>
+                            {% if user_type == 'admin' %}
+                            <a href="{% url 'signup' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %} Add User{% endblocktrans %}</a>
+                            {% endif %}
+                            <a href="{% url 'admindetails' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}View Admins{% endblocktrans %}</a>
+                            <a href="{% url 'moddetails' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}View Moderators{% endblocktrans %}</a>
+                        </div>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all users{% endblocktrans %}</h6>
+
+
+                            {% comment %} {% for field in form %}
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                              {% for error in field.errors %}
+                                <div class="text-danger">{{ error }}</div>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %} {% endcomment %}
+
+
+                            {% if messages %}
+                              {% for message in messages %}
+                                  {% if message.tags %}
+                                      {% if message.tags == 'success' %}
+                                          {% if 'add' in message.tags %}
+                                              <h6 class="success-message">
+                                                  <i class="fas fa-plus text-primary fa-small"></i> {{ message }}
+                                              </h6>
+                                          {% elif 'edit' in message.tags %}
+                                              <h6 class="success-message">
+                                                  <i class="fas fa-edit text-primary fa-small"></i> {{ message }}
+                                              </h6>
+                                          {% else %}
+                                              <h6 class="success-message">{{ message }}</h6>
+                                          {% endif %}
+                                      {% elif message.tags == 'error' %}
+                                          <h6 class="error-message">{{ message }}</h6>
+                                      {% else %}
+                                          <h6>{{ message }}</h6>
+                                      {% endif %}
+                                  {% else %}
+                                      <h6>{{ message }}</h6>
+                                  {% endif %}
+                              {% endfor %}
+                          {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if no_users %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}User ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}User Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Firt Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Last Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Email{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}User Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Creation Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Last Login{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}User ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}User Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Firt Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Last Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Email{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}User Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Creation Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Last Login{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for userinfo in userdata %}
+                                        <tr>
+                                            <td>{{ userinfo.id }}</td>
+                                            <td>{{ userinfo.username}}</td>
+                                            <td>{{ userinfo.first_name }}</td>
+                                            <td>{{ userinfo.last_name }}</td>
+                                            <td>{{ userinfo.email }}</td>
+                                            <td>{{ userinfo.user_type }}</td>
+                                            <td>{{ userinfo.date_joined }}</td>
+                                            <td>{{ userinfo.last_login }}</td>
+                                            {% if user_type == 'admin' %}
+                                            <td class="text-center">
+                                                <a href="{% url 'updateuserdata' record_id=userinfo.id %}" class="btn btn-info btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Edit{% endblocktrans %}</span>
+                                                </a>
+                                                
+                                                <a href="#" data-toggle="modal" data-target="#DeleteUserModal{{ userinfo.id }}" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Delete{% endblocktrans %}</span>
+                                                </a>
+                                            </td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p> {% blocktrans %}No records found{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+
+<!-- Delete Modal -->
+{% for userinfo in userdata %}
+<div class="modal fade" id="DeleteUserModal{{ userinfo.id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteCustomerModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-danger" id="DeleteCustomerModalTitle">{% blocktrans %}Warning{% endblocktrans %}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="text-danger" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row card m-3">   
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action list-group-item-primary">{% blocktrans %}You are about to delete User record{% endblocktrans %}</li>
+              <li class="list-group-item"><strong class="text-dark">{% blocktrans %}User ID{% endblocktrans %}:</strong> {{ userinfo.id }}</li>
+              <li class="list-group-item"><strong class="text-dark">{% blocktrans %}User Name{% endblocktrans %}:</strong> {{ userinfo.username }}</li>
+            </ul>
+          </div>
+      </div>
+
+    <form class="form-user" action="{% url 'deleteuser' userinfo.id %}" method="POST">
+        <div class="modal-footer">
+            {% csrf_token %}
+            <div class="form-group form-check m-auto">
+                {% comment %} <input type="checkbox" id="keep_invoices" name="keep_invoices" value="True">
+                <label class="form-check-label" for="keep_invoices">{% blocktrans %}Keep invoices{% endblocktrans %}</label> {% endcomment %}
+            </div>
+        </div>
+          <div class="row m-auto p-2 text-center">
+              <div class="col-6">
+                  <button type="button" class="btn btn-primary btn-user btn-block" data-dismiss="modal">{% blocktrans %}Cancel{% endblocktrans %}</button>
+              </div>
+              <div class="col-6">
+                  <button type="submit" class="btn btn-danger btn-user btn-block">{% blocktrans %}Delete{% endblocktrans %}</button>
+              </div>
+              <div class="p-2 text-secondary m-auto text-center">{% blocktrans %}click{% endblocktrans %}&nbsp;<span class="text-danger">{% blocktrans %}delete{% endblocktrans %}&nbsp;</span>{% blocktrans %}to proceed or{% endblocktrans %}<span class="text-danger">&nbsp;{% blocktrans %}Cancel{% endblocktrans %}&nbsp;</span>{% blocktrans %}to dismiss{% endblocktrans %}</div>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
+{% endfor %}
+<!--End Delete Modal -->
+
+
+{%endblock%}
+

@@ -1,0 +1,2321 @@
+# SOME DESCRIPTIVE TITLE
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Darmaltoon 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-17 17:03+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Sayed Rahman <srahmann.hamid@gmail.com>\n"
+"Language-Team: \n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\dashboard\models.py:88 .\templates\dashboard\viewinvoiceitems.html:44
+#: .\templates\dashboard\viewinvoiceitems.html:59
+#: .\templates\dashboard\viewsold.html:35
+#: .\templates\dashboard\viewsold.html:47
+msgid "Medicine"
+msgstr "دوا"
+
+#: .\dashboard\models.py:147
+#: .\templates\dashboard\invoicetopdfdownload.html:264
+#: .\templates\dashboard\invoicetopdfprint.html:262
+#: .\templates\dashboard\invoicetopdftemplate.html:264
+msgid "Customer"
+msgstr "مشتری"
+
+#: .\dashboard\views.py:100
+msgid "Invalid username or password."
+msgstr ".نام کاربری یا رمز عبور نامعتبر است"
+
+#: .\dashboard\views.py:102
+msgid "Session expired."
+msgstr "جلسه تمام شده"
+
+#: .\templates\dashboard\404.html:10
+msgid "Page not found!"
+msgstr "!صفحه یافت نشد"
+
+#: .\templates\dashboard\404.html:33
+msgid "404"
+msgstr "۴۰۴"
+
+#: .\templates\dashboard\404.html:34
+msgid "Page Not Found"
+msgstr "!صفحه یافت نشد"
+
+#: .\templates\dashboard\404.html:35
+msgid ""
+"It looks like you entered invalid url or trying to reach a page which "
+"doesn't exist..."
+msgstr ""
+"...به نظر می رسد شما آدرس اینترنتی نامعتبری را وارد کرده اید یا می خواهید به "
+"صفحه ای برسید که وجود ندارد"
+
+#: .\templates\dashboard\404.html:36
+msgid "Back to Dashboard"
+msgstr "بازگشت به داشبورد"
+
+#: .\templates\dashboard\action_records.html:4
+msgid "Actions record"
+msgstr "سوابق اقدامات"
+
+#: .\templates\dashboard\action_records.html:16
+msgid "Actions Details"
+msgstr "جزئیات اقدامات"
+
+#: .\templates\dashboard\action_records.html:22
+msgid "List of all users actions"
+msgstr "لیست تمام اقدامات کاربران"
+
+#: .\templates\dashboard\action_records.html:30
+#: .\templates\dashboard\action_records.html:40
+msgid "User"
+msgstr "کاربر"
+
+#: .\templates\dashboard\action_records.html:31
+#: .\templates\dashboard\action_records.html:41
+msgid "Action Type"
+msgstr "نوع عمل"
+
+#: .\templates\dashboard\action_records.html:32
+#: .\templates\dashboard\action_records.html:42
+msgid "Table Name"
+msgstr "نام جدول"
+
+#: .\templates\dashboard\action_records.html:33
+#: .\templates\dashboard\action_records.html:43
+msgid "Object"
+msgstr "شی"
+
+#: .\templates\dashboard\action_records.html:34
+#: .\templates\dashboard\action_records.html:44
+msgid "Object ID"
+msgstr "آدی شی"
+
+#: .\templates\dashboard\action_records.html:35
+#: .\templates\dashboard\action_records.html:45
+msgid "Action Time"
+msgstr "زمان اقدام"
+
+#: .\templates\dashboard\action_records.html:76
+#, fuzzy
+#| msgid "No records found"
+msgid "No action records found"
+msgstr "هیچ سابقه اقدامی یافت نشد"
+
+#: .\templates\dashboard\add_invoice_items.html:4
+#, fuzzy
+#| msgid "Invoice Items"
+msgid "Invoice items"
+msgstr "جنس های بل"
+
+#: .\templates\dashboard\add_invoice_items.html:11
+msgid "Add Items to Invoice number"
+msgstr "اضافه کردن جنس به بل"
+
+#: .\templates\dashboard\add_invoice_items.html:14
+#: .\templates\dashboard\base.html:175
+#: .\templates\dashboard\customer_invoice_request.html:14
+#: .\templates\dashboard\editinvoice.html:13
+#: .\templates\dashboard\viewinvoiceitems.html:22
+msgid "View Invoices"
+msgstr "مشاهده تمام بل"
+
+#: .\templates\dashboard\add_invoice_items.html:15
+#: .\templates\dashboard\base.html:173 .\templates\dashboard\dashboard.html:40
+#: .\templates\dashboard\dashboard.html:74
+#: .\templates\dashboard\viewinvoice.html:22
+#: .\templates\dashboard\viewinvoiceanuall.html:22
+#: .\templates\dashboard\viewinvoicemonth.html:21
+msgid "New Invoice"
+msgstr "بل جدید"
+
+#: .\templates\dashboard\add_invoice_items.html:25
+msgid "Add Items form"
+msgstr "فورم اضافه کردن اجناس"
+
+#: .\templates\dashboard\add_invoice_items.html:39
+msgid "Invoice Number:"
+msgstr "نمبر بل"
+
+#: .\templates\dashboard\add_invoice_items.html:40
+msgid "Choose from list"
+msgstr "از لیست انتخاب کنید"
+
+#: .\templates\dashboard\add_invoice_items.html:44
+#: .\templates\dashboard\add_invoice_items.html:64
+msgid "Type to search..."
+msgstr "...برای جستجو تایپ کنید"
+
+#: .\templates\dashboard\add_invoice_items.html:51
+#: .\templates\dashboard\add_invoice_items.html:72
+#: .\templates\dashboard\add_invoice_items.html:86
+#: .\templates\dashboard\add_invoice_items.html:112
+#: .\templates\dashboard\addcompany.html:50
+#: .\templates\dashboard\addcompany.html:61
+#: .\templates\dashboard\addcompany.html:72
+#: .\templates\dashboard\addcompany.html:83
+#: .\templates\dashboard\addcompany.html:94
+#: .\templates\dashboard\addcustomer.html:27
+#: .\templates\dashboard\addcustomer.html:38
+#: .\templates\dashboard\addcustomer.html:49
+#: .\templates\dashboard\addcustomer.html:60
+#: .\templates\dashboard\addmedicaltype.html:38
+#: .\templates\dashboard\addmedicine.html:51
+#: .\templates\dashboard\addmedicine.html:66
+#: .\templates\dashboard\addmedicine.html:78
+#: .\templates\dashboard\addmedicine.html:89
+#: .\templates\dashboard\addmedicine.html:101
+#: .\templates\dashboard\addmedicine.html:112
+#: .\templates\dashboard\addmedicine.html:131
+#: .\templates\dashboard\addmedicine.html:142
+#: .\templates\dashboard\addmedicine.html:153
+#: .\templates\dashboard\addmedicine.html:167
+#: .\templates\dashboard\changepassword.html:46
+#: .\templates\dashboard\changepassword.html:56
+#: .\templates\dashboard\editinvoice.html:51
+#: .\templates\dashboard\register.html:53
+#: .\templates\dashboard\register.html:63
+#: .\templates\dashboard\register.html:75
+#: .\templates\dashboard\register.html:93
+#: .\templates\dashboard\register.html:102
+#: .\templates\dashboard\register.html:115
+#: .\templates\dashboard\register.html:134
+#: .\templates\dashboard\register.html:144
+#: .\templates\dashboard\updatecompany.html:41
+#: .\templates\dashboard\updatecompany.html:52
+#: .\templates\dashboard\updatecompany.html:63
+#: .\templates\dashboard\updatecompany.html:74
+#: .\templates\dashboard\updatecompany.html:85
+#: .\templates\dashboard\updatemedicine.html:40
+#: .\templates\dashboard\updatemedicine.html:55
+#: .\templates\dashboard\updatemedicine.html:66
+#: .\templates\dashboard\updatemedicine.html:77
+#: .\templates\dashboard\updatemedicine.html:88
+#: .\templates\dashboard\updatemedicine.html:99
+#: .\templates\dashboard\updatemedicine.html:120
+#: .\templates\dashboard\updatemedicine.html:128
+#: .\templates\dashboard\updatemedicine.html:139
+#: .\templates\dashboard\updatemedicine.html:150
+#: .\templates\dashboard\updatetype.html:39 .\templates\login\index.html:37
+#: .\templates\login\index.html:48
+msgid "Looks good!"
+msgstr "!خوب به نظر میرسد"
+
+#: .\templates\dashboard\add_invoice_items.html:54
+msgid "Please select a valid invoice number."
+msgstr ".لطفاً یک شماره بل معتبر انتخاب کنید"
+
+#: .\templates\dashboard\add_invoice_items.html:60
+msgid "Medicine:"
+msgstr "ادویه‌"
+
+#: .\templates\dashboard\add_invoice_items.html:62
+msgid "Please choose medicine"
+msgstr "لطفا دوا را انتخاب کنید"
+
+#: .\templates\dashboard\add_invoice_items.html:75
+msgid "Please select medicine name."
+msgstr ".لطفا نام دوا را انتخاب کنید"
+
+#: .\templates\dashboard\add_invoice_items.html:89
+msgid "Can't be null min order 1"
+msgstr "نمی تواند خالی باشد حداقل سفارش یک عدد"
+
+#: .\templates\dashboard\add_invoice_items.html:109
+#: .\templates\dashboard\invoicetopdf.html:297
+#: .\templates\dashboard\invoicetopdfdownload.html:287
+#: .\templates\dashboard\invoicetopdfprint.html:285
+#: .\templates\dashboard\invoicetopdftemplate.html:287
+#: .\templates\dashboard\viewinvoiceitems.html:47
+#: .\templates\dashboard\viewinvoiceitems.html:62
+#: .\templates\dashboard\viewsold.html:38
+#: .\templates\dashboard\viewsold.html:50
+msgid "Unit Price"
+msgstr "قیمت واحد"
+
+#: .\templates\dashboard\add_invoice_items.html:110
+#: .\templates\dashboard\add_invoice_items.html:122
+#: .\templates\dashboard\dashboard.html:119
+#: .\templates\dashboard\dashboard.html:141
+#: .\templates\dashboard\dashboard.html:163
+#: .\templates\dashboard\dashboard.html:194
+#: .\templates\dashboard\dashboard.html:216
+#: .\templates\dashboard\dashboard.html:237
+#: .\templates\dashboard\dashboard.html:506
+#: .\templates\dashboard\dashboard.html:530
+#: .\templates\dashboard\dashboard.html:552
+#: .\templates\dashboard\dashboard.html:573
+#: .\templates\dashboard\expiredmedicine.html:73
+#: .\templates\dashboard\expiredmedicine.html:74
+#: .\templates\dashboard\expiresoon.html:74
+#: .\templates\dashboard\expiresoon.html:75
+#: .\templates\dashboard\expirethismonth.html:74
+#: .\templates\dashboard\expirethismonth.html:75
+#: .\templates\dashboard\invoicetopdf.html:309
+#: .\templates\dashboard\invoicetopdf.html:310
+#: .\templates\dashboard\invoicetopdf.html:311
+#: .\templates\dashboard\invoicetopdf.html:319
+#: .\templates\dashboard\invoicetopdf.html:324
+#: .\templates\dashboard\invoicetopdf.html:330
+#: .\templates\dashboard\invoicetopdf.html:369
+#: .\templates\dashboard\invoicetopdf.html:375
+#: .\templates\dashboard\invoicetopdf.html:381
+#: .\templates\dashboard\invoicetopdf.html:386
+#: .\templates\dashboard\invoicetopdfdownload.html:299
+#: .\templates\dashboard\invoicetopdfdownload.html:300
+#: .\templates\dashboard\invoicetopdfdownload.html:301
+#: .\templates\dashboard\invoicetopdfdownload.html:320
+#: .\templates\dashboard\invoicetopdfdownload.html:359
+#: .\templates\dashboard\invoicetopdfdownload.html:365
+#: .\templates\dashboard\invoicetopdfdownload.html:371
+#: .\templates\dashboard\invoicetopdfdownload.html:376
+#: .\templates\dashboard\invoicetopdfprint.html:297
+#: .\templates\dashboard\invoicetopdfprint.html:298
+#: .\templates\dashboard\invoicetopdfprint.html:299
+#: .\templates\dashboard\invoicetopdfprint.html:307
+#: .\templates\dashboard\invoicetopdfprint.html:312
+#: .\templates\dashboard\invoicetopdfprint.html:318
+#: .\templates\dashboard\invoicetopdfprint.html:357
+#: .\templates\dashboard\invoicetopdfprint.html:363
+#: .\templates\dashboard\invoicetopdfprint.html:369
+#: .\templates\dashboard\invoicetopdfprint.html:374
+#: .\templates\dashboard\invoicetopdftemplate.html:299
+#: .\templates\dashboard\invoicetopdftemplate.html:300
+#: .\templates\dashboard\invoicetopdftemplate.html:301
+#: .\templates\dashboard\invoicetopdftemplate.html:320
+#: .\templates\dashboard\invoicetopdftemplate.html:359
+#: .\templates\dashboard\invoicetopdftemplate.html:365
+#: .\templates\dashboard\invoicetopdftemplate.html:371
+#: .\templates\dashboard\invoicetopdftemplate.html:376
+#: .\templates\dashboard\viewmedicine.html:130
+#: .\templates\dashboard\viewmedicine.html:131
+#: .\templates\dashboard\viewmedicinemonth.html:70
+#: .\templates\dashboard\viewmedicinemonth.html:71
+msgid "AFN"
+msgstr "افغاني"
+
+#: .\templates\dashboard\add_invoice_items.html:115
+msgid "Please insert unit price"
+msgstr "لطفا قیمت واحد را درج کنید"
+
+#: .\templates\dashboard\add_invoice_items.html:121
+msgid "Discount/Unit"
+msgstr "تخفیف فی واحد"
+
+#: .\templates\dashboard\add_invoice_items.html:124
+msgid "Optional!"
+msgstr "اختیاری!"
+
+#: .\templates\dashboard\add_invoice_items.html:127
+msgid "Optional"
+msgstr "اختیاری"
+
+#: .\templates\dashboard\add_invoice_items.html:136
+msgid "Add Invoice Item"
+msgstr "افزودن جنس بل"
+
+#: .\templates\dashboard\addcompany.html:4
+#: .\templates\dashboard\addcompany.html:111
+#: .\templates\dashboard\addmedicine.html:18
+#: .\templates\dashboard\base.html:113
+#: .\templates\dashboard\viewcompany.html:20
+msgid "Add Company"
+msgstr "اضافه کردن شرکت"
+
+#: .\templates\dashboard\addcompany.html:17
+msgid "Add new Company"
+msgstr "اضافه کردن شرکت جدید"
+
+#: .\templates\dashboard\addcompany.html:46
+#: .\templates\dashboard\updatecompany.html:37
+#: .\templates\dashboard\viewcompany.html:182
+#: .\templates\dashboard\viewinvoiceitems.html:149
+#: .\templates\dashboard\viewmedicine.html:231
+#: .\templates\dashboard\viewtype.html:175
+msgid "Name"
+msgstr "اسم"
+
+#: .\templates\dashboard\addcompany.html:53
+#: .\templates\dashboard\addcompany.html:64
+#: .\templates\dashboard\addcompany.html:75
+#: .\templates\dashboard\addcompany.html:86
+#: .\templates\dashboard\addmedicine.html:54
+#: .\templates\dashboard\updatecompany.html:44
+#: .\templates\dashboard\updatecompany.html:55
+#: .\templates\dashboard\updatecompany.html:66
+#: .\templates\dashboard\updatecompany.html:77
+#: .\templates\dashboard\updatemedicine.html:43
+msgid "Please Write a valid Medicine Name"
+msgstr "لطفا یک اسم دواییِ معتبر بنویسید"
+
+#: .\templates\dashboard\addcompany.html:57
+#: .\templates\dashboard\invoicetopdf.html:251
+#: .\templates\dashboard\invoicetopdfdownload.html:241
+#: .\templates\dashboard\invoicetopdfdownload.html:265
+#: .\templates\dashboard\invoicetopdfprint.html:239
+#: .\templates\dashboard\invoicetopdfprint.html:263
+#: .\templates\dashboard\invoicetopdftemplate.html:241
+#: .\templates\dashboard\invoicetopdftemplate.html:265
+#: .\templates\dashboard\updatecompany.html:48
+msgid "Address"
+msgstr "آدرس"
+
+#: .\templates\dashboard\addcompany.html:68
+#: .\templates\dashboard\invoicetopdf.html:252
+#: .\templates\dashboard\invoicetopdfdownload.html:242
+#: .\templates\dashboard\invoicetopdfdownload.html:266
+#: .\templates\dashboard\invoicetopdfprint.html:240
+#: .\templates\dashboard\invoicetopdfprint.html:264
+#: .\templates\dashboard\invoicetopdftemplate.html:242
+#: .\templates\dashboard\invoicetopdftemplate.html:266
+#: .\templates\dashboard\updatecompany.html:59
+#: .\templates\dashboard\viewcompany.html:91
+#: .\templates\dashboard\viewcompany.html:105
+#, fuzzy
+#| msgid "Customer Contact"
+msgid "Contact"
+msgstr "تماس مشتری"
+
+#: .\templates\dashboard\addcompany.html:79
+#: .\templates\dashboard\updatecompany.html:70
+#: .\templates\dashboard\usersadmin.html:44
+#: .\templates\dashboard\usersadmin.html:59
+#: .\templates\dashboard\usersdetails.html:69
+#: .\templates\dashboard\usersdetails.html:84
+#: .\templates\dashboard\usersmod.html:42
+#: .\templates\dashboard\usersmod.html:57
+#: .\templates\dashboard\viewcompany.html:92
+#: .\templates\dashboard\viewcompany.html:106
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\templates\dashboard\addcompany.html:90
+#: .\templates\dashboard\addmedicine.html:164
+#: .\templates\dashboard\expiredmedicine.html:43
+#: .\templates\dashboard\expiredmedicine.html:60
+#: .\templates\dashboard\expiresoon.html:44
+#: .\templates\dashboard\expiresoon.html:61
+#: .\templates\dashboard\expirethismonth.html:44
+#: .\templates\dashboard\expirethismonth.html:61
+#: .\templates\dashboard\updatecompany.html:81
+#: .\templates\dashboard\viewcompany.html:93
+#: .\templates\dashboard\viewcompany.html:107
+#: .\templates\dashboard\viewmedicine.html:94
+#: .\templates\dashboard\viewmedicine.html:114
+#: .\templates\dashboard\viewmedicinemonth.html:38
+#: .\templates\dashboard\viewmedicinemonth.html:56
+msgid "Description"
+msgstr "شرح"
+
+#: .\templates\dashboard\addcompany.html:92
+msgid "Pharmaceutical Company"
+msgstr "شرکت دوا سازی"
+
+#: .\templates\dashboard\addcompany.html:97
+#: .\templates\dashboard\addmedicine.html:170
+#: .\templates\dashboard\updatecompany.html:88
+#: .\templates\dashboard\updatemedicine.html:131
+msgid "Please Write a valid Description"
+msgstr "لطفا یک توضیح معتبر بنویسید"
+
+#: .\templates\dashboard\addcustomer.html:4
+#, fuzzy
+#| msgid "Customer Registration"
+msgid " Customer Registration"
+msgstr "ثبت نام مشتری"
+
+#: .\templates\dashboard\addcustomer.html:17
+msgid "Customer Registration Form"
+msgstr "فورم ثبت نام مشتری"
+
+#: .\templates\dashboard\addcustomer.html:23
+#: .\templates\dashboard\customer_invoice_request.html:40
+#: .\templates\dashboard\customers.html:42
+#: .\templates\dashboard\customers.html:56
+#: .\templates\dashboard\viewinvoice.html:160
+#: .\templates\dashboard\viewinvoiceanuall.html:160
+#: .\templates\dashboard\viewinvoicemonth.html:159
+msgid "Customer Name"
+msgstr "اسم مشتری"
+
+#: .\templates\dashboard\addcustomer.html:30
+msgid "Please Write a valid Name!"
+msgstr "لطفا یک نام معتبر بنویسید"
+
+#: .\templates\dashboard\addcustomer.html:34
+#: .\templates\dashboard\customers.html:43
+#: .\templates\dashboard\customers.html:57
+msgid "Customer Address"
+msgstr "ادرس مشتری"
+
+#: .\templates\dashboard\addcustomer.html:41
+msgid "Please Write a valid Address!"
+msgstr "لطفا یک آدرس معتبر بنویسید!"
+
+#: .\templates\dashboard\addcustomer.html:45
+#: .\templates\dashboard\customers.html:44
+#: .\templates\dashboard\customers.html:58
+msgid "Customer Contact"
+msgstr "تماس مشتری"
+
+#: .\templates\dashboard\addcustomer.html:52
+msgid "Please Write a valid Phone Number!"
+msgstr "!لطفا یک شماره تلفن معتبر بنویسید"
+
+#: .\templates\dashboard\addcustomer.html:56
+#: .\templates\dashboard\customers.html:45
+#: .\templates\dashboard\customers.html:59
+msgid "Customer Email"
+msgstr "ایمیل مشتری"
+
+#: .\templates\dashboard\addcustomer.html:63
+msgid "Please Write a valid Email Address!"
+msgstr "!لطفا یک آدرس ایمیل معتبر بنویسید"
+
+#: .\templates\dashboard\addcustomer.html:68
+msgid "Register Customer"
+msgstr "ثبت نام مشتری"
+
+#: .\templates\dashboard\addmedicaltype.html:5
+#: .\templates\dashboard\addmedicaltype.html:53
+#: .\templates\dashboard\addmedicine.html:17 .\templates\dashboard\base.html:77
+#: .\templates\dashboard\viewtype.html:20
+msgid "Add Medical Type"
+msgstr "اضافه کردن نوع پزشکی"
+
+#: .\templates\dashboard\addmedicaltype.html:18
+msgid "Add new Type"
+msgstr "اضافه کردن نوع جدید"
+
+#: .\templates\dashboard\addmedicaltype.html:34
+#: .\templates\dashboard\updatetype.html:35
+#: .\templates\dashboard\viewtype.html:89
+#: .\templates\dashboard\viewtype.html:98
+msgid "Type Name"
+msgstr "اسم بنویسید"
+
+#: .\templates\dashboard\addmedicaltype.html:41
+#: .\templates\dashboard\updatetype.html:42
+msgid "The pattern requires the following conditions to be met:"
+msgstr "!این الگو مستلزم رعایت شرایط زیر است"
+
+#: .\templates\dashboard\addmedicaltype.html:43
+#: .\templates\dashboard\updatetype.html:44
+msgid ""
+"The string can contain letters (uppercase or lowercase), digits (0-9), or "
+"underscores."
+msgstr "رشته می تواند شامل حروف (بزرگ یا کوچک)، ارقام (0-9)، یا ـ"
+
+#: .\templates\dashboard\addmedicaltype.html:44
+#: .\templates\dashboard\updatetype.html:45
+msgid ""
+"The length of the string must be between 3 and 50 characters (inclusive)."
+msgstr ".طول رشته باید بین 3 تا 50 کاراکتر (شامل) باشد"
+
+#: .\templates\dashboard\addmedicine.html:4
+#: .\templates\dashboard\addmedicine.html:176
+#: .\templates\dashboard\dashboard.html:39
+#: .\templates\dashboard\dashboard.html:73
+#: .\templates\dashboard\viewmedicine.html:18
+#: .\templates\dashboard\viewmedicinelog.html:18
+#: .\templates\dashboard\viewmedicinemonth.html:16
+msgid "Add Medicine"
+msgstr "دوا اضافه کنید"
+
+#: .\templates\dashboard\addmedicine.html:13
+msgid "Add new Medicine"
+msgstr "افزودن دوا جدید"
+
+#: .\templates\dashboard\addmedicine.html:31
+msgid "Add new Medicine Form"
+msgstr "فورم افزودن دوا جدید"
+
+#: .\templates\dashboard\addmedicine.html:47
+#: .\templates\dashboard\addmedicine.html:49
+#: .\templates\dashboard\expiredmedicine.html:36
+#: .\templates\dashboard\expiredmedicine.html:53
+#: .\templates\dashboard\expiresoon.html:37
+#: .\templates\dashboard\expiresoon.html:54
+#: .\templates\dashboard\expirethismonth.html:37
+#: .\templates\dashboard\expirethismonth.html:54
+#: .\templates\dashboard\invoicetopdf.html:295
+#: .\templates\dashboard\invoicetopdfdownload.html:285
+#: .\templates\dashboard\invoicetopdfprint.html:283
+#: .\templates\dashboard\invoicetopdftemplate.html:285
+#: .\templates\dashboard\updatemedicine.html:36
+#: .\templates\dashboard\viewcompanylog.html:45
+#: .\templates\dashboard\viewmedicine.html:87
+#: .\templates\dashboard\viewmedicine.html:107
+#: .\templates\dashboard\viewmedicinelog.html:35
+#: .\templates\dashboard\viewmedicinelog.html:43
+#: .\templates\dashboard\viewmedicinemonth.html:31
+#: .\templates\dashboard\viewmedicinemonth.html:49
+msgid "Medicine Name"
+msgstr "اسم ادویه"
+
+#: .\templates\dashboard\addmedicine.html:58
+#: .\templates\dashboard\expiredmedicine.html:37
+#: .\templates\dashboard\expiredmedicine.html:54
+#: .\templates\dashboard\expiresoon.html:38
+#: .\templates\dashboard\expiresoon.html:55
+#: .\templates\dashboard\expirethismonth.html:38
+#: .\templates\dashboard\expirethismonth.html:55
+#: .\templates\dashboard\updatemedicine.html:47
+#: .\templates\dashboard\updatetype.html:6
+#: .\templates\dashboard\viewmedicine.html:88
+#: .\templates\dashboard\viewmedicine.html:108
+#: .\templates\dashboard\viewmedicinemonth.html:32
+#: .\templates\dashboard\viewmedicinemonth.html:50
+#: .\templates\dashboard\viewtype.html:5
+msgid "Medical Type"
+msgstr "نوع پزنکی"
+
+#: .\templates\dashboard\addmedicine.html:60
+msgid "Choose Type"
+msgstr "نوع را انتخاب کنید"
+
+#: .\templates\dashboard\addmedicine.html:69
+#: .\templates\dashboard\updatemedicine.html:58
+msgid "Please Write a valid Medical Type"
+msgstr "لطفا یک نوع پزشکی معتبر بنویسید"
+
+#: .\templates\dashboard\addmedicine.html:74
+#: .\templates\dashboard\addmedicine.html:76
+#: .\templates\dashboard\expiredmedicine.html:38
+#: .\templates\dashboard\expiredmedicine.html:55
+#: .\templates\dashboard\expiresoon.html:39
+#: .\templates\dashboard\expiresoon.html:56
+#: .\templates\dashboard\expirethismonth.html:39
+#: .\templates\dashboard\expirethismonth.html:56
+#: .\templates\dashboard\updatemedicine.html:62
+#: .\templates\dashboard\viewmedicine.html:89
+#: .\templates\dashboard\viewmedicine.html:109
+#: .\templates\dashboard\viewmedicinemonth.html:33
+#: .\templates\dashboard\viewmedicinemonth.html:51
+msgid "Buy Price"
+msgstr "قیمت خرید"
+
+#: .\templates\dashboard\addmedicine.html:81
+#: .\templates\dashboard\addmedicine.html:92
+#: .\templates\dashboard\updatemedicine.html:69
+#: .\templates\dashboard\updatemedicine.html:80
+msgid "Please Insert a valid Number"
+msgstr "لطفا یک شماره معتبر وارد کنید"
+
+#: .\templates\dashboard\addmedicine.html:85
+#: .\templates\dashboard\addmedicine.html:87
+#: .\templates\dashboard\expiredmedicine.html:39
+#: .\templates\dashboard\expiredmedicine.html:56
+#: .\templates\dashboard\expiresoon.html:40
+#: .\templates\dashboard\expiresoon.html:57
+#: .\templates\dashboard\expirethismonth.html:40
+#: .\templates\dashboard\expirethismonth.html:57
+#: .\templates\dashboard\updatemedicine.html:73
+#: .\templates\dashboard\viewmedicine.html:90
+#: .\templates\dashboard\viewmedicine.html:110
+#: .\templates\dashboard\viewmedicinemonth.html:34
+#: .\templates\dashboard\viewmedicinemonth.html:52
+msgid "Sell Price"
+msgstr "قیمت فروش"
+
+#: .\templates\dashboard\addmedicine.html:97
+#: .\templates\dashboard\updatemedicine.html:84
+msgid "Expire Date"
+msgstr "تاریخ انقضاء"
+
+#: .\templates\dashboard\addmedicine.html:104
+#: .\templates\dashboard\updatemedicine.html:91
+msgid "Please Write a valid Expiration Date"
+msgstr "لطفا یک تاریخ انقضا معتبر بنویسید"
+
+#: .\templates\dashboard\addmedicine.html:108
+#: .\templates\dashboard\updatemedicine.html:95
+msgid "Manufacture Date"
+msgstr "تاریخ تولید"
+
+#: .\templates\dashboard\addmedicine.html:115
+#: .\templates\dashboard\updatemedicine.html:102
+msgid "Please Write a valid Manufacture Date"
+msgstr "لطفا یک تاریخ ساخت معتبر بنویسید"
+
+#: .\templates\dashboard\addmedicine.html:120
+#: .\templates\dashboard\viewcompany.html:183
+#: .\templates\dashboard\viewmedicine.html:232
+#: .\templates\dashboard\viewtype.html:176
+msgid "Company"
+msgstr "شرکت"
+
+#: .\templates\dashboard\addmedicine.html:122
+#, fuzzy
+#| msgid "Add Company"
+msgid "Choose Company"
+msgstr "شرکت انتخاب کنید"
+
+#: .\templates\dashboard\addmedicine.html:128
+#: .\templates\dashboard\updatemedicine.html:117
+msgid "Please select a valid Company"
+msgstr "لطفا یک شرکت معتبر انتخاب کنید"
+
+#: .\templates\dashboard\addmedicine.html:138
+#: .\templates\dashboard\addmedicine.html:140
+#: .\templates\dashboard\expiredmedicine.html:44
+#: .\templates\dashboard\expiredmedicine.html:61
+#: .\templates\dashboard\expiresoon.html:45
+#: .\templates\dashboard\expiresoon.html:62
+#: .\templates\dashboard\expirethismonth.html:45
+#: .\templates\dashboard\expirethismonth.html:62
+#: .\templates\dashboard\updatemedicine.html:135
+#: .\templates\dashboard\viewmedicine.html:95
+#: .\templates\dashboard\viewmedicine.html:115
+#: .\templates\dashboard\viewmedicinemonth.html:39
+#: .\templates\dashboard\viewmedicinemonth.html:57
+msgid "In Stock Total"
+msgstr "موجودی دخیره در کل"
+
+#: .\templates\dashboard\addmedicine.html:145
+#: .\templates\dashboard\addmedicine.html:156
+#: .\templates\dashboard\updatemedicine.html:142
+#: .\templates\dashboard\updatemedicine.html:153
+msgid "Please Write a valid number"
+msgstr "لطفا یک عدد معتبر بنویسید"
+
+#: .\templates\dashboard\addmedicine.html:149
+#: .\templates\dashboard\addmedicine.html:151
+#: .\templates\dashboard\updatemedicine.html:146
+msgid "Quantity In Strip"
+msgstr "اندازه در تخته"
+
+#: .\templates\dashboard\addmedicine.html:162
+#: .\templates\dashboard\updatemedicine.html:124
+msgid "Medicine Description"
+msgstr "توضیحات دوا"
+
+#: .\templates\dashboard\base.html:8 .\templates\dashboard\base.html:42
+msgid "Darmaltoon"
+msgstr "دواخانه"
+
+#: .\templates\dashboard\base.html:8 .\templates\dashboard\base.html:52
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: .\templates\dashboard\base.html:60
+msgid "Inventory"
+msgstr "فهرست"
+
+#: .\templates\dashboard\base.html:68
+msgid "Medicines"
+msgstr "ادویه‌ها"
+
+#: .\templates\dashboard\base.html:72
+msgctxt "Medicines  List"
+msgid "Medicines list"
+msgstr "لست ادویه‌ها"
+
+#: .\templates\dashboard\base.html:73
+msgctxt "Stock Medicines"
+msgid "Stock Medicines"
+msgstr "ادویه ګدام"
+
+#: .\templates\dashboard\base.html:74
+msgctxt "Medicines Log"
+msgid "Medicines Log"
+msgstr "گزارش داروها"
+
+#: .\templates\dashboard\base.html:75
+msgctxt "Sold Medicines"
+msgid "Sold Medicines"
+msgstr "ادویه فروخته شده"
+
+#: .\templates\dashboard\base.html:76
+#, fuzzy
+#| msgid "Add Medicine"
+msgctxt "Add Medicine"
+msgid "Add Medicine"
+msgstr "دوا اضافه کنید"
+
+#: .\templates\dashboard\base.html:78
+msgid "View Medical Type"
+msgstr "مشاهده نوع پزشکی"
+
+#: .\templates\dashboard\base.html:88
+msgid "Expiration"
+msgstr "انقضاء"
+
+#: .\templates\dashboard\base.html:92
+msgid "Expiration Date"
+msgstr "تاریخ انقضاء"
+
+#: .\templates\dashboard\base.html:93 .\templates\dashboard\expiresoon.html:20
+#: .\templates\dashboard\expirethismonth.html:20
+msgid "Expired"
+msgstr "منقضی شده"
+
+#: .\templates\dashboard\base.html:94 .\templates\dashboard\expiresoon.html:4
+#: .\templates\dashboard\expirethismonth.html:21
+msgid "Expiring Soon"
+msgstr "انقضاء به زودی"
+
+#: .\templates\dashboard\base.html:95
+#: .\templates\dashboard\expiredmedicine.html:21
+#: .\templates\dashboard\expiresoon.html:21
+#: .\templates\dashboard\expirethismonth.html:4
+msgid "Expiring This Month"
+msgstr "این ماه منقضی می شود"
+
+#: .\templates\dashboard\base.html:107
+msgid "Manufacturer"
+msgstr "سازنده"
+
+#: .\templates\dashboard\base.html:111
+msgid "View Companies"
+msgstr "مشاهده شرکتها"
+
+#: .\templates\dashboard\base.html:112
+msgid "Company Update Log"
+msgstr "گزارش به روز رسانی شرکت"
+
+#: .\templates\dashboard\base.html:124
+msgctxt "Customers"
+msgid "Customers"
+msgstr "مشتریان"
+
+#: .\templates\dashboard\base.html:129
+msgctxt "Customer's Data"
+msgid "Customer's Data"
+msgstr "مشاهده دیتا مشتریان"
+
+#: .\templates\dashboard\base.html:130
+msgid "View Customers"
+msgstr "مشاهده مشتریان"
+
+#: .\templates\dashboard\base.html:131 .\templates\dashboard\customers.html:20
+msgid "Add Customer"
+msgstr "مشتری اضافه کنید"
+
+#: .\templates\dashboard\base.html:142
+msgid "Finance"
+msgstr "بخشی مالی"
+
+#: .\templates\dashboard\base.html:150
+msgid "Earnings"
+msgstr "درآمد"
+
+#: .\templates\dashboard\base.html:154 .\templates\dashboard\base.html:172
+msgid "Sales Data"
+msgstr "اطلاعات فروش"
+
+#: .\templates\dashboard\base.html:155
+msgid "Earning&nbsp;Monthly"
+msgstr "درآمد ماهانه"
+
+#: .\templates\dashboard\base.html:156
+msgid "Earning&nbsp;Annually"
+msgstr "درآمد سالانه"
+
+#: .\templates\dashboard\base.html:157
+msgid "Earning&nbsp;Lifetime"
+msgstr "نمای کلی درآمد"
+
+#: .\templates\dashboard\base.html:168 .\templates\dashboard\viewinvoice.html:6
+#: .\templates\dashboard\viewinvoiceanuall.html:6
+#: .\templates\dashboard\viewinvoicemonth.html:5
+msgid "Invoices"
+msgstr "فاکتورها"
+
+#: .\templates\dashboard\base.html:174
+#: .\templates\dashboard\customer_invoice_request.html:15
+#: .\templates\dashboard\editinvoice.html:14
+#: .\templates\dashboard\invoicetopdf.html:239
+#: .\templates\dashboard\viewinvoice.html:23
+#: .\templates\dashboard\viewinvoiceanuall.html:23
+#: .\templates\dashboard\viewinvoiceitems.html:23
+#: .\templates\dashboard\viewinvoicemonth.html:22
+msgid "Add Items"
+msgstr "اضافه کردن اجناس"
+
+#: .\templates\dashboard\base.html:176
+msgid "Download Invoices"
+msgstr "دانلود فاکتورها"
+
+#: .\templates\dashboard\base.html:187
+msgid "Actor"
+msgstr "کاربر"
+
+#: .\templates\dashboard\base.html:196
+msgid "Users"
+msgstr "کاربران"
+
+#: .\templates\dashboard\base.html:200
+msgid "Users info"
+msgstr "اطلاعات کاربران"
+
+#: .\templates\dashboard\base.html:201 .\templates\dashboard\usersadmin.html:24
+#: .\templates\dashboard\usersmod.html:22
+msgid "View Users"
+msgstr "مشاهده کاربران"
+
+#: .\templates\dashboard\base.html:202
+#: .\templates\dashboard\usersdetails.html:19
+#: .\templates\dashboard\usersmod.html:23
+msgid "View Admins"
+msgstr "مشاهده ادمینها"
+
+#: .\templates\dashboard\base.html:203 .\templates\dashboard\usersadmin.html:25
+#: .\templates\dashboard\usersdetails.html:20
+msgid "View Moderators"
+msgstr "مشاهده ناظم"
+
+#: .\templates\dashboard\base.html:205 .\templates\dashboard\usersadmin.html:22
+#: .\templates\dashboard\usersmod.html:20
+msgid "Add User"
+msgstr "افزودن کاربر"
+
+#: .\templates\dashboard\base.html:207
+#: .\templates\dashboard\changepassword.html:4
+#: .\templates\dashboard\changepassword.html:64
+msgid "Change Password"
+msgstr "رمز عبور را تغییر دهید"
+
+#: .\templates\dashboard\base.html:243
+msgid "Search for..."
+msgstr "...جستجو برای"
+
+#: .\templates\dashboard\base.html:286 .\templates\login\base.html:37
+msgctxt "Language"
+msgid "English"
+msgstr "دری"
+
+#: .\templates\dashboard\base.html:315
+msgid "Recent Actions:"
+msgstr ":اقدامات اخیر"
+
+#: .\templates\dashboard\base.html:371
+msgid "No recent actions found for the logged-in moderator."
+msgstr ".هیچ اقدام اخیری برای گرداننده وارد شده یافت نشد"
+
+#: .\templates\dashboard\base.html:377
+msgid " No recent actions found for"
+msgstr "هیچ اقدام اخیر برای یافت نشد"
+
+#: .\templates\dashboard\base.html:430
+msgid " No recent actions found."
+msgstr "هیچ اقدام اخیر برای یافت نشد"
+
+#: .\templates\dashboard\base.html:432
+msgid "Show All Alerts"
+msgstr "نمایش همه هشدارها"
+
+#: .\templates\dashboard\base.html:453
+msgid "Profile"
+msgstr "پروفایل"
+
+#: .\templates\dashboard\base.html:458 .\templates\dashboard\base.html:534
+msgid "Logout"
+msgstr "خروج"
+
+#: .\templates\dashboard\base.html:484
+msgid "Copyright"
+msgstr "کپی رایت"
+
+#: .\templates\dashboard\base.html:484
+msgid "Darmaltoon 2023 | All Rights Reserved"
+msgstr "درملتون ۲۰۲۳ | تمامی حقوق محفوظ است"
+
+#: .\templates\dashboard\base.html:526
+msgid "Ready to Leave?"
+msgstr "آماده ترک؟"
+
+#: .\templates\dashboard\base.html:531
+msgid "Select \"Logout\" below if you are ready to end your current session."
+msgstr "اگر آماده پایان جلسه فعلی خود هستید، خروج را در زیر انتخاب کنی."
+
+#: .\templates\dashboard\base.html:533
+#: .\templates\dashboard\updatecompany.html:99
+#: .\templates\dashboard\updatemedicine.html:163
+#: .\templates\dashboard\updatetype.html:57
+#: .\templates\dashboard\viewcompany.html:187
+#: .\templates\dashboard\viewcompany.html:192
+#: .\templates\dashboard\viewinvoice.html:175
+#: .\templates\dashboard\viewinvoice.html:180
+#: .\templates\dashboard\viewinvoiceanuall.html:175
+#: .\templates\dashboard\viewinvoiceanuall.html:180
+#: .\templates\dashboard\viewinvoiceitems.html:152
+#: .\templates\dashboard\viewinvoiceitems.html:157
+#: .\templates\dashboard\viewinvoicemonth.html:174
+#: .\templates\dashboard\viewinvoicemonth.html:179
+#: .\templates\dashboard\viewmedicine.html:236
+#: .\templates\dashboard\viewmedicine.html:241
+#: .\templates\dashboard\viewtype.html:180
+#: .\templates\dashboard\viewtype.html:185
+msgid "Cancel"
+msgstr "لغو"
+
+#: .\templates\dashboard\base.html:575
+msgid "Confirm Password"
+msgstr "رمز عبور را تایید کنید"
+
+#: .\templates\dashboard\base.html:598
+msgid "Enter Your Current Password"
+msgstr "رمز عبور فعلی خود را وارد کنید"
+
+#: .\templates\dashboard\base.html:603
+msgid "Close"
+msgstr "بستن"
+
+#: .\templates\dashboard\base.html:604
+msgid "Confirm"
+msgstr "تایید"
+
+#: .\templates\dashboard\changepassword.html:13
+msgid "Credential Management"
+msgstr "مدیریت اعتبار"
+
+#: .\templates\dashboard\changepassword.html:27
+msgid "Change Password Form"
+msgstr "فورم تغیر رمز عبور"
+
+#: .\templates\dashboard\changepassword.html:43
+#: .\templates\dashboard\register.html:131 .\templates\login\index.html:46
+msgid "Password"
+msgstr "رمز"
+
+#: .\templates\dashboard\changepassword.html:49
+#: .\templates\dashboard\changepassword.html:59
+#: .\templates\dashboard\register.html:137
+#: .\templates\dashboard\register.html:147
+msgid "Please write a valid Password."
+msgstr "لطفا یک رمز عبور معتبر بنویسید."
+
+#: .\templates\dashboard\changepassword.html:53
+#: .\templates\dashboard\register.html:141
+msgid "Repeat Password"
+msgstr "تکرار رمز عبور"
+
+#: .\templates\dashboard\customer_invoice_request.html:5
+msgid "Customer Request"
+msgstr "درخواست مشتری"
+
+#: .\templates\dashboard\customer_invoice_request.html:12
+msgid "Customer Request Invoice Isueing"
+msgstr "صدور بل درخواست مشتری"
+
+#: .\templates\dashboard\customer_invoice_request.html:32
+#, fuzzy
+#| msgid "Invoice Items"
+msgid "Invoice Issuing For"
+msgstr "صدور بل برای"
+
+#: .\templates\dashboard\customer_invoice_request.html:42
+msgid "Choose Customer..."
+msgstr "...انتخاب مشتری"
+
+#: .\templates\dashboard\customer_invoice_request.html:52
+msgid "Issue Invoice Number"
+msgstr "شماره بل صادر کنید"
+
+#: .\templates\dashboard\customers.html:4
+msgid "Customers Data"
+msgstr "مشاهده دیتا مشتریان"
+
+#: .\templates\dashboard\customers.html:18
+msgid "Customers Details"
+msgstr "جزئیات مشتریان"
+
+#: .\templates\dashboard\customers.html:26
+msgid "List of all Customers"
+msgstr "لیست تمام مشتریان"
+
+#: .\templates\dashboard\customers.html:41
+#: .\templates\dashboard\customers.html:55
+msgid "Customer ID"
+msgstr "ای دی مشتریان"
+
+#: .\templates\dashboard\customers.html:46
+#: .\templates\dashboard\customers.html:60
+#: .\templates\dashboard\expiredmedicine.html:46
+#: .\templates\dashboard\expiredmedicine.html:63
+#: .\templates\dashboard\expiresoon.html:47
+#: .\templates\dashboard\expiresoon.html:64
+#: .\templates\dashboard\expirethismonth.html:47
+#: .\templates\dashboard\expirethismonth.html:64
+#: .\templates\dashboard\viewmedicine.html:97
+#: .\templates\dashboard\viewmedicine.html:117
+#: .\templates\dashboard\viewmedicinemonth.html:41
+#: .\templates\dashboard\viewmedicinemonth.html:59
+msgid "Added on"
+msgstr "اضافه شده در"
+
+#: .\templates\dashboard\customers.html:47
+#: .\templates\dashboard\customers.html:61
+msgid "Added by"
+msgstr "اضافه شده توسط"
+
+#: .\templates\dashboard\customers.html:49
+#: .\templates\dashboard\customers.html:63
+#: .\templates\dashboard\usersadmin.html:49
+#: .\templates\dashboard\usersadmin.html:64
+#: .\templates\dashboard\usersdetails.html:74
+#: .\templates\dashboard\usersdetails.html:89
+#: .\templates\dashboard\usersmod.html:62
+#: .\templates\dashboard\viewcompany.html:96
+#: .\templates\dashboard\viewcompany.html:110
+#: .\templates\dashboard\viewinvoice.html:57
+#: .\templates\dashboard\viewinvoice.html:74
+#: .\templates\dashboard\viewinvoiceanuall.html:57
+#: .\templates\dashboard\viewinvoiceanuall.html:74
+#: .\templates\dashboard\viewinvoiceitems.html:51
+#: .\templates\dashboard\viewinvoiceitems.html:66
+#: .\templates\dashboard\viewinvoicemonth.html:56
+#: .\templates\dashboard\viewinvoicemonth.html:73
+#: .\templates\dashboard\viewmedicine.html:100
+#: .\templates\dashboard\viewmedicine.html:120
+msgid "Action"
+msgstr "عمل"
+
+#: .\templates\dashboard\customers.html:83
+#: .\templates\dashboard\usersadmin.html:85
+#: .\templates\dashboard\usersdetails.html:110
+#: .\templates\dashboard\usersmod.html:83
+#: .\templates\dashboard\viewcompany.html:137
+#: .\templates\dashboard\viewinvoice.html:109
+#: .\templates\dashboard\viewinvoiceanuall.html:109
+#: .\templates\dashboard\viewinvoicemonth.html:108
+#: .\templates\dashboard\viewmedicine.html:168
+#: .\templates\dashboard\viewmedicinemonth.html:95
+#: .\templates\dashboard\viewtype.html:124
+msgid "Edit"
+msgstr "ویرایش"
+
+#: .\templates\dashboard\customers.html:90
+#: .\templates\dashboard\usersadmin.html:91
+#: .\templates\dashboard\usersdetails.html:117
+#: .\templates\dashboard\usersmod.html:89
+#: .\templates\dashboard\viewcompany.html:143
+#: .\templates\dashboard\viewcompany.html:193
+#: .\templates\dashboard\viewinvoice.html:118
+#: .\templates\dashboard\viewinvoice.html:178
+#: .\templates\dashboard\viewinvoiceanuall.html:118
+#: .\templates\dashboard\viewinvoiceanuall.html:178
+#: .\templates\dashboard\viewinvoiceitems.html:107
+#: .\templates\dashboard\viewinvoiceitems.html:158
+#: .\templates\dashboard\viewinvoicemonth.html:117
+#: .\templates\dashboard\viewinvoicemonth.html:177
+#: .\templates\dashboard\viewmedicine.html:192
+#: .\templates\dashboard\viewmedicine.html:242
+#: .\templates\dashboard\viewmedicinemonth.html:102
+#: .\templates\dashboard\viewtype.html:135
+#: .\templates\dashboard\viewtype.html:186
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\dashboard\customers.html:101
+msgid "No customer records found"
+msgstr "هیچ سابقه مشتری یافت نشد"
+
+#: .\templates\dashboard\dashboard.html:16
+#: .\templates\dashboard\dashboard.html:50
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\dashboard\dashboard.html:41
+#: .\templates\dashboard\dashboard.html:75
+#: .\templates\dashboard\viewinvoiceitems.html:6
+msgid "Invoice Items"
+msgstr "فاکتورها"
+
+#: .\templates\dashboard\dashboard.html:43
+#: .\templates\dashboard\dashboard.html:77
+msgid "Generate Report"
+msgstr "ایجاد گزارش"
+
+#: .\templates\dashboard\dashboard.html:117
+#: .\templates\dashboard\dashboard.html:161
+msgid "Earnings Monthly"
+msgstr "درآمد ماهانه"
+
+#: .\templates\dashboard\dashboard.html:139
+msgid "Earnings Monthly "
+msgstr "درآمد ماهانه"
+
+#: .\templates\dashboard\dashboard.html:193
+
+msgid "Earnings Annual"
+msgstr "درآمد سالانه"
+
+#: .\templates\dashboard\dashboard.html:213
+#: .\templates\dashboard\dashboard.html:549
+msgid "Total&nbsp;Earnings"
+msgstr "درآمد کل"
+
+#: .\templates\dashboard\dashboard.html:234
+msgid "Total Investment"
+msgstr "همه سرمایه گذاری"
+
+#: .\templates\dashboard\dashboard.html:255
+#: .\templates\dashboard\dashboard.html:591
+msgid "Total&nbsp;Medicines&nbsp;Record"
+msgstr "رکورد کل داروها"
+
+#: .\templates\dashboard\dashboard.html:277
+#: .\templates\dashboard\dashboard.html:613
+msgid "This&nbsp;Month&nbsp;Records"
+msgstr "رکورد این ماه"
+
+#: .\templates\dashboard\dashboard.html:299
+#: .\templates\dashboard\dashboard.html:635
+msgid "Number&nbsp;of&nbsp;Units&nbsp;Sold"
+msgstr "تعداد واحدهای فروخته شده"
+
+#: .\templates\dashboard\dashboard.html:320
+#: .\templates\dashboard\dashboard.html:656
+msgid "Expiring&nbsp;Soon"
+msgstr "انقضاء به زودی"
+
+#: .\templates\dashboard\dashboard.html:339
+#: .\templates\dashboard\dashboard.html:675
+msgid "ExpiringY&nbsp;this&nbsp;Month"
+msgstr "این ماه منقضی می شود"
+
+#: .\templates\dashboard\dashboard.html:361
+#: .\templates\dashboard\dashboard.html:697
+msgid "Expired&nbsp;Units"
+msgstr "واحدهای منقضی شده"
+
+#: .\templates\dashboard\dashboard.html:383
+#: .\templates\dashboard\dashboard.html:719
+msgid "Total&nbsp;Users"
+msgstr "کل کاربران"
+
+#: .\templates\dashboard\dashboard.html:404
+#: .\templates\dashboard\dashboard.html:740
+#: .\templates\dashboard\dashboard.html:1194
+msgid "Admins"
+msgstr "ادمینها"
+
+#: .\templates\dashboard\dashboard.html:424
+#: .\templates\dashboard\dashboard.html:760
+#: .\templates\dashboard\dashboard.html:1214
+msgid "Moderators"
+msgstr "ناظران"
+
+#: .\templates\dashboard\dashboard.html:445
+#: .\templates\dashboard\dashboard.html:781
+msgid "Total&nbsp;Customers"
+msgstr "مشتریان"
+
+#: .\templates\dashboard\dashboard.html:467
+#: .\templates\dashboard\dashboard.html:803
+msgid "Total&nbsp;Invoices"
+msgstr "کل فاکتورها"
+
+#: .\templates\dashboard\dashboard.html:504
+msgid "Earnings&#41;Monthly"
+msgstr "درآمد ماهانه"
+
+#: .\templates\dashboard\dashboard.html:529
+msgid "Earnings&#41;Annual"
+msgstr "درآمد سالانه"
+
+#: .\templates\dashboard\dashboard.html:570
+msgid "Total&nbsp;Investment"
+msgstr "همه سرمایه گذاری"
+
+#: .\templates\dashboard\dashboard.html:839
+#: .\templates\dashboard\dashboard.html:1011
+msgid "Earnings&nbsp;Overview"
+msgstr "نمای کلی درآمد"
+
+#: .\templates\dashboard\dashboard.html:872
+#: .\templates\dashboard\dashboard.html:1043
+msgid "Payments&nbsp;Methods"
+msgstr "روش های پرداخت"
+
+#: .\templates\dashboard\dashboard.html:902
+#: .\templates\dashboard\dashboard.html:915
+#: .\templates\dashboard\dashboard.html:934
+#: .\templates\dashboard\dashboard.html:1073
+#: .\templates\dashboard\dashboard.html:1086
+#: .\templates\dashboard\dashboard.html:1100
+#: .\templates\dashboard\viewinvoice.html:53
+#: .\templates\dashboard\viewinvoice.html:70
+#: .\templates\dashboard\viewinvoiceanuall.html:53
+#: .\templates\dashboard\viewinvoiceanuall.html:70
+#: .\templates\dashboard\viewinvoicemonth.html:52
+#: .\templates\dashboard\viewinvoicemonth.html:69
+msgid "Cash"
+msgstr "پول نقد"
+
+#: .\templates\dashboard\dashboard.html:905
+#: .\templates\dashboard\dashboard.html:920
+#: .\templates\dashboard\dashboard.html:939
+#: .\templates\dashboard\dashboard.html:1076
+#: .\templates\dashboard\dashboard.html:1091
+#: .\templates\dashboard\dashboard.html:1105
+msgid "Pay&nbsp;Later"
+msgstr "بعدا پرداخت کنید"
+
+#: .\templates\dashboard\dashboard.html:1189
+msgid "Units&nbsp;Recorded&nbsp;By"
+msgstr "واحدهای ثبت شده توسط"
+
+#: .\templates\dashboard\dashboard.html:1195
+#: .\templates\dashboard\dashboard.html:1215
+#: .\templates\dashboard\invoicetopdf.html:329
+#: .\templates\dashboard\invoicetopdfdownload.html:319
+#: .\templates\dashboard\invoicetopdfprint.html:317
+#: .\templates\dashboard\invoicetopdftemplate.html:319
+msgid "Total"
+msgstr "جمع"
+
+#: .\templates\dashboard\editinvoice.html:4
+msgid "Invoice Update"
+msgstr "بروز رسانی بل"
+
+#: .\templates\dashboard\editinvoice.html:11
+msgid "Update Invoice Payment Method"
+msgstr "بروز رسانی روش پرداخت بل"
+
+#: .\templates\dashboard\editinvoice.html:31
+msgid "Invoice Update Form"
+msgstr "فرم بروز رسانی بل"
+
+#: .\templates\dashboard\editinvoice.html:38
+#: .\templates\dashboard\viewinvoice.html:51
+#: .\templates\dashboard\viewinvoice.html:68
+#: .\templates\dashboard\viewinvoiceanuall.html:51
+#: .\templates\dashboard\viewinvoiceanuall.html:68
+#: .\templates\dashboard\viewinvoicemonth.html:50
+#: .\templates\dashboard\viewinvoicemonth.html:67
+msgid "Total Amount"
+msgstr "کل مبلغ"
+
+#: .\templates\dashboard\editinvoice.html:42
+#: .\templates\dashboard\invoicetopdf.html:336
+#: .\templates\dashboard\invoicetopdf.html:344
+#: .\templates\dashboard\invoicetopdf.html:352
+#: .\templates\dashboard\invoicetopdf.html:361
+#: .\templates\dashboard\invoicetopdfdownload.html:326
+#: .\templates\dashboard\invoicetopdfdownload.html:334
+#: .\templates\dashboard\invoicetopdfdownload.html:342
+#: .\templates\dashboard\invoicetopdfdownload.html:351
+#: .\templates\dashboard\invoicetopdfprint.html:324
+#: .\templates\dashboard\invoicetopdfprint.html:332
+#: .\templates\dashboard\invoicetopdfprint.html:340
+#: .\templates\dashboard\invoicetopdfprint.html:349
+#: .\templates\dashboard\invoicetopdftemplate.html:326
+#: .\templates\dashboard\invoicetopdftemplate.html:334
+#: .\templates\dashboard\invoicetopdftemplate.html:342
+#: .\templates\dashboard\invoicetopdftemplate.html:351
+#: .\templates\dashboard\viewinvoice.html:52
+#: .\templates\dashboard\viewinvoice.html:69
+#: .\templates\dashboard\viewinvoiceanuall.html:52
+#: .\templates\dashboard\viewinvoiceanuall.html:69
+#: .\templates\dashboard\viewinvoicemonth.html:51
+#: .\templates\dashboard\viewinvoicemonth.html:68
+msgid "Payment Method"
+msgstr "روش پرداخت"
+
+#: .\templates\dashboard\editinvoice.html:44
+msgid "Please Choose Payment"
+msgstr "لطفا پرداخت را انتخاب کنید"
+
+#: .\templates\dashboard\editinvoice.html:54
+msgid "Please select a valid Choice."
+msgstr ".لطفاً یک انتخاب معتبر انتخاب کنید"
+
+#: .\templates\dashboard\editinvoice.html:58
+msgid "Cash Payment Amount"
+msgstr "مبلغ پرداخت نقدی"
+
+#: .\templates\dashboard\editinvoice.html:62
+msgid "Pay Later Payment Amount"
+msgstr "مبلغ پرداخت بعداً"
+
+#: .\templates\dashboard\editinvoice.html:66
+msgid "Split Payment Amount"
+msgstr "مبلغ پرداخت تقسیم شده"
+
+#: .\templates\dashboard\editinvoice.html:72
+msgid "Update Invoice Number"
+msgstr "بروز رسانی شماره بل"
+
+#: .\templates\dashboard\expiredmedicine.html:4
+msgid "Expired Medicine list"
+msgstr "لیست دواهای تاریخ تیر شده"
+
+#: .\templates\dashboard\expiredmedicine.html:18
+msgid "List of all Expired Medicines"
+msgstr "لست تمام دواهای تاریخ تیر شده"
+
+#: .\templates\dashboard\expiredmedicine.html:20
+msgid " Expiring Soon"
+msgstr "انقضاء به زودی"
+
+#: .\templates\dashboard\expiredmedicine.html:27
+msgid "List of all Medicine Expired"
+msgstr "لست تمام دواهای تاریخ تیر شده"
+
+#: .\templates\dashboard\expiredmedicine.html:35
+#: .\templates\dashboard\expiredmedicine.html:52
+#: .\templates\dashboard\expiresoon.html:36
+#: .\templates\dashboard\expiresoon.html:53
+#: .\templates\dashboard\expirethismonth.html:36
+#: .\templates\dashboard\expirethismonth.html:53
+#: .\templates\dashboard\viewcompanylog.html:44
+#: .\templates\dashboard\viewmedicine.html:86
+#: .\templates\dashboard\viewmedicine.html:106
+#: .\templates\dashboard\viewmedicinelog.html:34
+#: .\templates\dashboard\viewmedicinelog.html:42
+#: .\templates\dashboard\viewmedicinemonth.html:30
+#: .\templates\dashboard\viewmedicinemonth.html:48
+msgid "Medicine ID"
+msgstr "آی دی دوا"
+
+#: .\templates\dashboard\expiredmedicine.html:40
+#: .\templates\dashboard\expiredmedicine.html:57
+#: .\templates\dashboard\expiresoon.html:41
+#: .\templates\dashboard\expiresoon.html:58
+#: .\templates\dashboard\expirethismonth.html:41
+#: .\templates\dashboard\expirethismonth.html:58
+#: .\templates\dashboard\viewmedicine.html:91
+#: .\templates\dashboard\viewmedicine.html:111
+#: .\templates\dashboard\viewmedicinemonth.html:35
+#: .\templates\dashboard\viewmedicinemonth.html:53
+msgid "Exp Date"
+msgstr "تاریخ انقضاء"
+
+#: .\templates\dashboard\expiredmedicine.html:41
+#: .\templates\dashboard\expiredmedicine.html:58
+#: .\templates\dashboard\expiresoon.html:42
+#: .\templates\dashboard\expiresoon.html:59
+#: .\templates\dashboard\expirethismonth.html:42
+#: .\templates\dashboard\expirethismonth.html:59
+#: .\templates\dashboard\viewmedicine.html:92
+#: .\templates\dashboard\viewmedicine.html:112
+#: .\templates\dashboard\viewmedicinemonth.html:36
+#: .\templates\dashboard\viewmedicinemonth.html:54
+msgid "Mfg Date"
+msgstr "تاریخ تولید"
+
+#: .\templates\dashboard\expiredmedicine.html:42
+#: .\templates\dashboard\expiredmedicine.html:59
+#: .\templates\dashboard\expiresoon.html:43
+#: .\templates\dashboard\expiresoon.html:60
+#: .\templates\dashboard\expirethismonth.html:43
+#: .\templates\dashboard\expirethismonth.html:60
+#: .\templates\dashboard\updatemedicine.html:106
+#: .\templates\dashboard\viewcompany.html:88
+#: .\templates\dashboard\viewcompany.html:102
+#: .\templates\dashboard\viewcompanylog.html:36
+#: .\templates\dashboard\viewmedicine.html:93
+#: .\templates\dashboard\viewmedicine.html:113
+#: .\templates\dashboard\viewmedicinemonth.html:37
+#: .\templates\dashboard\viewmedicinemonth.html:55
+msgid "Company ID"
+msgstr "آی دی کمپنی"
+
+#: .\templates\dashboard\expiredmedicine.html:45
+#: .\templates\dashboard\expiredmedicine.html:62
+#: .\templates\dashboard\expiresoon.html:46
+#: .\templates\dashboard\expiresoon.html:63
+#: .\templates\dashboard\expirethismonth.html:46
+#: .\templates\dashboard\expirethismonth.html:63
+#: .\templates\dashboard\viewmedicine.html:96
+#: .\templates\dashboard\viewmedicine.html:116
+#: .\templates\dashboard\viewmedicinemonth.html:40
+#: .\templates\dashboard\viewmedicinemonth.html:58
+msgid "Qty in Strip"
+msgstr "اندازه در یک تخته"
+
+#: .\templates\dashboard\expiredmedicine.html:47
+#: .\templates\dashboard\expiredmedicine.html:64
+#: .\templates\dashboard\expiresoon.html:48
+#: .\templates\dashboard\expiresoon.html:65
+#: .\templates\dashboard\expirethismonth.html:48
+#: .\templates\dashboard\expirethismonth.html:65
+#: .\templates\dashboard\viewcompany.html:94
+#: .\templates\dashboard\viewcompany.html:108
+#: .\templates\dashboard\viewcompany.html:185
+#: .\templates\dashboard\viewinvoice.html:49
+#: .\templates\dashboard\viewinvoice.html:66
+#: .\templates\dashboard\viewinvoiceanuall.html:49
+#: .\templates\dashboard\viewinvoiceanuall.html:66
+#: .\templates\dashboard\viewinvoiceitems.html:49
+#: .\templates\dashboard\viewinvoiceitems.html:64
+#: .\templates\dashboard\viewinvoicemonth.html:48
+#: .\templates\dashboard\viewinvoicemonth.html:65
+#: .\templates\dashboard\viewmedicine.html:98
+#: .\templates\dashboard\viewmedicine.html:118
+#: .\templates\dashboard\viewmedicine.html:234
+#: .\templates\dashboard\viewmedicinemonth.html:42
+#: .\templates\dashboard\viewmedicinemonth.html:60
+#: .\templates\dashboard\viewsold.html:52
+#: .\templates\dashboard\viewtype.html:90
+#: .\templates\dashboard\viewtype.html:99
+#: .\templates\dashboard\viewtype.html:178
+msgid "Added By"
+msgstr "اضافه شده توسط"
+
+#: .\templates\dashboard\expiredmedicine.html:88
+msgid "No records found expired"
+msgstr "هیچ سابقه ای پیدا نشد منقضی شده باشد"
+
+#: .\templates\dashboard\expiresoon.html:18
+msgid "Medicine Details Expiring Soon"
+msgstr "جزئیات دوا به زودی منقضی می شود"
+
+#: .\templates\dashboard\expiresoon.html:28
+msgid "List of all Medicine Expiring Soon"
+msgstr "لیست تمام دواهای که به زودی منقضی می شوند"
+
+#: .\templates\dashboard\expiresoon.html:89
+msgid "No records found expiring soon"
+msgstr "هیچ سابقه ای پیدا نشد که به زودی منقضی می شود"
+
+#: .\templates\dashboard\expirethismonth.html:18
+msgid "Medicine Details Expiring This Month"
+msgstr "جزئیات دوا که این ماه منقضی می شود"
+
+#: .\templates\dashboard\expirethismonth.html:28
+msgid "Medicine list Expiring This Month"
+msgstr "فهرست دواهای که در این ماه منقضی می شود"
+
+#: .\templates\dashboard\expirethismonth.html:89
+msgid "no medicine found expiring this month"
+msgstr "هیچ دارویی منقضی در این ماه پیدا نشد"
+
+#: .\templates\dashboard\invoicetopdf.html:10
+#: .\templates\dashboard\invoicetopdfdownload.html:7
+#: .\templates\dashboard\invoicetopdftemplate.html:7
+#, fuzzy
+#| msgid "Invoices"
+msgid "Invoice PDF"
+msgstr "بل پی دی ایف"
+
+#: .\templates\dashboard\invoicetopdf.html:237
+#, fuzzy
+#| msgid "View Invoices"
+msgid "Print Invoice"
+msgstr "چاپ بل"
+
+#: .\templates\dashboard\invoicetopdf.html:238
+msgid "Save as PDf"
+msgstr "دخیره پی دی ایف"
+
+#: .\templates\dashboard\invoicetopdf.html:245
+#: .\templates\dashboard\invoicetopdfdownload.html:235
+#: .\templates\dashboard\invoicetopdfprint.html:233
+#: .\templates\dashboard\invoicetopdftemplate.html:235
+msgid "Invoice"
+msgstr "بل"
+
+#: .\templates\dashboard\invoicetopdf.html:250
+#: .\templates\dashboard\invoicetopdfdownload.html:240
+#: .\templates\dashboard\invoicetopdfprint.html:238
+#: .\templates\dashboard\invoicetopdftemplate.html:240
+msgid "Store"
+msgstr "ادویه فروشی"
+
+#: .\templates\dashboard\invoicetopdf.html:255
+#: .\templates\dashboard\invoicetopdfdownload.html:245
+#: .\templates\dashboard\invoicetopdfprint.html:243
+#: .\templates\dashboard\invoicetopdftemplate.html:245
+msgid "Example Whole Sale"
+msgstr "نمونه"
+
+#: .\templates\dashboard\invoicetopdf.html:256
+#: .\templates\dashboard\invoicetopdfdownload.html:246
+#: .\templates\dashboard\invoicetopdfprint.html:244
+#: .\templates\dashboard\invoicetopdftemplate.html:246
+msgid "Arzan Qimat, Block 12, Kabul"
+msgstr "ارزان قیمت، بلاک ۱۲، کابل"
+
+#: .\templates\dashboard\invoicetopdf.html:257
+#: .\templates\dashboard\invoicetopdfdownload.html:247
+#: .\templates\dashboard\invoicetopdfprint.html:245
+#: .\templates\dashboard\invoicetopdftemplate.html:247
+msgid "+937815374123"
+msgstr "+۹۳۷۸۱۵۳۷۴۱۲۳"
+
+#: .\templates\dashboard\invoicetopdf.html:262
+#: .\templates\dashboard\invoicetopdfdownload.html:252
+#: .\templates\dashboard\invoicetopdfprint.html:250
+#: .\templates\dashboard\invoicetopdftemplate.html:252
+#: .\templates\dashboard\viewinvoice.html:48
+#: .\templates\dashboard\viewinvoice.html:65
+#: .\templates\dashboard\viewinvoice.html:159
+#: .\templates\dashboard\viewinvoiceanuall.html:48
+#: .\templates\dashboard\viewinvoiceanuall.html:65
+#: .\templates\dashboard\viewinvoiceanuall.html:159
+#: .\templates\dashboard\viewinvoiceitems.html:43
+#: .\templates\dashboard\viewinvoiceitems.html:58
+#: .\templates\dashboard\viewinvoicemonth.html:47
+#: .\templates\dashboard\viewinvoicemonth.html:64
+#: .\templates\dashboard\viewinvoicemonth.html:158
+#: .\templates\dashboard\viewsold.html:34
+#: .\templates\dashboard\viewsold.html:46
+msgid "Invoice Number"
+msgstr "نمبر بل"
+
+#: .\templates\dashboard\invoicetopdf.html:263
+#: .\templates\dashboard\invoicetopdfdownload.html:253
+#: .\templates\dashboard\invoicetopdfprint.html:251
+#: .\templates\dashboard\invoicetopdftemplate.html:253
+msgid "Issued Date"
+msgstr "تاریخ صدور"
+
+#: .\templates\dashboard\invoicetopdf.html:264
+#: .\templates\dashboard\invoicetopdfdownload.html:254
+#: .\templates\dashboard\invoicetopdfprint.html:252
+#: .\templates\dashboard\invoicetopdftemplate.html:254
+#: .\templates\dashboard\viewinvoice.html:161
+#: .\templates\dashboard\viewinvoiceanuall.html:161
+#: .\templates\dashboard\viewinvoicemonth.html:160
+msgid "Issued By"
+msgstr "صادر شده توسط"
+
+#: .\templates\dashboard\invoicetopdf.html:274
+#, fuzzy
+#| msgid "Customer"
+msgid "Customer:"
+msgstr "مشتری"
+
+#: .\templates\dashboard\invoicetopdf.html:275
+#, fuzzy
+#| msgid "Address"
+msgid "Address:"
+msgstr "آدرس"
+
+#: .\templates\dashboard\invoicetopdf.html:276
+msgid "Contact:"
+msgstr ""
+
+#: .\templates\dashboard\invoicetopdf.html:294
+#: .\templates\dashboard\invoicetopdfdownload.html:284
+#: .\templates\dashboard\invoicetopdfprint.html:282
+#: .\templates\dashboard\invoicetopdftemplate.html:284
+msgid "#"
+msgstr "شماره"
+
+#: .\templates\dashboard\invoicetopdf.html:296
+#: .\templates\dashboard\invoicetopdfdownload.html:286
+#: .\templates\dashboard\invoicetopdfprint.html:284
+#: .\templates\dashboard\invoicetopdftemplate.html:286
+#: .\templates\dashboard\viewinvoiceitems.html:45
+#: .\templates\dashboard\viewinvoiceitems.html:60
+#: .\templates\dashboard\viewinvoiceitems.html:150
+#: .\templates\dashboard\viewsold.html:36
+#: .\templates\dashboard\viewsold.html:48
+msgid "Quantity"
+msgstr "اندازه"
+
+#: .\templates\dashboard\invoicetopdf.html:298
+#: .\templates\dashboard\invoicetopdfdownload.html:288
+#: .\templates\dashboard\invoicetopdfprint.html:286
+#: .\templates\dashboard\invoicetopdftemplate.html:288
+#: .\templates\dashboard\viewinvoiceitems.html:46
+#: .\templates\dashboard\viewinvoiceitems.html:61
+#: .\templates\dashboard\viewsold.html:37
+#: .\templates\dashboard\viewsold.html:49
+msgid "Discount"
+msgstr "تخفیف"
+
+#: .\templates\dashboard\invoicetopdf.html:299
+#: .\templates\dashboard\invoicetopdfdownload.html:289
+#: .\templates\dashboard\invoicetopdfprint.html:287
+#: .\templates\dashboard\invoicetopdftemplate.html:289
+msgid "Total Price"
+msgstr "قیمت کل"
+
+#: .\templates\dashboard\invoicetopdf.html:318
+#: .\templates\dashboard\invoicetopdfdownload.html:308
+#: .\templates\dashboard\invoicetopdfprint.html:306
+#: .\templates\dashboard\invoicetopdftemplate.html:308
+msgid "Sub Total"
+msgstr "جمع فرعی"
+
+#: .\templates\dashboard\invoicetopdf.html:323
+#: .\templates\dashboard\invoicetopdfdownload.html:313
+#: .\templates\dashboard\invoicetopdfprint.html:311
+#: .\templates\dashboard\invoicetopdftemplate.html:313
+msgid "Total Discount"
+msgstr "مجموع تخفیف"
+
+#: .\templates\dashboard\invoicetopdf.html:346
+#: .\templates\dashboard\invoicetopdfprint.html:334
+#: .\templates\dashboard\viewinvoice.html:54
+#: .\templates\dashboard\viewinvoice.html:71
+#: .\templates\dashboard\viewinvoiceanuall.html:54
+#: .\templates\dashboard\viewinvoiceanuall.html:71
+#: .\templates\dashboard\viewinvoicemonth.html:53
+#: .\templates\dashboard\viewinvoicemonth.html:70
+msgid "Pay Later"
+msgstr "بعدا پرداخت کنید"
+
+#: .\templates\dashboard\invoicetopdf.html:362
+#: .\templates\dashboard\invoicetopdf.html:393
+#: .\templates\dashboard\invoicetopdfdownload.html:352
+#: .\templates\dashboard\invoicetopdfdownload.html:383
+#: .\templates\dashboard\invoicetopdfprint.html:350
+#: .\templates\dashboard\invoicetopdfprint.html:381
+#: .\templates\dashboard\invoicetopdftemplate.html:352
+#: .\templates\dashboard\invoicetopdftemplate.html:383
+msgid "N/A"
+msgstr "نا معلوم"
+
+#: .\templates\dashboard\invoicetopdf.html:368
+#: .\templates\dashboard\invoicetopdf.html:380
+#: .\templates\dashboard\invoicetopdfdownload.html:358
+#: .\templates\dashboard\invoicetopdfdownload.html:370
+#: .\templates\dashboard\invoicetopdfprint.html:356
+#: .\templates\dashboard\invoicetopdfprint.html:368
+#: .\templates\dashboard\invoicetopdftemplate.html:358
+#: .\templates\dashboard\invoicetopdftemplate.html:370
+msgid "Cash Amount"
+msgstr "مبلغ نقدی"
+
+#: .\templates\dashboard\invoicetopdf.html:374
+#: .\templates\dashboard\invoicetopdf.html:385
+#: .\templates\dashboard\invoicetopdfdownload.html:364
+#: .\templates\dashboard\invoicetopdfdownload.html:375
+#: .\templates\dashboard\invoicetopdfprint.html:362
+#: .\templates\dashboard\invoicetopdfprint.html:373
+#: .\templates\dashboard\invoicetopdftemplate.html:364
+#: .\templates\dashboard\invoicetopdftemplate.html:375
+msgid "Pay Later Amount"
+msgstr "مبلغ بعدا پرداخت کنید"
+
+#: .\templates\dashboard\invoicetopdf.html:392
+#: .\templates\dashboard\invoicetopdfdownload.html:382
+#: .\templates\dashboard\invoicetopdfprint.html:380
+#: .\templates\dashboard\invoicetopdftemplate.html:382
+msgid "No Amount"
+msgstr "هیچ مقدار"
+
+#: .\templates\dashboard\invoicetopdf.html:398
+#: .\templates\dashboard\invoicetopdfdownload.html:388
+#: .\templates\dashboard\invoicetopdfprint.html:386
+#: .\templates\dashboard\invoicetopdftemplate.html:388
+msgid "Terms &amp; Conditions"
+msgstr "شرایط و ضوابط"
+
+#: .\templates\dashboard\invoicetopdf.html:403
+#: .\templates\dashboard\invoicetopdfdownload.html:393
+#: .\templates\dashboard\invoicetopdfprint.html:391
+#: .\templates\dashboard\invoicetopdftemplate.html:393
+msgid ""
+"All sales of medicine are considered final. Once a medicine product is sold, "
+"it cannot be returned for any reason."
+msgstr ""
+
+#: .\templates\dashboard\invoicetopdf.html:404
+#: .\templates\dashboard\invoicetopdfdownload.html:394
+#: .\templates\dashboard\invoicetopdfprint.html:392
+#: .\templates\dashboard\invoicetopdftemplate.html:394
+msgid ""
+"Our company reserves the right to refuse any returns or exchanges that do "
+"not comply with the stated terms and conditions or violate any relevant laws "
+"or regulations of this store."
+msgstr ""
+
+#: .\templates\dashboard\invoicetopdf.html:406
+#: .\templates\dashboard\invoicetopdfdownload.html:396
+#: .\templates\dashboard\invoicetopdfprint.html:394
+#: .\templates\dashboard\invoicetopdftemplate.html:396
+msgid ""
+"Please carefully read and understand these terms and conditions before "
+"making any purchases. By proceeding with the purchase, you agree to abide by "
+"these terms and conditions regarding the sale of medicine."
+msgstr ""
+
+#: .\templates\dashboard\invoicetopdf.html:415
+#: .\templates\dashboard\invoicetopdfdownload.html:405
+#: .\templates\dashboard\invoicetopdfprint.html:403
+#: .\templates\dashboard\invoicetopdftemplate.html:404
+msgid ""
+"NOTE: This is computer generated receipt and does not require physical "
+"signature."
+msgstr "توجه: این رسید کامپیوتری است و نیازی به امضای فیزیکی ندارد."
+
+#: .\templates\dashboard\invoicetopdfprint.html:7
+msgid "Invoice Printer Copy"
+msgstr "کاپی پرینتر بل"
+
+#: .\templates\dashboard\profile.html:4
+msgid "User Profile"
+msgstr "پروفایل کاربر"
+
+#: .\templates\dashboard\profile.html:16
+msgid "Profile Details"
+msgstr "تفصیل کاربر"
+
+#: .\templates\dashboard\profile.html:37
+#: .\templates\dashboard\usersadmin.html:40
+#: .\templates\dashboard\usersadmin.html:55
+#: .\templates\dashboard\usersdetails.html:65
+#: .\templates\dashboard\usersdetails.html:80
+#: .\templates\dashboard\usersmod.html:38
+#: .\templates\dashboard\usersmod.html:53
+msgid "User ID"
+msgstr "آی دی کاربر"
+
+#: .\templates\dashboard\profile.html:56 .\templates\dashboard\register.html:50
+#: .\templates\dashboard\usersadmin.html:41
+#: .\templates\dashboard\usersadmin.html:56
+#: .\templates\dashboard\usersdetails.html:66
+#: .\templates\dashboard\usersdetails.html:81
+#: .\templates\dashboard\usersmod.html:39
+#: .\templates\dashboard\usersmod.html:54
+msgid "User Name"
+msgstr "اسم کاربر"
+
+#: .\templates\dashboard\profile.html:75 .\templates\dashboard\register.html:60
+msgid "First Name"
+msgstr "اسم اول"
+
+#: .\templates\dashboard\profile.html:94 .\templates\dashboard\register.html:72
+#: .\templates\dashboard\usersadmin.html:43
+#: .\templates\dashboard\usersadmin.html:58
+#: .\templates\dashboard\usersdetails.html:68
+#: .\templates\dashboard\usersdetails.html:83
+#: .\templates\dashboard\usersmod.html:41
+#: .\templates\dashboard\usersmod.html:56
+msgid "Last Name"
+msgstr "اسم اخر"
+
+#: .\templates\dashboard\profile.html:112
+msgid "Full Name"
+msgstr "اسم مکمل"
+
+#: .\templates\dashboard\profile.html:129
+msgid "Created On"
+msgstr "بروز شده در"
+
+#: .\templates\dashboard\profile.html:148
+#: .\templates\dashboard\usersadmin.html:47
+#: .\templates\dashboard\usersadmin.html:62
+#: .\templates\dashboard\usersdetails.html:72
+#: .\templates\dashboard\usersdetails.html:87
+#: .\templates\dashboard\usersmod.html:45
+#: .\templates\dashboard\usersmod.html:60
+msgid "Last Login"
+msgstr ""
+
+#: .\templates\dashboard\profile.html:167
+#: .\templates\dashboard\register.html:82
+#: .\templates\dashboard\usersadmin.html:45
+#: .\templates\dashboard\usersadmin.html:60
+#: .\templates\dashboard\usersdetails.html:70
+#: .\templates\dashboard\usersdetails.html:85
+#: .\templates\dashboard\usersmod.html:43
+#: .\templates\dashboard\usersmod.html:58
+msgid "User Type"
+msgstr "نوعیت کاربر"
+
+#: .\templates\dashboard\profile.html:190
+msgid "Statistics"
+msgstr "آمار"
+
+#: .\templates\dashboard\profile.html:196
+#: .\templates\dashboard\profile.html:198
+msgid "Added"
+msgstr "اضافه شده"
+
+#: .\templates\dashboard\profile.html:200
+msgid "Medicine Edited"
+msgstr "ادویه بروز شده"
+
+#: .\templates\dashboard\register.html:6
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+#: .\templates\dashboard\register.html:19
+msgid "Account Registration Form"
+msgstr "فرم ثبت حساب"
+
+#: .\templates\dashboard\register.html:56
+msgid "Please write a valid User Name. (Min length: 3, Max length: 30)"
+msgstr "لطفا یک نام کاربری معتبر بنویسید. (حداقل طول: 3، حداکثر طول: 30)"
+
+#: .\templates\dashboard\register.html:66
+msgid "Please write a valid First Name."
+msgstr "لطفا یک نام معتبر بنویسید."
+
+#: .\templates\dashboard\register.html:78
+msgid "Please write a valid Last Name."
+msgstr "لطفا یک نام خانوادگی معتبر بنویسید"
+
+#: .\templates\dashboard\register.html:84
+msgid "Choose..."
+msgstr "...انتخاب کنید"
+
+#: .\templates\dashboard\register.html:90
+msgid "Please select a valid User Type."
+msgstr ".لطفاً یک انتخاب معتبر انتخاب کنید"
+
+#: .\templates\dashboard\register.html:99
+msgid "Email Address"
+msgstr "آدرس ایمیل"
+
+#: .\templates\dashboard\register.html:105
+msgid "Please write a valid Email Address."
+msgstr "لطفا یک آدرس ایمیل معتبر بنویسید."
+
+#: .\templates\dashboard\register.html:109
+msgid "Avatar"
+msgstr "آواتار"
+
+#: .\templates\dashboard\register.html:112
+msgid "Choose Image"
+msgstr "تصویر را انتخاب کنید"
+
+#: .\templates\dashboard\register.html:118
+msgid ""
+"Please choose a valid image. (Allowed formats: .jpg, .png; Max size: 2MB)"
+msgstr ""
+"لطفا یک تصویر معتبر انتخاب کنید. (فرمت های مجاز: jpg، .png؛ حداکثر اندازه: 2 "
+"مگابایت)"
+
+#: .\templates\dashboard\register.html:153
+msgid "Register Account"
+msgstr "ثبت حساب"
+
+#: .\templates\dashboard\updatecompany.html:5
+#: .\templates\dashboard\updatecompany.html:95
+msgid "Update Company"
+msgstr "بروز رسانی شرکت"
+
+#: .\templates\dashboard\updatecompany.html:18
+msgid "Update Company Form"
+msgstr "فورم بروز رسانی شرکت"
+
+#: .\templates\dashboard\updatemedicine.html:4
+#: .\templates\dashboard\updatemedicine.html:159
+msgid "Update Medicine"
+msgstr "بروز رسانی دوا"
+
+#: .\templates\dashboard\updatemedicine.html:17
+msgid "Update Medicine Form"
+msgstr "فارم بروز رسانی دوا"
+
+#: .\templates\dashboard\updatemedicine.html:108
+msgid "-- Select Company --"
+msgstr "-- انتخاب شرکت --"
+
+#: .\templates\dashboard\updatetype.html:19
+msgid "Update&nbsp;Medical&nbsp;Type"
+msgstr "رکورد کل داروها"
+
+#: .\templates\dashboard\updatetype.html:53
+msgid "Update Medical Type"
+msgstr "به روز رسانی نوع پزشکی"
+
+#: .\templates\dashboard\usersadmin.html:6
+#: .\templates\dashboard\usersdetails.html:4
+#: .\templates\dashboard\usersmod.html:4
+msgid "Users Data"
+msgstr "داده های کاربران"
+
+#: .\templates\dashboard\usersadmin.html:19
+msgid "Admins Details"
+msgstr "جزئیات مدیران"
+
+#: .\templates\dashboard\usersadmin.html:32
+msgid "List of all Admins"
+msgstr "لست تمام مدیران"
+
+#: .\templates\dashboard\usersadmin.html:42
+#: .\templates\dashboard\usersadmin.html:57
+#: .\templates\dashboard\usersdetails.html:67
+#: .\templates\dashboard\usersdetails.html:82
+#: .\templates\dashboard\usersmod.html:40
+#: .\templates\dashboard\usersmod.html:55
+msgid "Firt Name"
+msgstr "اسم اول"
+
+#: .\templates\dashboard\usersadmin.html:46
+#: .\templates\dashboard\usersadmin.html:61
+#: .\templates\dashboard\usersdetails.html:71
+#: .\templates\dashboard\usersdetails.html:86
+#: .\templates\dashboard\usersmod.html:44
+#: .\templates\dashboard\usersmod.html:59
+msgid "Creation Date"
+msgstr "تاریخ ایجاد"
+
+#: .\templates\dashboard\usersadmin.html:100
+#: .\templates\dashboard\usersdetails.html:126
+#: .\templates\dashboard\usersmod.html:98
+#: .\templates\dashboard\viewcompany.html:152
+#: .\templates\dashboard\viewcompanylog.html:63
+#: .\templates\dashboard\viewinvoice.html:127
+#: .\templates\dashboard\viewinvoiceanuall.html:127
+#: .\templates\dashboard\viewinvoiceitems.html:117
+#: .\templates\dashboard\viewinvoicemonth.html:126
+#: .\templates\dashboard\viewmedicine.html:201
+#: .\templates\dashboard\viewmedicinelog.html:61
+#: .\templates\dashboard\viewsold.html:71
+#: .\templates\dashboard\viewtype.html:145
+msgid "No records found"
+msgstr "هیچ رکوردی یافت نشد"
+
+#: .\templates\dashboard\usersdetails.html:14
+msgid "Users Details"
+msgstr "اطلاعات کاربران"
+
+#: .\templates\dashboard\usersdetails.html:17
+msgid " Add User"
+msgstr "افزودن کاربر"
+
+#: .\templates\dashboard\usersdetails.html:27
+msgid "List of all users"
+msgstr "لیست همه کاربران"
+
+#: .\templates\dashboard\usersmod.html:17
+msgid "Moderators Details"
+msgstr "شرع مکمل ناظران"
+
+#: .\templates\dashboard\usersmod.html:30
+msgid "List of all Moderators"
+msgstr "فهرست تمام سوابق ناظمان"
+
+#: .\templates\dashboard\viewcompany.html:6
+msgid "All Companies List"
+msgstr "مشاهده لست شرکتها"
+
+#: .\templates\dashboard\viewcompany.html:17
+msgid "All Companies Details"
+msgstr "تمام جزئیات شرکتها"
+
+#: .\templates\dashboard\viewcompany.html:27
+msgid "List of all Company record"
+msgstr "فهرست تمام سوابق شرکتها"
+
+#: .\templates\dashboard\viewcompany.html:89
+#: .\templates\dashboard\viewcompany.html:103
+#: .\templates\dashboard\viewcompanylog.html:37
+msgid "Company Name"
+msgstr "اسم شرکت"
+
+#: .\templates\dashboard\viewcompany.html:90
+#: .\templates\dashboard\viewcompany.html:104
+msgid "company address"
+msgstr "ادرس شرکت"
+
+#: .\templates\dashboard\viewcompany.html:173
+#: .\templates\dashboard\viewinvoice.html:150
+#: .\templates\dashboard\viewinvoiceanuall.html:150
+#: .\templates\dashboard\viewinvoiceitems.html:139
+#: .\templates\dashboard\viewinvoicemonth.html:149
+#: .\templates\dashboard\viewmedicine.html:222
+#: .\templates\dashboard\viewtype.html:166
+msgid "Warning"
+msgstr "هشدار"
+
+#: .\templates\dashboard\viewcompany.html:181
+#: .\templates\dashboard\viewmedicine.html:230
+#: .\templates\dashboard\viewtype.html:174
+msgid "You are about to delete medicine record"
+msgstr "شما در اقدام حذف سابقه دارو هستید"
+
+#: .\templates\dashboard\viewcompany.html:184
+#: .\templates\dashboard\viewmedicine.html:233
+#: .\templates\dashboard\viewtype.html:177
+msgid "Stock"
+msgstr "ذخیره"
+
+#: .\templates\dashboard\viewcompany.html:187
+#: .\templates\dashboard\viewinvoice.html:180
+#: .\templates\dashboard\viewinvoiceanuall.html:180
+#: .\templates\dashboard\viewinvoiceitems.html:152
+#: .\templates\dashboard\viewinvoicemonth.html:179
+#: .\templates\dashboard\viewmedicine.html:236
+#: .\templates\dashboard\viewtype.html:180
+msgid "click"
+msgstr "کلیک"
+
+#: .\templates\dashboard\viewcompany.html:187
+#: .\templates\dashboard\viewinvoice.html:180
+#: .\templates\dashboard\viewinvoiceanuall.html:180
+#: .\templates\dashboard\viewinvoiceitems.html:152
+#: .\templates\dashboard\viewinvoicemonth.html:179
+#: .\templates\dashboard\viewmedicine.html:236
+#: .\templates\dashboard\viewtype.html:180
+msgid "delete"
+msgstr "حذف"
+
+#: .\templates\dashboard\viewcompany.html:187
+#: .\templates\dashboard\viewinvoice.html:180
+#: .\templates\dashboard\viewinvoiceanuall.html:180
+#: .\templates\dashboard\viewinvoiceitems.html:152
+#: .\templates\dashboard\viewinvoicemonth.html:179
+#: .\templates\dashboard\viewmedicine.html:236
+#: .\templates\dashboard\viewtype.html:180
+msgid "to proceed or"
+msgstr "برای ادامه یا"
+
+#: .\templates\dashboard\viewcompany.html:187
+#: .\templates\dashboard\viewinvoice.html:180
+#: .\templates\dashboard\viewinvoiceanuall.html:180
+#: .\templates\dashboard\viewinvoiceitems.html:152
+#: .\templates\dashboard\viewinvoicemonth.html:179
+#: .\templates\dashboard\viewmedicine.html:236
+msgid "to dismiss"
+msgstr "اخراج کردن"
+
+#: .\templates\dashboard\viewcompany.html:208
+#: .\templates\dashboard\viewmedicine.html:257
+msgid "Success"
+msgstr "موفقیت"
+
+#: .\templates\dashboard\viewcompany.html:214
+#: .\templates\dashboard\viewmedicine.html:263
+msgid "OK"
+msgstr "اکی"
+
+#: .\templates\dashboard\viewcompanylog.html:6
+msgid "Company Update History"
+msgstr "گزارش به روز رسانی شرکت"
+
+#: .\templates\dashboard\viewcompanylog.html:17
+msgid "All Companies Log Details"
+msgstr "جزئیات ورود به سیستم همه شرکتها"
+
+#: .\templates\dashboard\viewcompanylog.html:20
+msgid "View Company"
+msgstr "مشاهده شرکت"
+
+#: .\templates\dashboard\viewcompanylog.html:27
+msgid "List of all Companies Log Records"
+msgstr "فهرست تمام سوابق ثبت شرکتها"
+
+#: .\templates\dashboard\viewcompanylog.html:38
+#: .\templates\dashboard\viewcompanylog.html:46
+#: .\templates\dashboard\viewmedicinelog.html:36
+#: .\templates\dashboard\viewmedicinelog.html:44
+msgid "Edited By"
+msgstr "بروز شده توسط"
+
+#: .\templates\dashboard\viewcompanylog.html:39
+#: .\templates\dashboard\viewcompanylog.html:47
+#: .\templates\dashboard\viewmedicinelog.html:37
+#: .\templates\dashboard\viewmedicinelog.html:45
+msgid "Edited On"
+msgstr "بروز شده در"
+
+#: .\templates\dashboard\viewinvoice.html:20
+msgid "All Invoices Details"
+msgstr "تمام جزئیات نوع پزشکی"
+
+#: .\templates\dashboard\viewinvoice.html:31
+msgid "List of all invoices record"
+msgstr "لیست تمام ثبت بل"
+
+#: .\templates\dashboard\viewinvoice.html:46
+#: .\templates\dashboard\viewinvoice.html:63
+#: .\templates\dashboard\viewinvoiceanuall.html:46
+#: .\templates\dashboard\viewinvoiceanuall.html:63
+#: .\templates\dashboard\viewinvoicemonth.html:45
+#: .\templates\dashboard\viewinvoicemonth.html:62
+msgid "Invoice ID"
+msgstr "ای دی بل"
+
+#: .\templates\dashboard\viewinvoice.html:47
+#: .\templates\dashboard\viewinvoice.html:64
+#: .\templates\dashboard\viewinvoiceanuall.html:47
+#: .\templates\dashboard\viewinvoiceanuall.html:64
+#: .\templates\dashboard\viewinvoicemonth.html:46
+#: .\templates\dashboard\viewinvoicemonth.html:63
+msgid "Cusmtomer"
+msgstr "مشتری"
+
+#: .\templates\dashboard\viewinvoice.html:50
+#: .\templates\dashboard\viewinvoice.html:67
+#: .\templates\dashboard\viewinvoiceanuall.html:50
+#: .\templates\dashboard\viewinvoiceanuall.html:67
+#: .\templates\dashboard\viewinvoiceitems.html:48
+#: .\templates\dashboard\viewinvoiceitems.html:63
+#: .\templates\dashboard\viewinvoicemonth.html:49
+#: .\templates\dashboard\viewinvoicemonth.html:66
+#: .\templates\dashboard\viewsold.html:51
+#: .\templates\dashboard\viewtype.html:91
+#: .\templates\dashboard\viewtype.html:100
+msgid "Added On"
+msgstr "اضافه شده در"
+
+#: .\templates\dashboard\viewinvoice.html:55
+#: .\templates\dashboard\viewinvoice.html:72
+#: .\templates\dashboard\viewinvoiceanuall.html:55
+#: .\templates\dashboard\viewinvoiceanuall.html:72
+#: .\templates\dashboard\viewinvoicemonth.html:54
+#: .\templates\dashboard\viewinvoicemonth.html:71
+msgid "Split"
+msgstr "دو تقسیم"
+
+#: .\templates\dashboard\viewinvoice.html:97
+#: .\templates\dashboard\viewinvoiceanuall.html:97
+#: .\templates\dashboard\viewinvoicemonth.html:96
+msgid "PDF"
+msgstr "ّپی دی ایف"
+
+#: .\templates\dashboard\viewinvoice.html:103
+#: .\templates\dashboard\viewinvoiceanuall.html:103
+#: .\templates\dashboard\viewinvoicemonth.html:102
+msgid "Print"
+msgstr "چاپ"
+
+#: .\templates\dashboard\viewinvoice.html:158
+#: .\templates\dashboard\viewinvoiceanuall.html:158
+#: .\templates\dashboard\viewinvoicemonth.html:157
+msgid "You are about to delete below invoice"
+msgstr "شما در حال حذف بل زیر هستید"
+
+#: .\templates\dashboard\viewinvoice.html:170
+#: .\templates\dashboard\viewinvoiceanuall.html:170
+#: .\templates\dashboard\viewinvoicemonth.html:169
+msgid "Return invoice items stock to medicine stock"
+msgstr ""
+
+#: .\templates\dashboard\viewinvoiceanuall.html:20
+msgid "Current Year"
+msgstr "سال جاری"
+
+#: .\templates\dashboard\viewinvoiceanuall.html:31
+msgid "List of all invoices record this year"
+msgstr "لیست تمام بل های ثبت شده در سال جاری"
+
+#: .\templates\dashboard\viewinvoiceitems.html:20
+msgid "List of Items for Invoice Number"
+msgstr "لیست اقلام برای شماره بل"
+
+#: .\templates\dashboard\viewinvoiceitems.html:34
+msgid "List of all bills record"
+msgstr "لست تمام ریکارد های بل"
+
+#: .\templates\dashboard\viewinvoiceitems.html:42
+#: .\templates\dashboard\viewinvoiceitems.html:57
+#: .\templates\dashboard\viewinvoiceitems.html:148
+#: .\templates\dashboard\viewsold.html:33
+#: .\templates\dashboard\viewsold.html:45
+#: .\templates\dashboard\viewtype.html:88
+#: .\templates\dashboard\viewtype.html:97
+msgid "ID"
+msgstr "آی دی"
+
+#: .\templates\dashboard\viewinvoiceitems.html:147
+msgid "You are about to delete invoice item"
+msgstr "شما در اقدام حذف سابقه بل هستید"
+
+#: .\templates\dashboard\viewinvoicemonth.html:19
+msgid "Current Month"
+msgstr "ماه جاری"
+
+#: .\templates\dashboard\viewinvoicemonth.html:30
+msgid "List of all invoices record this month"
+msgstr "لیست تمام فاکتورهای ثبت شده در این ماه"
+
+#: .\templates\dashboard\viewmedicine.html:4
+#: .\templates\dashboard\viewmedicinelog.html:4
+#: .\templates\dashboard\viewmedicinemonth.html:4
+msgid "All Medicine List"
+msgstr "لست ادویه‌ها"
+
+#: .\templates\dashboard\viewmedicine.html:15
+#: .\templates\dashboard\viewmedicinemonth.html:15
+msgid "All Medicine Details"
+msgstr "تمام جزئیات ادویه"
+
+#: .\templates\dashboard\viewmedicine.html:25
+msgid "List of all Medicine record"
+msgstr "فهرست تمام سوابق نوع پزشکی"
+
+#: .\templates\dashboard\viewmedicinelog.html:15
+msgid "All Medicine Log Details"
+msgstr "تمام جزئیات گزارش دوا"
+
+#: .\templates\dashboard\viewmedicinelog.html:25
+msgid "List of all Medicine Update Records"
+msgstr "فهرست تمام سوابق نوع پزشکی"
+
+#: .\templates\dashboard\viewmedicinemonth.html:22
+msgid "List of all Medicine record added this month"
+msgstr "فهرست تمام رکوردهای پزشکی اضافه شده در این ماه"
+
+#: .\templates\dashboard\viewmedicinemonth.html:43
+#: .\templates\dashboard\viewmedicinemonth.html:61
+#: .\templates\dashboard\viewtype.html:92
+#: .\templates\dashboard\viewtype.html:101
+msgid "Edit/Delete"
+msgstr "حذف/ویرایش"
+
+#: .\templates\dashboard\viewmedicinemonth.html:112
+msgid "No records added this month"
+msgstr "هیچ رکوردی در این ماه اضافه نشده است"
+
+#: .\templates\dashboard\viewsold.html:4
+msgid "All Medicine List Sold"
+msgstr "لیست تمام دواهای فروخته شده"
+
+#: .\templates\dashboard\viewsold.html:18
+msgid "All Medicine Details Sold"
+msgstr "تمام جزئیات نوع پزشکی"
+
+#: .\templates\dashboard\viewsold.html:19
+msgid "Sold Medicines"
+msgstr "ادویه فروخته شده"
+
+#: .\templates\dashboard\viewsold.html:25
+msgid "List of all sold Medicine record"
+msgstr "لیست تمام رکوردهای دوای فروخته شده"
+
+#: .\templates\dashboard\viewsold.html:39
+msgid "Sold On"
+msgstr "فروخته به تارخ"
+
+#: .\templates\dashboard\viewsold.html:40
+msgid "Sold By"
+msgstr "فروخت به واسطه"
+
+#: .\templates\dashboard\viewtype.html:17
+msgid "All Medical Type Details"
+msgstr "تمام جزئیات نوع پزشکی"
+
+#: .\templates\dashboard\viewtype.html:27
+msgid "List of all Medical Type record"
+msgstr "فهرست تمام سوابق نوع پزشکی"
+
+#: .\templates\login\index.html:4
+msgid "User Login"
+msgstr "وارد شدن کاربر"
+
+#: .\templates\login\index.html:22 .\templates\login\index.html:60
+msgid "Login"
+msgstr "وارد شدن"
+
+#: .\templates\login\index.html:34
+msgid "Enter Your Username..."
+msgstr "!نام کاربر خود را وادر کنید"
+
+#: .\templates\login\index.html:40
+msgid "Please Write a valid Username"
+msgstr "!لطفا یک نام کاربر معتبر بنویسید"
+
+#: .\templates\login\index.html:51
+msgid "Please Write a valid Password"
+msgstr "!لطفا یک رمز عبور معتبر بنویسید"
+
+#: .\templates\login\index.html:57
+msgid "Remember Me"
+msgstr "من را بیاد داشته باش"
+
+#: .\templates\login\index.html:64
+msgid "Forgot Password?"
+msgstr "رمز عبور را فراموش کردید؟"

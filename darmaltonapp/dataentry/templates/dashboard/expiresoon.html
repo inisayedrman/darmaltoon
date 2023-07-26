@@ -1,0 +1,102 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Expiring Soon{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"> {% blocktrans %}Medicine Details Expiring Soon{% endblocktrans %}</h1>
+                        <div>
+                            <a href="{% url 'expired' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Expired{% endblocktrans %}</a>
+                            <a href="{% url 'thismonth' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Expiring This Month{% endblocktrans %}</a>
+                        </div>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all Medicine Expiring Soon{% endblocktrans %}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if expiring_soon %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medical Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Buy Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Sell Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Exp Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Mfg Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Description{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}In Stock Total{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Qty in Strip{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added on{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medical Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Buy Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Sell Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Exp Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Mfg Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Description{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}In Stock Total{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Qty in Strip{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added on{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                    {% for medicine in expiring_soon %}
+                                        <tr>
+                                            <td>{{ medicine.id }}</td>
+                                            <td>{{ medicine.name }}</td>
+                                            <td>{{ medicine.type }}</td>
+                                            <td>{% blocktrans %}AFN{% endblocktrans %} {{ medicine.buy_price }}</td>
+                                            <td>{% blocktrans %}AFN{% endblocktrans %} {{ medicine.sell_price }}</td>
+                                            <td class="text-warning">{{ medicine.exp_date }}</td>
+                                            <td>{{ medicine.mfg_date }}</td>
+                                            <td>{{ medicine.company }}</td>
+                                            <td>{{ medicine.description }}</td>
+                                            <td>{{ medicine.in_stock_total }}</td>
+                                            <td>{{ medicine.qty_in_strip }}</td>
+                                            <td>{{ medicine.added_on }}</td>
+                                            <td>{{ medicine.added_by }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p> {% blocktrans %}No records found expiring soon{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+{%endblock%}
+

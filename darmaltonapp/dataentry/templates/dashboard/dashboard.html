@@ -1,0 +1,1199 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{%block template%}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    
+    {% for lang_code, lang_name in LANGUAGES %}
+    {% if request.LANGUAGE_CODE == lang_code %}
+       
+        {% if request.LANGUAGE_CODE == lang_code and lang_code == 'en' %}
+        <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Home{% endblocktrans %}</h1>
+        <div>
+            {% if messages %}
+                          <div class="alert alert-danger">
+                              
+                                  {% for message in messages %}
+                                  {{ message }}
+                                  {% endfor %}
+                              
+                          </div>
+                        {% endif %}
+        </div>
+        {% if form.errors %}
+            <ul>
+                {% for field in form %}
+                    {% if field.errors %}
+                        <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div>
+            <a href="{% url 'addmedicine' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Add Medicine{% endblocktrans %}</a>
+            <a href="{% url 'invoicerequest' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}New Invoice{% endblocktrans %}</a>
+            <a href="{% url 'additemstoinvoice' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Invoice Items{% endblocktrans %}</a>
+            {% if user_type == 'admin' %}
+            <a href="{% url 'generate_report' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;{% blocktrans %}Generate Report{% endblocktrans %}</a>
+            {% endif %}
+        </div>
+    </div>
+    {% elif request.LANGUAGE_CODE == lang_code and lang_code == 'fa' or request.LANGUAGE_CODE == lang_code and lang_code == 'ps' %}
+        <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between flex-row-reverse mb-4">
+        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Home{% endblocktrans %}</h1>
+        <div>
+            {% if messages %}
+                          <div class="alert alert-danger">
+                              
+                                  {% for message in messages %}
+                                  {{ message }}
+                                  {% endfor %}
+                              
+                          </div>
+                        {% endif %}
+        </div>
+        {% if form.errors %}
+            <ul>
+                {% for field in form %}
+                    {% if field.errors %}
+                        <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div>
+            <a href="{% url 'addmedicine' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Add Medicine{% endblocktrans %}</a>
+            <a href="{% url 'invoicerequest' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}New Invoice{% endblocktrans %}</a>
+            <a href="{% url 'additemstoinvoice' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Invoice Items{% endblocktrans %}</a>
+            {% if user_type == 'admin' %}
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;{% blocktrans %}Generate Report{% endblocktrans %}</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+
+
+
+    {% endif %}
+{% endfor %}
+
+
+
+
+
+
+
+
+
+{% for lang_code, lang_name in LANGUAGES %}
+
+    {% if request.LANGUAGE_CODE == lang_code and lang_code == 'en' %}
+    <div class="row">
+       
+        {% if user_type == 'admin' %}
+
+        <!-- Earnings (Daily) Card Example -->
+        {% comment %} <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoicesmonth' %}" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {% blocktrans %}Earnings Daily{% endblocktrans %}</div>
+                                
+                            <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings_daily }}</div>
+                            
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div> {% endcomment %}
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoicesmonth' %}" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {% blocktrans %}Earnings Monthly{% endblocktrans %}</div>
+                                
+                            <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings_monthly }}</div>
+                            
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Earnings Annual Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoicesyear' %}" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {% blocktrans %}Earnings Annual{% endblocktrans %}</div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings_anually }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+        
+
+        <!-- Earnings Total Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoices' %}" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{% blocktrans %}Total&nbsp;Earnings{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Total Investment Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'medicinelist' %}" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{% blocktrans %}Total Investment{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ total_investment }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+        {% endif %}
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'medicinelist' %}" >
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{% blocktrans %}Total&nbsp;Medicines&nbsp;Record{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ Medicine_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tablets fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'medicinemonth' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                {% blocktrans %}This&nbsp;Month&nbsp;Records{% endblocktrans %}</div>
+                            
+                            <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ recorded_this_month }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tablets fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4 ">
+            <div class="card border-left-info shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'soldmedicine' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                {% blocktrans %}Number&nbsp;of&nbsp;Units&nbsp;Sold{% endblocktrans %}</div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ sold_items_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tablets fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+           
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'soon' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                {% blocktrans %}Expiring&nbsp;Soon{% endblocktrans %}</div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ expiring_soon }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-day fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'thismonth' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">{% blocktrans %}ExpiringY&nbsp;this&nbsp;Month{% endblocktrans %}
+                            </div>
+                            
+                            <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ expiring_this_month }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'expired' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                {% blocktrans %}Expired&nbsp;Units{% endblocktrans %}</div>
+                                
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ expired }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'usersdetails'%}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                {% blocktrans %}Total&nbsp;Users{% endblocktrans %}</div>
+                                
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{user_count}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'admindetails' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                {% blocktrans %}Admins{% endblocktrans %}</div>
+                                
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{admin_count}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-secret fa-2x text-gray-300"></i> 
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'moddetails' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">{% blocktrans %}Moderators{% endblocktrans %}
+                            </div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{mod_count}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-injured fa-2x text-gray-300"></i> 
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'customers' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{% blocktrans %}Total&nbsp;Customers{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ customer_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="far fa-address-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoices' %}">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">{% blocktrans %}Total&nbsp;Invoices{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ invoice_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="far fa-address-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    {% comment %} for language fa and ps  {% endcomment %}
+
+
+
+
+    {% elif request.LANGUAGE_CODE == lang_code and lang_code == 'fa' or request.LANGUAGE_CODE == lang_code and lang_code == 'ps' %}
+    <div class="row d-flex flex-row flex-row-reverse justify-content-start">
+        {% if user_type == 'admin' %}
+    
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                        <a class="card-link" href="{% url 'viewinvoicesmonth' %}" >
+                        <div class="card-body">
+                            <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                                <div class="d-flex flex-column align-items-end">
+                                    <div class="text-xs text-end font-weight-bold text-primary text-uppercase mb-1 mr-3">
+                                        {% blocktrans %}Earnings&#41;Monthly{% endblocktrans %}</div>
+                                        
+                                    <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings_monthly }}</div>
+                                    
+                                </div>
+                                <div>
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+
+        {% endif %}
+       
+        {% if user_type == 'admin' %}
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoicesyear' %}" >
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mr-3">
+                                {% blocktrans %}Earnings&#41;Annual{% endblocktrans %}</div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings_anually }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Earnings (Total) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoices' %}" >
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mr-3">{% blocktrans %}Total&nbsp;Earnings{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ earnings }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Investment Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'medicinelist' %}" >
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mr-3">{% blocktrans %}Total&nbsp;Investment{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ total_investment }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+         <!-- Total Medicine Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'medicinelist' %}" >
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1 mr-3">{% blocktrans %}Total&nbsp;Medicines&nbsp;Record{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ Medicine_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tablets fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- This Month Records Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'medicinemonth' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1 mr-3">
+                                {% blocktrans %}This&nbsp;Month&nbsp;Records{% endblocktrans %}</div>
+                            
+                            <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ recorded_this_month }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tablets fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+        <!-- Number of units sold Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4 ">
+            <div class="card border-left-info shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'soldmedicine' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1 mr-3">
+                                {% blocktrans %}Number&nbsp;of&nbsp;Units&nbsp;Sold{% endblocktrans %}</div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ sold_items_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-tablets fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+           
+        </div>
+
+        <!-- Expiring Soon Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'soon' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 mr-3">
+                                {% blocktrans %}Expiring&nbsp;Soon{% endblocktrans %}</div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ expiring_soon }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-day fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Expiring This Week Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'thismonth' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1 mr-3">{% blocktrans %}ExpiringY&nbsp;this&nbsp;Month{% endblocktrans %}
+                            </div>
+                            
+                            <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ expiring_this_month }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Exired Units Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-danger shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'expired' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1 mr-3">
+                                {% blocktrans %}Expired&nbsp;Units{% endblocktrans %}</div>
+                                
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ expired }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+        <!-- Total Users Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'usersdetails'%}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1 mr-3">
+                                {% blocktrans %}Total&nbsp;Users{% endblocktrans %}</div>
+                                
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{user_count}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Admins Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'admindetails' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mr-3">
+                                {% blocktrans %}Admins{% endblocktrans %}</div>
+                                
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{admin_count}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-secret fa-2x text-gray-300"></i> 
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Moderators Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'moddetails' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1 mr-3">{% blocktrans %}Moderators{% endblocktrans %}
+                            </div>
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{mod_count}}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-user-injured fa-2x text-gray-300"></i> 
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Total Customers Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'customers' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mr-3">{% blocktrans %}Total&nbsp;Customers{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ customer_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="far fa-address-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!-- Total Invoices Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-left-primary shadow h-100 py-2" onmouseover="this.style.backgroundColor='#f8f9fc';" onmouseout="this.style.backgroundColor='white';">
+                <a class="card-link" href="{% url 'viewinvoices' %}">
+                <div class="card-body">
+                    <div class="row d-flex flex-row flex-row-reverse align-items-center justify-content-between">
+                        <div class="d-flex flex-column align-items-end">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 mr-3">{% blocktrans %}Total&nbsp;Invoices{% endblocktrans %}
+                            </div>
+                            
+                                <div class="mb-0 mr-3 font-weight-bold text-gray-800">{{ invoice_count }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="far fa-address-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+    </div>
+    {% endif %}
+                                
+{% endfor %}
+
+
+
+    
+{% if user_type == 'admin' %}
+{% for lang_code, lang_name in LANGUAGES %}
+        {% if request.LANGUAGE_CODE == lang_code %}
+            
+
+            {% if request.LANGUAGE_CODE == lang_code and lang_code == 'en' %}
+            <div class="row">
+                <!-- Area Chart -->
+                <div class="col-xl-8 col-lg-7">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}Earnings&nbsp;Overview{% endblocktrans %}</h6>
+                            <div class="dropdown no-arrow">
+                                {% comment %} <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                    aria-labelledby="dropdownMenuLink">
+                                    <div class="dropdown-header">Dropdown Header:</div>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="myAreaChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+        
+                <!-- Pie Chart -->
+                <div class="col-xl-4 col-lg-5">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div
+                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}Payments&nbsp;Methods{% endblocktrans %}</h6>
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                                {% comment %} <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                    aria-labelledby="dropdownMenuLink">
+                                    <div class="dropdown-header">Dropdown Header:</div>
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <div class="chart-pie pt-4 pb-2">
+                                <canvas id="myPieChart"></canvas>
+                            </div>
+                            <div class="mt-4 text-center small">
+                                
+                                
+                                
+                                    {% for lang_code, lang_name in LANGUAGES %}
+                                        {% if request.LANGUAGE_CODE == lang_code %}
+                                            {% if lang_code == 'en' %}
+                                                <span class="p-2">
+                                                    <i class="fas fa-circle text-primary"></i>&nbsp;{% blocktrans %}Cash{% endblocktrans %}
+                                                </span>
+                                                <span class="p-2">
+                                                    <i class="fas fa-circle text-success"></i>&nbsp;{% blocktrans %}Pay&nbsp;Later{% endblocktrans %}&nbsp;
+                                                </span>
+                                                {% comment %} <span class="p-2">
+                                                    <i class="fas fa-circle text-info"></i>&nbsp;{% blocktrans %}Split{% endblocktrans %}
+                                                </span> {% endcomment %}
+                                            {% elif lang_code == 'fa' %}
+                                                <div class="d-flex flex-row flex-row-reverse align-items-center justify-content-center">
+                                                    <div>
+                                                        <span class="p-2">
+                                                            <i class="fas fa-circle text-primary"></i>&nbsp;{% blocktrans %}Cash{% endblocktrans %}
+                                                        </span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="p-2">
+                                                            <i class="fas fa-circle text-success"></i>&nbsp;{% blocktrans %}Pay&nbsp;Later{% endblocktrans %}&nbsp;
+                                                        </span>
+                                                    </div>
+                                                    {% comment %} <div>
+                                                        <span class="p-2">
+                                                            <i class="fas fa-circle text-info"></i>&nbsp;{% blocktrans %}Split{% endblocktrans %}
+                                                        </span>
+                                                    </div> {% endcomment %}
+                                                </div>
+                                            {% elif lang_code == 'ps' %}
+                                            <div class="d-flex flex-row flex-row-reverse align-items-center justify-content-center">
+                                                <div>
+                                                    <span class="p-2">
+                                                        <i class="fas fa-circle text-primary"></i>&nbsp;{% blocktrans %}Cash{% endblocktrans %}
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <span class="p-2">
+                                                        <i class="fas fa-circle text-success"></i>&nbsp;{% blocktrans %}Pay&nbsp;Later{% endblocktrans %}&nbsp;
+                                                    </span>
+                                                </div>
+                                                {% comment %} <div>
+                                                    <span class="p-2">
+                                                        <i class="fas fa-circle text-info"></i>&nbsp;{% blocktrans %}Split{% endblocktrans %}
+                                                    </span>
+                                                </div> {% endcomment %}
+                                            </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                                    {% for lang_code, lang_name in LANGUAGES %}
+                                        {% if request.LANGUAGE_CODE == lang_code %}
+                                            {% comment %} {% if lang_code == 'en' %}
+                                                default
+                                            {% elif lang_code == 'fa' %}
+                                                code fa
+                                            {% elif lang_code == 'ps' %}
+                                                code ps
+                                            {% endif %} {% endcomment %}
+        
+        
+        
+        
+                                            {% if request.LANGUAGE_CODE == lang_code and lang_code == 'en' %}
+                                            <!-- Code for 'en' languages -->
+                                        {% elif request.LANGUAGE_CODE == lang_code and lang_code == 'fa' or request.LANGUAGE_CODE == lang_code and lang_code == 'ps' %}
+                                            <!-- Code for 'fa' and 'ps' languages -->
+                                        {% endif %}
+        
+        
+        
+        
+                                        {% endif %}
+                                    {% endfor %}
+        
+        
+                            </div>
+                        </div>
+        
+                        
+        
+                    </div>
+        
+        
+                    
+                </div>
+        
+            </div>
+        {% elif request.LANGUAGE_CODE == lang_code and lang_code == 'fa' or request.LANGUAGE_CODE == lang_code and lang_code == 'ps' %}
+        <div class="row d-flex flex-row flex-row-reverse justify-content-start ">
+            
+            <!-- Area Chart -->
+            <div class="col-xl-8 col-lg-7">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}Earnings&nbsp;Overview{% endblocktrans %}</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-area">
+                            <canvas id="myAreaChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <!-- Pie Chart -->
+            <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div
+                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}Payments&nbsp;Methods{% endblocktrans %}</h6>
+                        <div class="dropdown no-arrow">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                            </a>
+                            {% comment %} <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                                aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Dropdown Header:</div>
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <div class="chart-pie pt-4 pb-2">
+                            <canvas id="myPieChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center small">
+                            
+                            
+                            
+                                {% for lang_code, lang_name in LANGUAGES %}
+                                    {% if request.LANGUAGE_CODE == lang_code %}
+                                        {% if lang_code == 'en' %}
+                                            <span class="p-2">
+                                                <i class="fas fa-circle text-primary"></i>&nbsp;{% blocktrans %}Cash{% endblocktrans %}
+                                            </span>
+                                            <span class="p-2">
+                                                <i class="fas fa-circle text-success"></i>&nbsp;{% blocktrans %}Pay&nbsp;Later{% endblocktrans %}&nbsp;
+                                            </span>
+                                            <span class="p-2">
+                                                <i class="fas fa-circle text-success"></i>&nbsp;Test&nbsp;
+                                            </span>
+                                        
+                                        {% elif lang_code == 'fa' %}
+                                            <div class="d-flex flex-row flex-row-reverse align-items-center justify-content-center">
+                                                <div>
+                                                    <span class="p-2">
+                                                        <i class="fas fa-circle text-primary"></i>&nbsp;{% blocktrans %}Cash{% endblocktrans %}
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <span class="p-2">
+                                                        <i class="fas fa-circle text-success"></i>&nbsp;{% blocktrans %}Pay&nbsp;Later{% endblocktrans %}&nbsp;
+                                                    </span>
+                                                </div>
+                                                
+                                            </div>
+                                        {% elif lang_code == 'ps' %}
+                                        <div class="d-flex flex-row flex-row-reverse align-items-center justify-content-center">
+                                            <div>
+                                                <span class="p-2">
+                                                    <i class="fas fa-circle text-primary"></i>&nbsp;{% blocktrans %}Cash{% endblocktrans %}
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <span class="p-2">
+                                                    <i class="fas fa-circle text-success"></i>&nbsp;{% blocktrans %}Pay&nbsp;Later{% endblocktrans %}&nbsp;
+                                                </span>
+                                            </div>
+                                            
+                                        </div>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+                                {% for lang_code, lang_name in LANGUAGES %}
+                                    {% if request.LANGUAGE_CODE == lang_code %}
+                                        {% comment %} {% if lang_code == 'en' %}
+                                            default
+                                        {% elif lang_code == 'fa' %}
+                                            code fa
+                                        {% elif lang_code == 'ps' %}
+                                            code ps
+                                        {% endif %} {% endcomment %}
+    
+    
+    
+    
+                                        {% if request.LANGUAGE_CODE == lang_code and lang_code == 'en' %}
+                                        <!-- Code for 'en' languages -->
+                                    {% elif request.LANGUAGE_CODE == lang_code and lang_code == 'fa' or request.LANGUAGE_CODE == lang_code and lang_code == 'ps' %}
+                                        <!-- Code for 'fa' and 'ps' languages -->
+                                    {% endif %}
+    
+    
+    
+    
+                                    {% endif %}
+                                {% endfor %}
+    
+    
+                        </div>
+                    </div>
+    
+                    
+    
+                </div>
+    
+    
+                
+            </div>
+    
+        </div>
+        {% endif %}
+
+        
+
+
+        {% endif %}
+    {% endfor %}
+
+
+    <script>
+        var cash = "{{ cash_amount }}";
+        var pay_later = "{{ pay_later_amount }}";
+        // var split = "{{ split_amount }}";
+        var earningsMonthly = "{{ earnings_monthly }}";
+        var earningsAnnually = "{{ earnings_anually }}";
+        var earnings = "{{ earnings }}";
+    </script>
+
+
+
+    
+
+{% endif %}
+
+    <div class="card shadow mb-1">
+        <div class="card-body">
+            <h4 class="small font-weight-bold text-primary text-center">{% blocktrans %}Units&nbsp;Recorded&nbsp;By{% endblocktrans %}</h4>
+            <hr class="mt-2 mb-1"/>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 my-3 mt-2">
+                    <div class="d-flex flex-row align-items-center justify-content-between  justify-content-xl-around">
+                        <h4 class="small font-weight-bold">{% blocktrans %}Admins{% endblocktrans %}</h4>
+                        <h4 class="small font-weight-bold">{% blocktrans %}Total{% endblocktrans %}:&nbsp;{{ medicine_added_by_admin|default:0 }}</h4>
+                        <h4 class="small font-weight-bold"><span class="float-right">{{ percentage_admin|floatformat:2 }}%</span></h4>
+                    </div>
+                    <div class="progress">
+                        {% if percentage_admin < 20 %}
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{ percentage_admin }}%" aria-valuenow="{{ percentage_admin }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% elif percentage_admin < 40 %}
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{ percentage_admin }}%" aria-valuenow="{{ percentage_admin }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% elif percentage_admin < 60 %}
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ percentage_admin }}%" aria-valuenow="{{ percentage_admin }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% elif percentage_admin < 80 %}
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ percentage_admin }}%" aria-valuenow="{{ percentage_admin }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% else %}
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ percentage_admin }}%" aria-valuenow="{{ percentage_admin }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 my-3 mt-2">
+                    <div class="d-flex flex-row align-items-center justify-content-between  justify-content-xl-around">
+                        <h4 class="small font-weight-bold">{% blocktrans %}Moderators{% endblocktrans %}</h4>
+                        <h4 class="small font-weight-bold">{% blocktrans %}Total{% endblocktrans %}:&nbsp;{{ medicine_added_by_mod|default:0 }}</h4>
+                        <h4 class="small font-weight-bold"><span class="float-right">{{ percentage_mod|floatformat:2 }}%</span></h4>
+                    </div>
+                    <div class="progress">
+                        {% if percentage_mod < 20 %}
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: {{ percentage_mod }}%" aria-valuenow="{{ percentage_mod }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% elif percentage_mod < 40 %}
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{ percentage_mod }}%" aria-valuenow="{{ percentage_mod }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% elif percentage_mod < 60 %}
+                            <div class="progress-bar bg-info" role="progressbar" style="width: {{ percentage_mod }}%" aria-valuenow="{{ percentage_mod }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% elif percentage_mod < 80 %}
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ percentage_mod }}%" aria-valuenow="{{ percentage_mod }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% else %}
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ percentage_mod }}%" aria-valuenow="{{ percentage_mod }}" aria-valuemin="0" aria-valuemax="100"></div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+
+
+
+
+
+{%endblock%}
+

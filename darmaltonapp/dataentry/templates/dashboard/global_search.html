@@ -1,0 +1,96 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%}{% blocktrans %}Search result{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Search result Details{% endblocktrans %}</h1>
+                        
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all search result{% endblocktrans %}</h6>
+                            <div>
+
+                            {% comment %} {% if messages %}
+                              {% for message in messages %}
+                                  {% if message.tags %}
+                                      {% if message.tags == 'success' %}
+                                      <h6 {% if message.tags %} class=" {{ message.tags }} m-0 font-weight-bold text-secondary" {% endif %}> <i class="fas fa-plus text-primary fa-small"></i> {{ message }}</h6>
+                                      {% elif message.tags == 'error' %}
+                                          <h6 class="error-message">{{ message }}</h6>
+                                      {% else %}
+                                          <h6>{{ message }}</h6>
+                                      {% endif %}
+                                  {% else %}
+                                      <h6>{{ message }}</h6>
+                                  {% endif %}
+                              {% endfor %}
+                            {% endif %} {% endcomment %}
+                            {% if messages %}
+                              {% for message in messages %}
+                                  {% if message.tags %}
+                                      {% if message.tags == 'success' %}
+                                          {% if 'add' in message.tags %}
+                                              <h6 class="success-message">
+                                                  <i class="fas fa-plus text-primary fa-small"></i> {{ message }}
+                                              </h6>
+                                          {% elif 'edit' in message.tags %}
+                                              <h6 class="success-message">
+                                                  <i class="fas fa-edit text-primary fa-small"></i> {{ message }}
+                                              </h6>
+                                          {% else %}
+                                              <h6 class="success-message">{{ message }}</h6>
+                                          {% endif %}
+                                      {% elif message.tags == 'error' %}
+                                          <h6 class="error-message">{{ message }}</h6>
+                                      {% else %}
+                                          <h6>{{ message }}</h6>
+                                      {% endif %}
+                                  {% else %}
+                                      <h6>{{ message }}</h6>
+                                  {% endif %}
+                              {% endfor %}
+                          {% endif %}
+
+
+                            </div>
+                        </div>
+                        
+                        <div class="card-body">
+                            {% if results %}
+                                <h2>Search Results:</h2>
+                                <ul>
+                                    {% for result in results %}
+                                        <li>{{ result.model }}: {{ result.result }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p>No results found.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+
+
+
+{%endblock%}
+

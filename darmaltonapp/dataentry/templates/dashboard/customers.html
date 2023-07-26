@@ -1,0 +1,171 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Customers Data{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Customers Details{% endblocktrans %}</h1>
+                        
+                        <a href="{% url 'addcustomer' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Add Customer{% endblocktrans %}</a>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all Customers{% endblocktrans %}</h6>
+                            <div>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <h6 {% if message.tags %} class=" {{ message.tags }} m-0 font-weight-bold text-secondary" {% endif %}> <i class="fas fa-plus text-primary fa-small"></i> {{ message }}</h6>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if customer_data %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}Customer ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Address{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Contact{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Email{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added on{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added by{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}Customer ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Address{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Contact{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Customer Email{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added on{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added by{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for customer in customer_data %}
+                                        <tr>
+                                            <td>{{customer.id}}</td>
+                                            <td>{{customer.name}}</td>
+                                            <td>{{customer.address}}</td>
+                                            <td>{{customer.contact}}</td>
+                                            <td>{{customer.email}}</td>
+                                            <td>{{customer.added_on}}</td>
+                                            <td>{{customer.added_by}}</td>
+                                            {% if user_type == 'admin' %}
+                                            <td class="text-center">
+                                                <a href="{% url 'updatecustomer' record_id=customer.id %}" class="btn btn-info btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Edit{% endblocktrans %}</span>
+                                                </a>
+                                                
+
+                                                
+
+
+                                                <a href="#" data-toggle="modal" data-target="#DeleteCustomerModal{{ customer.id }}" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Delete{% endblocktrans %}</span>
+                                                </a>
+                                            </td>
+                                            {% endif %}
+                                        </tr>
+                                        
+                        
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p> {% blocktrans %}No customer records found{% endblocktrans %} </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+
+            {% for customer in customer_data %}
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="DeleteCustomerModal{{ customer.id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteCustomerModalTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="DeleteCustomerModalTitle">{% blocktrans %}Warning{% endblocktrans %}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span class="text-danger" aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row card m-3">   
+                        <ul class="list-group">
+                          <li class="list-group-item list-group-item-action list-group-item-primary">{% blocktrans %}You are about to delete Customer record{% endblocktrans %}</li>
+                          <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Name{% endblocktrans %}:</strong> {{ customer.id }}</li>
+                          <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Company{% endblocktrans %}:</strong> {{ customer.name }}</li>
+                        </ul>
+                      </div>
+                  </div>
+            
+                <form class="form-user" action="{% url 'deletecustomer' customer.id %}" method="POST">
+                    <div class="modal-footer">
+                        {% csrf_token %}
+                        <div class="form-group form-check m-auto">
+                            <input type="checkbox" id="keep_invoices" name="keep_invoices" value="True">
+                            <label class="form-check-label" for="keep_invoices">{% blocktrans %}Keep invoices{% endblocktrans %}</label>
+                        </div>
+                    </div>
+                      <div class="row m-auto p-2 text-center">
+                          <div class="col-6">
+                              <button type="button" class="btn btn-primary btn-user btn-block" data-dismiss="modal">{% blocktrans %}Cancel{% endblocktrans %}</button>
+                          </div>
+                          <div class="col-6">
+                              <button type="submit" class="btn btn-danger btn-user btn-block">{% blocktrans %}Delete{% endblocktrans %}</button>
+                          </div>
+                          <div class="p-2 text-secondary m-auto text-center">{% blocktrans %}click{% endblocktrans %}<span class="text-danger">{% blocktrans %}delete{% endblocktrans %}</span>{% blocktrans %}to proceed or{% endblocktrans %}<span class="text-danger">{% blocktrans %}Cancel{% endblocktrans %}</span>{% blocktrans %}to dismiss{% endblocktrans %}</div>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+            {% endfor %}
+            <!--End Delete Modal -->
+
+
+
+{%endblock%}
+
+
+

@@ -1,0 +1,126 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Add Company{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+<div class="container-fluid">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Add new Company{% endblocktrans %} </h1>
+                        </div>
+                        {% if messages %}
+                          <div class="alert alert-danger">
+                              
+                                  {% for message in messages %}
+                                  {{ message }}
+                                  {% endfor %}
+                              
+                          </div>
+                        {% endif %}
+
+
+                        {% if form.errors %}
+                          <div class="errors text-danger">
+                              <ul>
+                                  {% for field in form %}
+                                      {% if field.errors %}
+                                          <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
+                                      {% endif %}
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                        {% endif %}
+
+                        <form method="post" class="user needs-validation" novalidate autocomplete="off">
+                          {% csrf_token %}
+                          <div class="form-group row">
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 my-3 mt-3">
+                              <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CompanyName" class="form-label">{% blocktrans %}Name{% endblocktrans %}</label>
+                              <input type="text" class="form-control form-control-user" id="CompanyName" name="name"
+                                  placeholder="Company Name" autofocus required pattern="^[A-Za-z][A-Za-z0-9_ ]{2,29}$">
+                              <div class="valid-tooltip">
+                                {% blocktrans %}Looks good!{% endblocktrans %}
+                              </div>
+                              <div class="invalid-tooltip">
+                                {% blocktrans %}Please Write a valid Medicine Name{% endblocktrans %}
+                              </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 my-3 mt-3">
+                              <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CompanyAddress" class="form-label">{% blocktrans %}Address{% endblocktrans %}</label>
+                              <input type="text" class="form-control form-control-user" id="CompanyAddress" name="address"
+                                  placeholder="Company Address" autofocus required pattern="^[A-Za-z][A-Za-z0-9_ ]{2,29}$">
+                              <div class="valid-tooltip">
+                                {% blocktrans %}Looks good!{% endblocktrans %}
+                              </div>
+                              <div class="invalid-tooltip">
+                                {% blocktrans %}Please Write a valid Medicine Name{% endblocktrans %}
+                              </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 my-3 mt-3">
+                              <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CompanyContact" class="form-label">{% blocktrans %}Contact{% endblocktrans %}</label>
+                                  <input type="tel" class="form-control form-control-user" name="contact"
+                                        id="CompanyContact" placeholder="+93000000000" required pattern="\++[0-9]{5,50}$">
+                              <div class="valid-tooltip">
+                                {% blocktrans %}Looks good!{% endblocktrans %}
+                              </div>
+                              <div class="invalid-tooltip">
+                                {% blocktrans %}Please Write a valid Medicine Name{% endblocktrans %}
+                              </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 my-3 mt-3">
+                              <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CompanyEmail" class="form-label">{% blocktrans %}Email{% endblocktrans %}</label>
+                              <input type="email" class="form-control form-control-user" id="CompanyEmail" name="email"
+                                  placeholder="Company Email" autofocus required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                              <div class="valid-tooltip">
+                                {% blocktrans %}Looks good!{% endblocktrans %}
+                              </div>
+                              <div class="invalid-tooltip">
+                                {% blocktrans %}Please Write a valid Medicine Name{% endblocktrans %}
+                              </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3 mt-3">
+                              <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CompanyDescription" class="form-label">{% blocktrans %}Description{% endblocktrans %}</label>
+                              <textarea class="form-control" id="CompanyDescription" name="description"
+                                placeholder="Description" required pattern="^[A-Za-z][A-Za-z0-9_]{0,49}$">{% blocktrans %}Pharmaceutical Company{% endblocktrans %}</textarea>
+                              <div class="valid-tooltip">
+                                {% blocktrans %}Looks good!{% endblocktrans %}
+                              </div>
+                              <div class="invalid-tooltip">
+                                {% blocktrans %}Please Write a valid Description{% endblocktrans %}
+                              </div>
+                            </div>
+                          </div>
+                          <input type="hidden" name="added_by" value="{{ request.user.id }}">
+                          <br>
+
+
+                          
+
+
+
+
+
+                          <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Add Company{% endblocktrans %}</submit>
+                        </form>
+                    </div>
+
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
+

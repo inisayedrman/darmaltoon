@@ -1,0 +1,163 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+
+
+{% block title%} {% blocktrans %}Sign Up{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Account Registration Form{% endblocktrans %}</h1>
+                            </div>
+
+                            {% if messages %}
+                          <div class="alert alert-danger">
+                              
+                                  {% for message in messages %}
+                                  {{ message }}
+                                  {% endfor %}
+                              
+                          </div>
+                        {% endif %}
+
+
+                        {% if form.errors %}
+                          <div class="errors text-danger">
+                              <ul>
+                                  {% for field in form %}
+                                      {% if field.errors %}
+                                          <li>{{ field.label }}: {{ field.errors|join:", " }}</li>
+                                      {% endif %}
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                        {% endif %}
+
+
+                            <form class="user needs-validation" novalidate autocomplete="off" method="POST" action="{% url 'signup' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="UserName">{% blocktrans %}User Name{% endblocktrans %}</label>
+                                        <input type="text" class="form-control form-control-user" id="UserName" placeholder="User Name" name="username" autofocus required pattern="[A-Za-z][A-Za-z0-9_]{2,29}$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please write a valid User Name. (Min length: 3, Max length: 30){% endblocktrans %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="FirstName">{% blocktrans %}First Name{% endblocktrans %}</label>
+                                        <input type="text" class="form-control form-control-user" id="FirstName" placeholder="First Name" name="first_name" pattern="[A-Za-z][A-Za-z0-9\s]{2,50}$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please write a valid First Name.{% endblocktrans %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="LastName" class="form-label">{% blocktrans %}Last Name{% endblocktrans %}</label>
+                                        <input type="text" class="form-control form-control-user" id="LastName" name="last_name" placeholder="Last Name" pattern="[A-Za-z][A-Za-z0-9\s]{2,29}$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please write a valid Last Name.{% endblocktrans %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="UserType" class="form-label">{% blocktrans %}User Type{% endblocktrans %}</label>
+                                        <select style="font-size: 1rem; border-radius: 10rem; margin-top: 7px;" class="form-select form-control" id="UserType" name="user_type" required>
+                                            <option selected disabled value="">{% blocktrans %}Choose...{% endblocktrans %}</option>
+                                            {% for choice in user_choices %}
+                                                <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                            {% endfor %}
+                                            
+                                        </select>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please select a valid User Type.{% endblocktrans %}
+                                        </div>
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12 col-md-6 mb-3">
+                                        <label for="InputEmail" class="form-label">{% blocktrans %}Email Address{% endblocktrans %}</label>
+                                        <input type="email" class="form-control form-control-user" id="InputEmail" name="email" placeholder="Email Address" required pattern="[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please write a valid Email Address.{% endblocktrans %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 mb-3">
+                                        <label for="InputAvatar" class="form-label">{% blocktrans %}Avatar{% endblocktrans %}</label>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="InputAvatar" name="avatar" accept=".jpg, .png" max="2097152" style="border-radius:100px;">
+                                            <label class="custom-file-label" for="InputAvatar" style="border-radius:100px;">{% blocktrans %}Choose Image{% endblocktrans %}</label>
+                                        </div>
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please choose a valid image. (Allowed formats: .jpg, .png; Max size: 2MB){% endblocktrans %}
+                                        </div>
+                                        <script>
+                                            document.getElementById('InputAvatar').addEventListener('change', function() {
+                                                var fileName = this.files[0].name;
+                                                var label = document.querySelector('.custom-file-label');
+                                                label.textContent = fileName;
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="InputPassword" class="form-label">{% blocktrans %}Password{% endblocktrans %}</label>
+                                        <input type="password" class="form-control form-control-user" name="password" id="InputPassword" placeholder="Password" required pattern="^[A-Z]+[a-zA-Z0-9!@#%*]*$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please write a valid Password.{% endblocktrans %}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-3">
+                                        <label for="RepeatPassword" class="form-label">{% blocktrans %}Repeat Password{% endblocktrans %}</label>
+                                        <input type="password" class="form-control form-control-user" name="repeat_password" id="RepeatPassword" placeholder="Repeat Password" required pattern="^[A-Z]+[a-zA-Z0-9!@#%*]*$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            {% blocktrans %}Please write a valid Password.{% endblocktrans %}
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <br>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Register Account{% endblocktrans %}</submit>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{%endblock%}

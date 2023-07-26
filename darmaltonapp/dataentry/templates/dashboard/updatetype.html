@@ -1,0 +1,91 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+
+
+{% block title%}{% blocktrans %}Medical Type{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Update&nbsp;Medical&nbsp;Type{% endblocktrans %} </h1>
+                        </div>
+                        {% if messages %}
+                          <div class="alert alert-danger">
+                              
+                                  {% for message in messages %}
+                                  {{ message }}
+                                  {% endfor %}
+                              
+                          </div>
+                        {% endif %}
+
+                        <form method="post" class="user needs-validation" novalidate autocomplete="off">
+                          {% csrf_token %}
+                          <div class="form-group row">
+                            <div class="col-sm-12">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="MedicineName" class="form-label">{% blocktrans %}Type Name{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="MedicineName" value="{{ form.name.value }}" name="name"
+                                        placeholder="Exp: Tablet, Liquid, Capsule" autofocus required pattern="^[A-Za-z0-9_]{2,50}$">
+                                        <div class="valid-tooltip">
+                                          {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}The pattern requires the following conditions to be met:{% endblocktrans %}
+                                              <ul>
+                                                <li>{% blocktrans %}The string can contain letters (uppercase or lowercase), digits (0-9), or underscores.{% endblocktrans %}</li>
+                                                <li>{% blocktrans %}The length of the string must be between 3 and 50 characters (inclusive).{% endblocktrans %}</li>
+                                              </ul>
+                                           
+                                          </div>
+                                </div>
+                                
+                          </div>
+                          <div class="col-12 pt-4 mt-3">
+                            <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Update Medical Type{% endblocktrans %}</submit>
+
+                          </div>
+                          <div class="col-12 pt-4 mt-3">
+                              <a href="{% url 'viewmedicaltype' %}" class="btn btn-danger btn-user btn-block" data-dismiss="modal">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                          </div>
+                        </form>
+                        
+                    </div>
+
+
+                    <div class="col-lg-12">
+                      <div class="form-group row">
+                        <div class="col-sm-12">
+                          {% if form.errors %}
+                          <div class="alert alert-danger p-3">
+                              <ul>
+                                  {% for field in form %}
+                                  {% for error in field.errors %}
+                                  <li>{{ error }}</li>
+                                  {% endfor %}
+                                  {% endfor %}
+                              </ul>
+                          </div>
+                        {% endif %}
+                        </div>
+                    </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
+

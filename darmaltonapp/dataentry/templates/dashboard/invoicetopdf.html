@@ -1,0 +1,449 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{%block template%}
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>{% blocktrans %}Invoice PDF{% endblocktrans %}</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="{% static 'dashboard/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+{% comment %} <link href="{% static 'dashboard/vendor/bootstrap/bootstrap5.2/css/bootstrap.min.css' %}" rel="stylesheet"> {% endcomment %}
+<script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
+<style>
+  
+  .wrapper {
+    padding:10px;
+  }
+  
+  
+  
+  
+  .header {
+    padding: 50px 10px 5px 10px;
+}
+  
+  
+
+.leftflex-item1 p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 20px;
+    padding-right: 20px;
+}
+
+.leftflex-item2 p{
+  font-size: 15px;
+  font-weight: normal;
+}
+  
+
+  .middleflex-item1 p {
+      font-size: 15px;
+      font-weight: bold;
+      padding-right:40px;
+  }
+
+.middleflex-item2 p {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.rightflex-item1 p{
+    font-size: 15px;
+    font-weight: bold;
+    padding-right:20px;
+}
+
+.rightflex-item2 p{
+  font-size: 15px;
+  margin-right: 30px;
+  font-weight: normal;
+
+}
+
+  
+.logo_invoice {
+  font-family: 'Poppins', sans-serif;
+  font-size: 90px;
+  margin: 50px auto 5px auto;
+  text-align: center;
+  color: #4e73df;
+  position: relative;
+  background: rgb(255,255,255);
+background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(248,249,252,1) 100%);
+  padding: 20px; /* Header padding */
+  /*clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);  Adjust the points to create your desired shape */
+  border-radius: 30px; /* Add border radius */
+}
+  
+  
+  .logo_invoice::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      
+      transform: skewX(-15deg); /* Adjust the skew angle as desired */
+      z-index: -1;
+  }
+  
+  
+  
+  @media (max-width: 1080px) {
+      .logo_invoice {
+          font-size: 70px;
+          margin: 30px auto 10px auto;
+      }
+  
+      .leftflex-item1 p{
+        font-size: 10px;
+        margin-left: 5px;
+        padding-right: 5px;
+        margin-left: none;
+    }
+    
+    .leftflex-item2 p{
+      font-size: 10px;
+      padding-right:3px;
+    }
+
+      .middleflex-item1 p {
+        font-size: 10px;
+        padding-right:5px;
+    }
+
+      .middleflex-item2 p {
+        font-size: 10px;
+    }
+
+    .rightflex-item1 p{
+      font-size: 10px;
+      padding-right:2px;
+  }
+  
+  .rightflex-item2 p{
+    font-size: 10px;
+    margin-right: 5px;
+  
+  }
+      
+  
+
+  }
+  
+  
+  @media (max-width: 576px) {
+      .logo_invoice {
+          font-size: 50px;
+          margin: 10px auto 5px auto;
+      }
+      
+  
+      .owner_details p {
+          font-size: 10px;
+          
+      }
+  
+
+      .leftflex-item1 p {
+        font-size: 10px;
+        margin-left: 5px;
+        padding-right: 10px;
+    }
+    
+    .leftflex-item2 p {
+      font-size: 10px;
+      font-weight: normal;
+      padding-right:3px;
+    }
+
+      .middleflex-item1 p {
+        font-size: 10px;
+        padding-right:5px;
+    }
+
+      .middleflex-item2 p {
+        font-size: 10px;
+    }
+
+    .rightflex-item1 p {
+      font-size: 10px;
+  }
+  
+  .rightflex-item2 p {
+    font-size: 10px;
+    margin-right: 5px;
+  
+  }
+
+  }
+  
+  .owner_details p {
+      font-weight: bold;
+      
+  }
+  
+  .note_icon {
+      width: 80px;
+      height: 35px;
+      background-color: #dedee0;
+      opacity: 0.65;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      margin-right: 30px;
+  }
+  
+  .note_icon i {
+    padding-right: 10px;
+    padding-top: 10px;
+  }
+
+  .footer {
+    margin: auto;
+    padding: 5px 10px 5px 10px;
+  }
+
+  .footer p {
+    font-size: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+
+  .terms-row th {
+      margin-top: 100px; /* Adjust the margin value as needed */
+    }
+
+.terms_desc ul li, p{
+  font-size: 10px;
+}
+
+
+  body {
+    overflow-x: hidden;
+  }
+  </style>
+  <body>
+  
+    <div class="container">
+       <!-- Page Heading -->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <a href="{% url 'print_invoice' invoice.id %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Print Invoice{% endblocktrans %}</a>
+        <a href="{% url 'download_invoice' invoice.id %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Save as PDf{% endblocktrans %}</a>
+        <a href="{% url 'additemstoinvoice' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Add Items{% endblocktrans %}</a>
+
+      </div>
+    </div>
+  <div class="container-fluid wrapper" style="max-width:1920px;">
+      <section class="header_wrapper">
+          <div class="logo_invoice">{% blocktrans %}Invoice{% endblocktrans %}</div> 
+          <header class="invoice-header">
+              <div class="header d-flex  flex-row align-items-center justify-content-between">
+                <div class="leftflex d-flex flex-row align-items-start justify-content-around ">
+                  <div class="leftflex-item1">
+                    <p>{% blocktrans %}Store{% endblocktrans %}:&nbsp;</p>
+                    <p>{% blocktrans %}Address{% endblocktrans %}:&nbsp;</p>
+                    <p>{% blocktrans %}Contact{% endblocktrans %}:&nbsp;</p>
+                  </div>
+                  <div class="leftflex-item2" class="d-flex flex-column">
+                    <p>{% blocktrans %}Example Whole Sale{% endblocktrans %}</p>
+                    <p>{% blocktrans %}Arzan Qimat, Block 12, Kabul{% endblocktrans %}</p>
+                    <p>{% blocktrans %}+937815374123{% endblocktrans %}</p>
+                  </div>
+                </div>
+                  <div class="middleflex d-flex flex-row align-items-start justify-content-around ">
+                    <div class="middleflex-item1">
+                      <p>{% blocktrans %}Invoice Number{% endblocktrans %}:&nbsp;</p>
+                      <p>{% blocktrans %}Issued Date{% endblocktrans %}:&nbsp;</p>
+                      <p>{% blocktrans %}Issued By{% endblocktrans %}:&nbsp;</p>
+                    </div>
+                    <div class="middleflex-item2" class="d-flex flex-column">
+                      <p>{{invoice.invoice_number}}</p>
+                      <p>{{invoice.request_date}}</p>
+                      <p>{{invoice.added_by}}</p>
+                    </div>
+                  </div>
+                  <div class="rightflex d-flex flex-row align-items-start justify-content-around ">
+                    <div class="rightflex-item1">
+                      <p>{% blocktrans %}Customer:{% endblocktrans %}&nbsp;</p>
+                      <p>{% blocktrans %}Address:{% endblocktrans %}&nbsp;</p>
+                      <p>{% blocktrans %}Contact:{% endblocktrans %}&nbsp;</p>
+                    </div>
+                    <div class="rightflex-item2" class="d-flex flex-column">
+                      <p>{{invoice.customer}}</p>
+                      <p>{{invoice.customer.address}}</p>
+                      <p>{{invoice.customer.contact}}</p>
+                    </div>
+                  </div>
+              </div>
+          </header>
+      </section>
+  
+  
+  
+      <div class="table-responsive">
+        <table class="table table-borderless" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th class="text-center" scope="col">{% blocktrans %}#{% endblocktrans %}</th>
+              <th class="text-start" scope="col">{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+              <th class="text-center" scope="col">{% blocktrans %}Quantity{% endblocktrans %}</th>
+              <th class="text-center" scope="col">{% blocktrans %}Unit Price{% endblocktrans %}</th>
+              <th class="text-center" scope="col">{% blocktrans %}Discount{% endblocktrans %}</th>
+              <th class="text-center" scope="col">{% blocktrans %}Total Price{% endblocktrans %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-group-divider"></tr>
+            {% for item in invoice_items%}
+              <tr>
+                <td class="row-number text-center"></td>
+                <td class="text-start">{{item.medicine}}</td>
+                <td class="text-center">{{item.quantity}}</td>
+                <td class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{item.unit_price}}</td>
+                <td class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{item.discount}}</td>
+                <td class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{item.total_price}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+              <tr class="table-group-divider">
+                  <th colspan="4" scope="col">&nbsp;</th>
+                  <th  scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Sub Total{% endblocktrans %}:&nbsp;</th>
+                  <td  scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{sub_total}}</td>
+              </tr>
+              <tr>
+                  <th colspan="4" scope="col">&nbsp;</th>
+                  <th  scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Total Discount{% endblocktrans %}:&nbsp;</th>
+                  <td  scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{total_discount_amount}}</td>
+              </tr>
+              <tr>
+                  <th colspan="4" scope="col">
+                  </th>
+                  <th  scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Total Amount{% endblocktrans %}:&nbsp;</th>
+                  <td  scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{final_total}}</td>
+              </tr>
+               <!-- For Payment Method -->
+            {% if p_method == "cash" %}
+            <tr>
+              <th colspan="4" scope="col"></th>
+              <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Payment Method{% endblocktrans %}:&nbsp;</th>
+              <td class="table-group-divider text-center" scope="col">
+                {{ p_method|title }}
+              </td>
+            </tr>
+            {% elif p_method == "pay_later" %}
+            <tr>
+              <th colspan="4" scope="col"></th>
+              <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Payment Method{% endblocktrans %}:&nbsp;</th>
+              <td scope="col" class="table-group-divider text-center">
+                {% blocktrans %}Pay Later{% endblocktrans %}
+              </td>
+            </tr>
+            {% elif p_method == "split" %}
+            <tr>
+              <th colspan="4" scope="col"></th>
+              <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Payment Method{% endblocktrans %}:&nbsp;</th>
+              <td class="table-group-divider text-center" scope="col">
+                {{ p_method|title }}
+              </td>
+            </tr>
+            {% else %}
+              <!-- Handle other cases or provide a default value -->
+              <tr>
+                <th colspan="4" scope="col"></th>
+                <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Payment Method{% endblocktrans %}:&nbsp;</th>
+                <td scope="col" class="table-group-divider text-center">{% blocktrans %}N/A{% endblocktrans %}</td>
+            {% endif %}
+            <!-- For Payment Amount -->
+            {% if p_method == "cash" %}
+              <tr>
+                <th colspan="4" scope="col"></th>
+                <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Cash Amount{% endblocktrans %}:&nbsp;</th>
+                <td scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ cash }}</td>
+              </tr>
+            {% elif p_method == "pay_later" %}
+              <tr>
+                <th colspan="4" scope="col"></th>
+                <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Pay Later Amount{% endblocktrans %}:&nbsp;</th>
+                <td scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ pay_later }}</td>
+              </tr>
+            {% elif p_method == "split" %}
+              <tr>
+                <th colspan="4" scope="col"></th>
+                <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Cash Amount{% endblocktrans %}:&nbsp;</th>
+                <td scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ cash }}</td>
+              </tr>
+              <tr>
+                <th colspan="4" scope="col"></th>
+                <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}Pay Later Amount{% endblocktrans %}:&nbsp;</th>
+                <td scope="col" class="text-center">{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ pay_later }}</td>
+              </tr>
+            {% else %}
+              <!-- Handle other cases or provide a default value -->
+              <tr>
+                <th colspan="4" scope="col"></th>
+                <th scope="col" class="text-end" style="padding-right:100px;">{% blocktrans %}No Amount{% endblocktrans %}:&nbsp;</th>
+                <td scope="col" class="text-center">{% blocktrans %}N/A{% endblocktrans %}</td>
+              </tr>
+            {% endif %}
+              <br><br><br>
+              <tr class="terms-row">
+                  <th colspan="4">{% blocktrans %}Terms &amp; Conditions{% endblocktrans %}</th>
+              </tr>
+              <tr>
+                  <td class="terms_desc" colspan="6">
+                      <ul>
+                          <li>{% blocktrans %}All sales of medicine are considered final. Once a medicine product is sold, it cannot be returned for any reason.{% endblocktrans %}</li>
+                          <li>{% blocktrans %}Our company reserves the right to refuse any returns or exchanges that do not comply with the stated terms and conditions or violate any relevant laws or regulations of this store.{% endblocktrans %}</li>
+                      </ul>
+                      <p class="alert alert-warning" style="display: inline-block; padding: 5px;">{% blocktrans %}Please carefully read and understand these terms and conditions before making any purchases. By proceeding with the purchase, you agree to abide by these terms and conditions regarding the sale of medicine.{% endblocktrans %}</p>
+                  </td>
+
+              </tr>
+          </tfoot>
+        </table>
+
+        <br><br><br>
+        <div class="footer d-flex flex-align-start">
+          <div class="note_icon text-end"><i class="fas fa-hand-point-right text-primary"></i><i class="far fa-file-alt text-primary"></i></div> <p>{% blocktrans %}NOTE: This is computer generated receipt and does not require physical signature.{% endblocktrans %}</p>
+        </div>
+      </div>
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  
+  
+  <script>
+      $(document).ready(function() {
+        updateRowNumbers();
+  
+        function updateRowNumbers() {
+          $('.row-number').each(function(index) {
+            $(this).text(index + 1);
+          });
+        }
+      });
+    </script>
+
+
+
+
+  <!-- Bootstrap core JavaScript-->
+{% comment %} <script src="{% static 'dashboard/vendor/bootstrap/bootstrap5.2/js/bootstrap.bundle.js' %}"></script> {% endcomment %}
+
+</body>
+</html>
+
+{%endblock%}

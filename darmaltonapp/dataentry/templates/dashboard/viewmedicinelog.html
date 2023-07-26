@@ -1,0 +1,76 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%}{% blocktrans %}All Medicine List{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}All Medicine Log Details{% endblocktrans %}</h1>
+                       
+                          
+                          <a href="{% url 'addmedicine' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Add Medicine{% endblocktrans %}</a>
+                        
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all Medicine Update Records{% endblocktrans %}</h6>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if no_medicine %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited By{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited On{% endblocktrans %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited By{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edited On{% endblocktrans %}</th>
+                                           
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for medicine in medicine_log %}
+                                        <tr>
+                                            <td>{{ medicine.id }}</td>
+                                            <td>{{ medicine.medicine }}</td>
+                                            <td>{{ medicine.edited_by }}</td>
+                                            <td>{{ medicine.edited_at }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p>{% blocktrans %}No records found{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+{%endblock%}
+

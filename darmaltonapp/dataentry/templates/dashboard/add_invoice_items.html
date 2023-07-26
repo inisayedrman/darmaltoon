@@ -1,0 +1,187 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Invoice items{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+
+
+
+
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Add Items to Invoice number{% endblocktrans %}</h1>
+      
+      <div>
+        <a href="{% url 'viewinvoices' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}View Invoices{% endblocktrans %}</a>
+        <a href="{% url 'invoicerequest' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}New Invoice{% endblocktrans %}</a>
+      </div>
+  </div>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pt-5 pb-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Add Items form{% endblocktrans %} </h1>
+                        </div>
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
+
+                        <div class="container-fluid">
+                          <form class="row user needs-validation" method="post" action="{% url 'additemstoinvoice' %}" novalidate autocomplete="off">
+                            {% csrf_token %}
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-5">
+                              <label for="invoice-select">{% blocktrans %}Invoice Number:{% endblocktrans %}</label>&nbsp;
+                                <span id="invoice-message" class="text-muted">{% blocktrans %}Choose from list{% endblocktrans %}&nbsp;<i class="fas fa-level-down-alt"></i></span>&nbsp;
+                                &nbsp;
+                                <i id="hand-icon-invoice-after" class="fas fa-hand-point-right" style="display: none;"></i>&nbsp;
+                                <span id="selected-invoice-number"></span>
+                                <input class="form-control form-control-user" list="invoice-select-datalist" id="invoice-select" name="invoice" placeholder="{% blocktrans %}Type to search...{% endblocktrans %}" required>
+                                <datalist id="invoice-select-datalist">
+                                  {% for invoice in invoices %}
+                                    <option value="{{ invoice.id }}">{{ invoice.invoice_number }}</option>
+                                  {% endfor %}
+                                </datalist>
+                                <div class="valid-tooltip">
+                                  {% blocktrans %}Looks good!{% endblocktrans %}
+                                </div>
+                                <div class="invalid-tooltip">
+                                  {% blocktrans %}Please select a valid invoice number.{% endblocktrans %}
+                                </div>
+                                
+                              
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-5">
+                              <label for="medicine-select">{% blocktrans %}Medicine:{% endblocktrans %}</label>&nbsp;
+                                <i id="hand-icon-medicine" class="fas fa-hand-point-right" style="display: none;"></i>&nbsp;<span id="selected-medicine-name"></span>
+                                <span id="medicine-message" class="text-muted">{% blocktrans %}Please choose medicine{% endblocktrans %}&nbsp;<i class="fas fa-level-down-alt"></i></span>
+                                
+                                <input class="form-control form-control-user" list="medicine-select-datalist" id="medicine-select" name="medicine" placeholder="{% blocktrans %}Type to search...{% endblocktrans %}" required>
+                                  <datalist id="medicine-select-datalist">
+                                    {% for medicine in medicines %}
+                                      <option class="bg-dark" value="{{ medicine.id }}" data-price="{{ medicine.sell_price }}" data-total-in-stock="{{ medicine.in_stock_total }}">{{ medicine.name }}&nbsp;|&nbsp;Stock:{{ medicine.in_stock_total }}</option>
+                                    {% endfor %}
+                                  </datalist>
+                                  
+                                <div class="valid-tooltip">
+                                  {% blocktrans %}Looks good!{% endblocktrans %}
+                                </div>
+                                <div class="invalid-tooltip">
+                                  {% blocktrans %}Please select medicine name.{% endblocktrans %}
+                                </div>
+                              
+                            </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-5">
+                                <label for="stock-number">Stock</label>&nbsp;
+                                    <span id="total-stock-number"></span>
+                                    <input type="number" class="form-control form-control-user" id="stock-number" name="quantity" required min="1" pattern="[1-9][0-9]*">
+
+                                    <div class="valid-tooltip">
+                                      {% blocktrans %}Looks good!{% endblocktrans %}
+                                    </div>
+                                    <div class="invalid-tooltip">
+                                      {% blocktrans %}Can't be null min order 1{% endblocktrans %}
+                                    </div>
+                                    <script>
+                                      const stockInput = document.getElementById('stock-number');
+                                    
+                                      stockInput.addEventListener('input', function() {
+                                        const value = stockInput.value;
+                                    
+                                        if (value === '' || parseInt(value) === 0) {
+                                          stockInput.setCustomValidity('Stock cannot be empty or zero');
+                                        } else {
+                                          stockInput.setCustomValidity('');
+                                        }
+                                      });
+                                    </script>
+                                  
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-5">
+                                  <label for="base-price">{% blocktrans %}Unit Price{% endblocktrans %}</label>
+                                    <input type="number" class="form-control form-control-user" id="base-price" name="unit_price" placeholder="{% blocktrans %}AFN{% endblocktrans %}" readonly required>
+                                    <div class="valid-tooltip">
+                                      {% blocktrans %}Looks good!{% endblocktrans %}
+                                    </div>
+                                    <div class="invalid-tooltip">
+                                      {% blocktrans %}Please insert unit price{% endblocktrans %}
+                                    </div>
+                                  
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mb-5">
+                                  <label for="discount">{% blocktrans %}Discount/Unit{% endblocktrans %}</label>
+                                    <input type="number" class="form-control form-control-user" id="discount" name="discount" placeholder="{% blocktrans %}AFN{% endblocktrans %}" min="0" step="any" value="0" pattern="^(0\.\d+|[1-9]\d*(\.\d+)?)$">
+                                    <div class="valid-tooltip">
+                                      {% blocktrans %}Optional{% endblocktrans %}
+                                    </div>
+                                    <div class="invalid-tooltip">
+                                      {% blocktrans %}invalid!{% endblocktrans %}
+                                    </div>
+                                  
+                                </div>
+                              
+                                
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                  <label>&nbsp;</label>
+                                  <button type="submit" class="btn btn-primary btn-user btn-block"><i class="fas fa-plus"></i>&nbsp;{% blocktrans %}Add Invoice Item{% endblocktrans %}</submit>
+                                  
+                                </div>
+                              <br>
+                              <br>
+                            </form>
+
+
+
+                              
+                          </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+

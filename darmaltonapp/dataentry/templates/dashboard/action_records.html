@@ -1,0 +1,89 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}Actions record{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Actions Details{% endblocktrans %}</h1>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all users actions{% endblocktrans %}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if action_records %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}User{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Action Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Table Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Object{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Object ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Action Time{% endblocktrans %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}User{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Action Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Table Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Object{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Object ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Action Time{% endblocktrans %}</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for record in action_records %}
+                                        <tr>
+                                            <td>{{ record.user }}</td>
+                                            <td>
+                                                {% if record.is_addition %}
+                                                
+                                                <i class="fas fa-plus text-success fa-small"></i>
+                                                
+                                            {% elif record.is_change %}
+                                                
+                                                <i class="fas fa-edit text-warning"></i>
+                                               
+                                            {% elif record.is_deletion %}
+                                                
+                                                <i class="fas fa-trash text-danger"></i>
+                                             
+                                            {% endif %}
+                                                    &nbsp;{{ record.get_action_flag_display }}
+                                            <td>{{ record.model_name }}</td>
+                                            <td>{{ record.object_repr }}</td>
+                                            <td>{{ record.object_id }}</td>
+                                            <td>{{ record.action_time }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p> {% blocktrans %}No action records found{% endblocktrans %} </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+{%endblock%}
+

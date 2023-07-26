@@ -1,0 +1,161 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%}{% blocktrans %}All Medicine List{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}All Medicine Details{% endblocktrans %}</h1>
+                        <a href="{% url 'addmedicine' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Add Medicine{% endblocktrans %}</a>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all Medicine record added this month{% endblocktrans %}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if med_this_month %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medical Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Buy Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Sell Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Exp Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Mfg Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Description{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}In Stock Total{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Qty in Strip{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added on{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edit/Delete{% endblocktrans %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}Medicine ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medical Type{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Buy Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Sell Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Exp Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Mfg Date{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Description{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}In Stock Total{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Qty in Strip{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added on{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Edit/Delete{% endblocktrans %}</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for medicine in med_this_month %}
+                                        <tr>
+                                            <td>{{ medicine.id }}</td>
+                                            <td>{{ medicine.name }}</td>
+                                            <td>{{ medicine.type }}</td>
+                                            <td>{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ medicine.buy_price }}</td>
+                                            <td>{% blocktrans %}AFN{% endblocktrans %}&nbsp;{{ medicine.sell_price }}</td>
+                                            {% if medicine in expiredmidicine %}
+                                            <td class="text-danger">{{ medicine.exp_date }}</td>
+                                          
+                                            {% elif medicine in expiring_this_month %}
+                                            <td class="text-warning">{{ medicine.exp_date }}</td>
+                                            {% elif medicine in expiring_soon %}
+                                            <td class="text-warning">{{ medicine.exp_date }}</td>
+                                            {% else %}
+                                            <td>{{ medicine.exp_date }}</td>
+                                            {% endif %}
+                                            <td>{{ medicine.mfg_date }}</td>
+                                            <td>{{ medicine.company }}</td>
+                                            <td>{{ medicine.description }}</td>
+                                            <td>{{ medicine.in_stock_total }}</td>
+                                            <td>{{ medicine.qty_in_strip }}</td>
+                                            <td>{{ medicine.added_on }}</td>
+                                            <td>{{ medicine.added_by }}</td>
+                                            {% if user_type == 'admin' %}
+                                            <td class="text-center">
+                                                <a href="#" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#EditMedicineModal{{ userinfo.id }}">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Edit{% endblocktrans %}</span>
+                                                </a>
+                                                
+                                                <a href="#" data-toggle="modal" data-target="#DeleteMedicineModal{{ userinfo.id }}" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Delete{% endblocktrans %}</span>
+                                                </a>
+                                            </td>
+                                            {% else %}
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p class="text-danger">{% blocktrans %}No records added this month{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="DeleteMedicineModal" tabindex="-1" role="dialog" aria-labelledby="DeleteMedicineModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-warning" id="DeleteMedicineModalTitle">Warning</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-danger" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12 my-3">
+                    <div class="card bg-warning text-danger shadow">
+                        <div class="card-body text-white h6">
+                            You are about to delete a medicine record
+                            <div class="text-gray-100">click delete to proceed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="user">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-user btn-block" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger btn-user btn-block">Delete</button>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--End Delete Modal -->
+
+
+
+{%endblock%}
+

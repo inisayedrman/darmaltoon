@@ -1,0 +1,84 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%}{% blocktrans %}All Medicine List Sold{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}All Medicine Details Sold{% endblocktrans %}</h1>
+                        <a href="{% url 'addmedicine' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Sold Medicines{% endblocktrans %}</a>
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all sold Medicine record{% endblocktrans %}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if no_sold_units %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Invoice Number{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Quantity{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Discount{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Unit Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Sold On{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Sold By{% endblocktrans %}</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Invoice Number{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Quantity{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Discount{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Unit Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added On{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for items in sold_units %}
+                                        <tr>
+                                            <td>{{ items.id }}</td>
+                                            <td>{{ items.invoice }}</td>
+                                            <td>{{ items.medicine }}</td>
+                                            <td>{{ items.quantity }}</td>
+                                            <td>{{ items.discount }}</td>
+                                            <td>{{ items.unit_price }}</td>
+                                            <td>{{ items.added_on }}</td>
+                                            <td>{{ items.added_by }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p>{% blocktrans %}No records found{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+{%endblock%}
+

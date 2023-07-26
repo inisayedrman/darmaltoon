@@ -1,0 +1,170 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+
+
+{% block title%}{% blocktrans %}Invoice Items{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}List of Items for Invoice Number{% endblocktrans %}:&nbsp;<span class="text-primary">{{ invoice_number }}</span></h1>
+                       <div>
+                        <a href="{% url 'viewinvoices' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}View Invoices{% endblocktrans %}</a>
+                        <a href="{% url 'additemstoinvoice' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Add Items{% endblocktrans %}</a>
+                       </div>
+                    </div>
+                    {% for message in messages %}
+    <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+        {{ message }}
+    </div>
+{% endfor %}
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all bills record{% endblocktrans %}</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if no_items %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Invoice Number{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Quantity{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Discount{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Unit Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added On{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Invoice Number{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Medicine{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Quantity{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Discount{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Unit Price{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added On{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for items in invoice_items %}
+                                        <tr>
+                                            <td>{{ items.id }}</td>
+                                            <td>{{ items.invoice }}</td>
+                                            <td>{{ items.medicine }}</td>
+                                            <td>{{ items.quantity }}</td>
+                                            <td>{{ items.discount }}</td>
+                                            <td>{{ items.unit_price }} {{ items.sub_total }}</td>
+                                            <td>{{ items.added_on }}</td>
+                                            <td>{{ items.added_by }}</td>
+                                            {% if user_type == 'admin' %}
+                                            <td class="text-center">
+                                                {% comment %} <a href="#" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#EditMedicineModal{{ medicine.id }}">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span class="text">Edit</span>
+                                                </a> {% endcomment %}
+                                                {% comment %} <a href="{% url 'updatemedicine' record_id=medicine.id %}" class="btn btn-info btn-icon-split">
+                                                  <span class="icon text-white-50">
+                                                      <i class="fas fa-edit"></i>
+                                                  </span>
+                                                  <span class="text">Edit</span>
+                                              </a> {% endcomment %}
+                                              
+                                              
+                                              <!-- Add the following script to set the `record_id` in the modal -->
+                                             
+                                              
+                                                
+                                                <a href="#" data-toggle="modal" data-target="#DeleteMedicineModal{{ items.id }}" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Delete{% endblocktrans %}</span>
+                                                    
+                                                </a>
+                                            </td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p>{% blocktrans %}No records found{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+
+            {% for item in invoice_items %}
+
+            <!-- Delete Modal -->
+            <div class="modal fade" id="DeleteMedicineModal{{ item.id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteMedicineModalTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="DeleteMedicineModalTitle">{% blocktrans %}Warning{% endblocktrans %}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span class="text-danger" aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row card m-3">   
+                        <ul class="list-group">
+                          <li class="list-group-item list-group-item-action list-group-item-primary">{% blocktrans %}You are about to delete invoice item{% endblocktrans %}</li>
+                          <li class="list-group-item"><strong class="text-dark">{% blocktrans %}ID{% endblocktrans %}:</strong> {{ item.id }}</li>
+                          <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Name{% endblocktrans %}:</strong> {{ item.medicine }}</li>
+                          <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Quantity{% endblocktrans %}:</strong> {{ item.quantity }}</li>
+                        </ul>
+                        <div class="list-group-item list-group-item-action list-group-item-primary text-secondary">{% blocktrans %}click{% endblocktrans %}<span class="text-danger">{% blocktrans %}delete{% endblocktrans %}</span>{% blocktrans %}to proceed or{% endblocktrans %}<span class="text-danger">{% blocktrans %}Cancel{% endblocktrans %}</span>{% blocktrans %}to dismiss{% endblocktrans %}</div>
+                      </div>
+                  </div>
+                  <form class="user">
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-primary btn-user btn-block" data-dismiss="modal">{% blocktrans %}Cancel{% endblocktrans %}</button>
+                          <a href="{% url 'delete_invoice_item' item.id %}" class="btn btn-danger btn-user btn-block">{% blocktrans %}Delete{% endblocktrans %}</a>
+                        </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <!--End Delete Modal -->
+
+
+
+
+
+{%endblock%}
+

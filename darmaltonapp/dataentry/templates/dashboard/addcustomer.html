@@ -1,0 +1,77 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%}{% blocktrans %} Customer Registration{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Customer Registration Form{% endblocktrans %}</h1><br>
+                        </div>
+                        <form class="user needs-validation" method="post" novalidate autocomplete="off">
+                            {% csrf_token %}
+                            <div class="form-group row">
+                                <div class="col-sm-6 my-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CustomerName" class="form-label">{% blocktrans %}Customer Name{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="CustomerName" name="name"
+                                        placeholder="Ahmad Shah" autofocus required pattern="^[A-Za-z][A-Za-z0-9_\s]{1,49}$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Name!{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-6 my-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CustomerAddress" class="form-label">{% blocktrans %}Customer Address{% endblocktrans %}</label>
+                                    <input type="text" class="form-control form-control-user" id="CustomerAddress" name="address"
+                                        placeholder="Arzan Qimat Block 12 kabul" required>
+                                        <div class="valid-tooltip" pattern="^[A-Za-z][A-Za-z0-9_\s]{5,49}$">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Address!{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-6 my-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CustomerContact" class="form-label">{% blocktrans %}Customer Contact{% endblocktrans %}</label>
+                                    <input type="tel" class="form-control form-control-user" name="contact"
+                                        id="CustomerContact" placeholder="+93000000000" required pattern="\+93+[0-9]{8,25}$">
+                                        <div class="valid-tooltip">
+                                            {% blocktrans %}Looks good!{% endblocktrans %}
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            {% blocktrans %}Please Write a valid Phone Number!{% endblocktrans %}
+                                          </div>
+                                </div>
+                                <div class="col-sm-6 my-3">
+                                    <label class="ml-3 font-weight-bold" style="font-size:13px;" for="CustomerEmail" class="form-label">{% blocktrans %}Customer Email{% endblocktrans %}</label>
+                                    <input type="email" class="form-control form-control-user" name="email"
+                                    id="CustomerEmail" placeholder="example@domain.com" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    <div class="valid-tooltip">
+                                        {% blocktrans %}Looks good!{% endblocktrans %}
+                                      </div>
+                                      <div class="invalid-tooltip">
+                                        {% blocktrans %}Please Write a valid Email Address!{% endblocktrans %}
+                                      </div>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Register Customer{% endblocktrans %}</submit>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+

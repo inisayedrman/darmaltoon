@@ -1,0 +1,222 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+
+
+{% block title%}{% blocktrans %}All Companies List{% endblocktrans %}{% endblock%}
+
+{%block template%}
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}All Companies Details{% endblocktrans %}</h1>
+                       
+                          
+                          <a href="{% url 'addcompany' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">{% blocktrans %}Add Company{% endblocktrans %}</a>
+                        
+                    </div>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">{% blocktrans %}List of all Company record{% endblocktrans %}</h6>
+                            <div>
+
+                            {% comment %} {% if messages %}
+                              {% for message in messages %}
+                                  {% if message.tags %}
+                                      {% if message.tags == 'success' %}
+                                      <h6 {% if message.tags %} class=" {{ message.tags }} m-0 font-weight-bold text-secondary" {% endif %}> <i class="fas fa-plus text-primary fa-small"></i> {{ message }}</h6>
+                                      {% elif message.tags == 'error' %}
+                                          <h6 class="error-message">{{ message }}</h6>
+                                      {% else %}
+                                          <h6>{{ message }}</h6>
+                                      {% endif %}
+                                  {% else %}
+                                      <h6>{{ message }}</h6>
+                                  {% endif %}
+                              {% endfor %}
+                            {% endif %} {% endcomment %}
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {% if message.tags %}
+                                    {% if message.tags == 'success' %}
+                                        {% if 'add' in message.tags or 'edit' in message.tags %}
+                                        <h6 class="success-message">
+                                            {% if 'add' in message.tags %}
+                                            <i class="fas fa-plus text-primary fa-small"></i>
+                                            {% elif 'edit' in message.tags %}
+                                            <i class="fas fa-edit text-primary fa-small"></i>
+                                            {% endif %}
+                                            {{ message }}
+                                        </h6>
+                                        {% endif %}
+                                    {% elif message.tags == 'error' %}
+                                        <h6 class="error-message">{{ message }}</h6>
+                                    {% else %}
+                                        <h6>{{ message }}</h6>
+                                    {% endif %}
+                                    {% else %}
+                                    <h6>{{ message }}</h6>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+
+
+
+
+
+
+                        
+                            
+
+                            </div>
+                        </div>
+                        
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                {% if no_company %}
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}company address{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Contact{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Email{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Description{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>{% blocktrans %}Company ID{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Company Name{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}company address{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Contact{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Email{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Description{% endblocktrans %}</th>
+                                            <th>{% blocktrans %}Added By{% endblocktrans %}</th>
+                                            {% if user_type == 'admin' %}
+                                            <th>{% blocktrans %}Action{% endblocktrans %}</th>
+                                            {% endif %}
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for company in company_list %}
+                                        <tr>
+                                            <td>{{ company.id }}</td>
+                                            <td>{{ company.name }}</td>
+                                            <td>{{ company.address }}</td>
+                                            <td>{{ company.contact }}</td>
+                                            <td>{{ company.email }}</td>
+                                            <td>{{ company.description }}</td>
+                                            <td>{{ company.added_by }}</td>
+                                            {% if user_type == 'admin' %}
+                                            <td class="text-center">
+                                                {% comment %} <a href="#" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#EditMedicineModal{{ medicine.id }}">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+                                                    <span class="text">Edit</span>
+                                                </a> {% endcomment %}
+                                                <a href="{% url 'updatecompany' record_id=company.id %}" class="btn btn-info btn-icon-split">
+                                                  <span class="icon text-white-50">
+                                                      <i class="fas fa-edit"></i>
+                                                  </span>
+                                                  <span class="text">{% blocktrans %}Edit{% endblocktrans %}</span>
+                                              </a>
+                                                <a href="#" data-toggle="modal" data-target="#DeleteCompanyModal{{ company.id }}" class="btn btn-danger btn-icon-split">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">{% blocktrans %}Delete{% endblocktrans %}</span>
+                                                </a>
+                                            </td>
+                                            {% endif %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <p>{% blocktrans %}No records found{% endblocktrans %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+{% for company in company_list %}
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="DeleteCompanyModal{{ company.id }}" tabindex="-1" role="dialog" aria-labelledby="DeleteCompanyModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="DeleteCompanyModalTitle">{% blocktrans %}Warning{% endblocktrans %}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="text-danger" aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row card m-3">   
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-action list-group-item-primary">{% blocktrans %}You are about to delete medicine record{% endblocktrans %}</li>
+                <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Name{% endblocktrans %}:</strong> {{ company.name }}</li>
+                <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Company{% endblocktrans %}:</strong> {{ company.address }}</li>
+                <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Stock{% endblocktrans %}:</strong> {{ company.description }}</li>
+                <li class="list-group-item"><strong class="text-dark">{% blocktrans %}Added By{% endblocktrans %}:</strong> {{ company.added_by }}</li>
+              </ul>
+              <div class="list-group-item list-group-item-action list-group-item-primary text-secondary">{% blocktrans %}click{% endblocktrans %}<span class="text-danger">{% blocktrans %}delete{% endblocktrans %}</span>{% blocktrans %}to proceed or{% endblocktrans %}<span class="text-danger">{% blocktrans %}Cancel{% endblocktrans %}</span>{% blocktrans %}to dismiss{% endblocktrans %}</div>
+            </div>
+        </div>
+        <form class="user">
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-user btn-block" data-dismiss="modal">{% blocktrans %}Cancel{% endblocktrans %}</button>
+                <button type="button" class="btn btn-danger btn-user btn-block">{% blocktrans %}Delete{% endblocktrans %}</button>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <!--End Delete Modal -->
+  
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">{% blocktrans %}Success{% endblocktrans %}</h5>
+      </div>
+      <div class="modal-body">
+        <p id="successMessage"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">{% blocktrans %}OK{% endblocktrans %}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{%endblock%}
+

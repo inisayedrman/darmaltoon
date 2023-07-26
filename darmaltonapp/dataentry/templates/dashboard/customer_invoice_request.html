@@ -1,0 +1,93 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+
+{% block title%} {% blocktrans %}Customer Request{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">{% blocktrans %}Customer Request Invoice Isueing{% endblocktrans %}</h1>
+      <div>
+        <a href="{% url 'viewinvoices' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}View Invoices{% endblocktrans %}</a>
+        <a href="{% url 'additemstoinvoice' %}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> {% blocktrans %}Add Items{% endblocktrans %}</a>
+      </div>
+  </div>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      {% if messages %}
+                          <ul class="messages">
+                            {% for message in messages %}
+                              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pt-5 pb-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">{% blocktrans %}Invoice Issuing For{% endblocktrans %}</h1>
+                        </div>
+                        
+                        <div class="container-fluid">
+                            <form class="row" id="invoice-request-form" method="POST" action="{% url 'invoicerequest' %}">
+                              {% csrf_token %}
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                      <label for="customer-select">{% blocktrans %}Customer Name{% endblocktrans %}</label>
+                                      <select id="customer-select" name="customer" class="form-control">
+                                        <option selected disabled value="">{% blocktrans %}Choose Customer...{% endblocktrans %}</option>
+                                        {% for customer in customers %}
+                                        <option value="{{ customer.id }}">{{ customer.name }}</option>
+                                        {% endfor %}
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class="form-group">
+                                      <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block"><i class="fas fa-plus"></i>&nbsp;{% blocktrans %}Issue Invoice Number{% endblocktrans %}</submit>
+                                  </div>
+                                  </div>
+                              </form>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
+

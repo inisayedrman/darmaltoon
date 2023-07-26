@@ -1,0 +1,84 @@
+{% extends "login/base.html" %}
+{% load i18n %}
+
+{% block title%}{% blocktrans %}User Login{% endblocktrans %}{% endblock%}
+
+    {%block template%}
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">{% trans "Login" %}</h1>
+
+                                        
+                                    </div>
+                                    <form class="user needs-validation" novalidate autofocus method="POST" action="{% url 'login' %}">
+                                        {% csrf_token %}
+                                        {% if error_message %}
+                                            <p class="text-danger">{{ error_message }}</p>
+                                        {% endif %}
+                                        <input type="hidden" name="csrfmiddlewaretoken" value="YOUR_CSRF_TOKEN">
+
+                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3 pt-4">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="username" aria-describedby="emailHelp"
+                                                placeholder="{% blocktrans %}Enter Your Username...{% endblocktrans %}"
+                                                name="username" autofocus required pattern="^.+$">
+                                                <div class="valid-tooltip">
+                                                {% blocktrans %}Looks good!{% endblocktrans %}
+                                                </div>
+                                                <div class="invalid-tooltip">
+                                                    {% blocktrans %}Please Write a valid Username{% endblocktrans %}
+                                                </div>
+
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3 pt-4">
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="{% blocktrans %}Password{% endblocktrans %}" name="password" required pattern="^.+$">
+                                                <div class="valid-tooltip">
+                                                    {% blocktrans %}Looks good!{% endblocktrans %}
+                                                    </div>
+                                                    <div class="invalid-tooltip">
+                                                        {% blocktrans %}Please Write a valid Password{% endblocktrans %}
+                                                    </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 my-3 pt-4">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">{% blocktrans %}Remember Me{% endblocktrans %}</label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">{% blocktrans %}Login{% endblocktrans %}</button>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="{% url 'forget'%}">{% blocktrans %}Forgot Password?{% endblocktrans %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {%endblock%}
+
+
+    
+

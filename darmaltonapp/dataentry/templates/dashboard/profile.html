@@ -1,0 +1,246 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+
+{% block title%} {% blocktrans %}User Profile{% endblocktrans %} {% endblock%}
+
+{%block template%}
+
+
+
+    <!-- Begin Page Content -->
+<div class="container-fluid">
+    
+  <br/>
+  <center><img src="{{ user.profile.avatar.url }}" width="200px" height="200px" class=" rounded-circle" id="profile-image"></center><br/>  
+  <center>
+      <h3 class="h3 mb-0 text-gray-800">{% blocktrans %}Profile Details{% endblocktrans %}</h3>
+  </center>
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      {% comment %} <h1 class="h3 mb-0 text-gray-800">Personal Information</h1> {% endcomment %}
+  </div>
+
+  <!-- Content Row -->
+  <div class="row">
+
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                              </div>
+                          
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}User ID{% endblocktrans %}:&nbsp;</h5></div>
+                      </div>
+                      <div class="col-auto">
+                        <span class="h5">{{user.id}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            </div>
+                
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}User Name{% endblocktrans %}:&nbsp;</h5></div>
+                    </div>
+                    <div class="col-auto">
+                      <span class="h5">{{user}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                              </div>
+                  
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}First Name{% endblocktrans %}:&nbsp;</h5></div>
+                      </div>
+                      <div class="col-auto">
+                        <span class="h5">{{user.first_name}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Earnings (Monthly) Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                          </div>
+                          
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}Last Name{% endblocktrans %}: </h5></div>
+                      </div>
+                      <div class="col-auto">
+                        <span class="h5">{{user.last_name}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Pending Requests Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card shadow h-100 py-2">
+              <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                              </div>
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}Full Name{% endblocktrans %}: </h5></div>
+                      </div>
+                      <div class="col-auto">
+                        <span class="h5">{{user.first_name}}&nbsp;{{user.last_name}}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            </div>
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}Created On{% endblocktrans %}: </h5></div>
+                    </div>
+                    <div class="col-auto">
+                      <span class="h5">{{user.date_joined}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                </div>
+                                
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}Last Login{% endblocktrans %}: </h5></div>
+                        </div>
+                        <div class="col-auto">
+                          <span class="h5">{{user.last_login}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                </div>
+                                
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><h5 class="font-weight-bold">{% blocktrans %}User Type{% endblocktrans %}:</h5></div>
+                        </div>
+                        <div class="col-auto">
+                          <span class="h5">{{ user.profile.user_type }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+
+
+  <!-- Content Row -->
+</div>
+
+
+
+
+<br><br><br>
+
+   <div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-secondary"><span class="text-primary">{{ user.username|capfirst }}'s</span> {% blocktrans %}Statistics{% endblocktrans %}</h6>
+        </div>
+        
+        <div class="card-body">
+            {% for model, percentage in average_percentages.items %}
+                {% if model == "Medicine" %}
+                    <h4 class="small font-weight-bold">{% trans model %} {% blocktrans %}Added{% endblocktrans %} <span class="float-right">{{ percentage|floatformat:2 }}%</span></h4>
+                {% elif model == "Customer" %}
+                    <h4 class="small font-weight-bold">{% trans model %} {% blocktrans %}Added{% endblocktrans %} <span class="float-right">{{ percentage|floatformat:2 }}%</span></h4>
+                {% elif model == "MedicineEditLog" %}
+                    <h4 class="small font-weight-bold">{% blocktrans %}Medicine Edited{% endblocktrans %} <span class="float-right">{{ percentage|floatformat:2 }}%</span></h4>
+                {% endif %}
+                
+                <div class="progress mb-4">
+                    {% if percentage < 20 %}
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% elif percentage < 40 %}
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% elif percentage < 60 %}
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% elif percentage < 80 %}
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% else %}
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
