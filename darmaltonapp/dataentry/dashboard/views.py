@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_protect
 from .models import *
 from django.shortcuts import render
 from .decorators import redirect_to_dashboard
@@ -24,27 +23,20 @@ from django.db.models import Count
 from django.db import transaction
 import json
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 import requests
-from django.core.exceptions import ValidationError
 from django.template.loader import render_to_string
 import xhtml2pdf.pisa as pisa
 import tempfile
 import os
-from django.template.loader import get_template
-
 from django.utils import timezone
-from django.db.models.query import QuerySet
-from itertools import chain
 from django.contrib.auth.forms import PasswordChangeForm
 from django.utils.translation import activate
 from django.utils.translation import gettext as _
-from django.utils.translation import get_language, activate, gettext
+from django.utils.translation import activate
 from django.utils import translation
 from django.forms.models import modelform_factory
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.views import LoginView
-from django.utils.decorators import method_decorator
 from django.contrib.auth import logout
 
 
